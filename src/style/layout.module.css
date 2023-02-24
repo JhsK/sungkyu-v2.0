@@ -1,15 +1,10 @@
 @font-face {
-    font-family: 'Soak-Up-The-Sun';
-    src: url('NanumSquareNeo-Variable.ttf') format('opentype');
+    font-family: 'NanumSquareNeo';
+    src: url('NanumSquareNeo-Variable.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
-/* .title {
-    @font-face {
-        font-family: 'Soak-Up-The-Sun';
-        src: url('Soak_Up_The_Sun_Script.otf') format('opentype');
-        font-weight: normal;
-        font-style: normal;
-    }
-} */
+.title {
+    font-family: 'NanumSquareNeo';
+}

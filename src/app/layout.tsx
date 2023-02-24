@@ -1,7 +1,8 @@
 "use client";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import layout from './layout.module.css';
+
+import '../style/layout.css';
 
 export default function RootLayout({
   children,
@@ -14,11 +15,13 @@ export default function RootLayout({
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-      <head />
+      <head>
+        <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet" />
+      </head>
       <body>
         <Navbar bg="bg-white" expand="lg">
       <Container>
-        <Navbar.Brand href="/" className="title">Sungkyu</Navbar.Brand>
+        <Navbar.Brand className="title"  href="/">Sungkyu</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
