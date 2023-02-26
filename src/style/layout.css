@@ -1,3 +1,10 @@
 .title {
-    font-family: 'NanumSquareNeo';
+  /* font-family: 'NanumSquareNeo'; */
+  font-family: 'NanumSquareNeoLight';
+  font-size: 48px;
+}
+
+.navbar-toggler {
+  border: none;
+  outline: none;
 }
