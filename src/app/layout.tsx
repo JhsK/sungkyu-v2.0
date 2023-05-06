@@ -1,4 +1,4 @@
-import { Slide as Menu } from 'react-burger-menu';
+import Test from '@/components/Test';
 import '../index.css';
 
 export const metadata = {
@@ -13,30 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className="container mx-auto py-4">
-        <header className="flex items-center justify-between">
-          <img
-            src="/SungkyuLim.svg"
-            className="w-[150px] cursor-pointer"
-            alt="logo"
-          />
-          <img
-            src="/assets/icons/hamberger.svg"
-            className="w-[32px] cursor-pointer"
-            alt="menu"
-          />
-        </header>
-        <Menu>
-          <a id="home" className="menu-item" href="/">
-            Home
-          </a>
-          <a id="about" className="menu-item" href="/about">
-            About
-          </a>
-          <a id="contact" className="menu-item" href="/contact">
-            Contact
-          </a>
-        </Menu>
+      <body className="py-4">
+        <Test />
       </body>
     </html>
   );
