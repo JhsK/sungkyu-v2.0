@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 
 const Test = () => {
   const [isShow, setIsShow] = useState(false);
-  console.log(isShow);
+
   return (
     <div className="relative">
       <header className="container mx-auto flex items-center justify-between">

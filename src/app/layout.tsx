@@ -1,4 +1,4 @@
-import Test from '@/components/Test';
+import { Nav } from '@/components/Nav';
 import '../index.css';
 
 export const metadata = {
@@ -13,8 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className="py-4">
-        <Test />
+      <body>
+        <Nav />
       </body>
     </html>
   );
