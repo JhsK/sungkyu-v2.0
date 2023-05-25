@@ -1,5 +1,6 @@
 'use client';
 import React, { Fragment } from 'react';
+import Sungkyu from './SungkyuLim.svg';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
@@ -39,10 +40,10 @@ const Nav = () => {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
-                        className="w-[150px] cursor-pointer"
-                        src="/SungkyuLim.svg"
-                        alt="logo"
+                      <Sungkyu
+                        fill={open ? 'white' : 'black'}
+                        width="150"
+                        height="80"
                       />
                     </div>
                     <div className="hidden md:block">
