@@ -15,6 +15,7 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <Nav />
+        {children}
       </body>
     </html>
   );
