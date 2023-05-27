@@ -21,31 +21,32 @@ export default function HomePage() {
           restDelta: 0.001,
         }}
       /> */}
-      <div className="p-4 flex gap-4 border-solid border-b-[1px] border-gray-700 mb-4">
+      <div className="p-4 flex gap-4 border-solid border-b-[1px] border-gray-700 mb-4 text-neutral-400">
         <span>개발</span>
         <span>개발</span>
         <span>개발</span>
       </div>
-      <div className="px-4 flex flex-col gap-3 cursor-pointer">
+      <div className="px-4 flex flex-col gap-5 cursor-pointer">
         {[0, 1, 2].map((item) => (
           <div key={item}>
-            <div className="w-full h-[250px] relative">
+            <div className="w-full h-[250px] relative mb-2">
               <Image src="/assets/tfwf.webp" fill alt="test" />
             </div>
             <div>
               <div className="mb-2">
-                <h2>테스트 게시물 제목</h2>
-                <span>testtesttesttest</span>
+                <h1 className="text-2xl">테스트 게시물 제목</h1>
+                <span className="text-sm">testtesttesttest</span>
               </div>
-              <div>
-                <span>2022 01월 17일</span>
-                <span>|</span>
+              <div className="text-sm flex items-center text-neutral-400">
+                <span>2022년 01월 17일</span>
+                <span className="mx-2 pb-1">|</span>
                 <span>태그명</span>
               </div>
             </div>
           </div>
         ))}
       </div>
+      <div className="pb-6" />
     </div>
   );
 }
