@@ -1,4 +1,5 @@
 import { Nav } from '@/components/Nav';
+import ThemeProvider from '@/components/ThemeProvider';
 import '../index.css';
 
 export const metadata = {
@@ -14,8 +15,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <Nav />
-        {children}
+        <ThemeProvider>
+          <Nav />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

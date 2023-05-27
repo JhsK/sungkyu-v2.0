@@ -27,13 +27,24 @@ export default function HomePage() {
         <span>개발</span>
       </div>
       <div className="px-4 flex flex-col gap-3 cursor-pointer">
-        <div className="w-full h-[250px] relative">
-          <Image src="/assets/tfwf.webp" fill alt="test" />
-        </div>
-        <div>
-          <h2>테스트 게시물 제목</h2>
-          <span>testtesttesttest</span>
-        </div>
+        {[0, 1, 2].map((item) => (
+          <div key={item}>
+            <div className="w-full h-[250px] relative">
+              <Image src="/assets/tfwf.webp" fill alt="test" />
+            </div>
+            <div>
+              <div className="mb-2">
+                <h2>테스트 게시물 제목</h2>
+                <span>testtesttesttest</span>
+              </div>
+              <div>
+                <span>2022 01월 17일</span>
+                <span>|</span>
+                <span>태그명</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
