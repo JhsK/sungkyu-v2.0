@@ -26,7 +26,7 @@ export default function HomePage() {
                 <span className="text-sm">testtesttesttest</span>
               </div>
               <div className="text-sm flex items-center text-neutral-400">
-                <span>2022년 01월 17일</span>
+                <span>{post.date}</span>
                 <span className="mx-2 pb-1">|</span>
                 <span>태그명</span>
               </div>
