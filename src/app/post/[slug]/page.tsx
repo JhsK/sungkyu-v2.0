@@ -1,6 +1,7 @@
+import React from 'react';
 import { getPost } from '@/lib/markdown';
 import { PostDetail } from '@/types';
-import React from 'react';
+import MarkdownViewer from '@/components/Post/MarkdownViewer';
 
 // const fetchPostsList = async () => {
 //   const postIds = await getPostsIds();
@@ -16,7 +17,7 @@ const PostDetail = async ({ params }: { params: { slug: string } }) => {
         <h1 className="text-2xl mb-1">{post.title}</h1>
         <span className="text-sm text-neutral-400">{post.date}</span>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+      <MarkdownViewer post={post.contentHtml} />
     </div>
   );
 };

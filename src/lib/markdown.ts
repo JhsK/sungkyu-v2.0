@@ -1,8 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
 
 type AllPostsData = {
   id: string;
@@ -58,10 +56,16 @@ export const getPost = async (id: string) => {
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  // const processedContent = process(matterResult.content);
+  // const processedContent = await unified()
+  //   .use(remarkParse)
+  //   .use(remarkGfm)
+  //   .use(remarkRehype)
+  //   .use(rehypeStringify)
+  //   .use(rehypeHighlight)
+  //   // .use(html)
+  //   .process(matterResult.content);
+  const contentHtml = matterResult.content.toString();
 
   // Combine the data with the id and contentHtml
   return {
