@@ -11,6 +11,14 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 's3.ap-northeast-2.amazonaws.com',
+        port: '',
+        pathname: '/sungkyu.info/**',
+      },
+    ],
   },
   experimental: {
     appDir: true,

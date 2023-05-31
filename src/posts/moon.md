@@ -1,4 +1,5 @@
 ---
+image: 'https://s3.ap-northeast-2.amazonaws.com/sungkyu.info/keypoint-sample2+(1).jpg'
 title: 'Two Forms of Pre-rendering'
 date: '2020년 01월 01일'
 ---

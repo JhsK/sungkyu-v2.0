@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function HomePage() {
   const allPostsData = getPostsList();
-
+  console.log(allPostsData);
   return (
     <div>
       <div className="h-[260px] w-full bg-black relative" />
@@ -18,7 +18,8 @@ export default function HomePage() {
         {allPostsData.map((post) => (
           <Link href={`/post/${post.id}`} key={post.id}>
             <div className="w-full h-[250px] relative mb-2">
-              <Image src="/assets/tfwf.webp" fill alt="test" />
+              {/* <Image src="/assets/tfwf.webp" fill alt="test" /> */}
+              <Image src={post.image} fill alt="test" />
             </div>
             <div>
               <div className="mb-2">
