@@ -4,7 +4,7 @@ import { getPost, getPostsList } from '@/lib/markdown';
 import Link from 'next/link';
 
 export default function HomePage() {
-  const allPostsData = getPostsList();
+  const allPostsData = getPostsList({ category: 'all', limit: 0 });
   console.log(allPostsData);
   return (
     <div>

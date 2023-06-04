@@ -7,7 +7,17 @@ type AllPostsData = {
   [key: string]: any;
 };
 
+interface GetPostListsParams {
+  category: string;
+  limit: number;
+}
+
 const postsDirectory = path.join(process.cwd(), '/src/posts');
+
+const findCategoryPost = (category: string) => {
+  const route = category === 'all' ? '/src/posts' : `/src/posts/${category}`;
+  return path.join(process.cwd(), route);
+};
 
 export const getPostsIds = () => {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -21,14 +31,16 @@ export const getPostsIds = () => {
   });
 };
 
-export const getPostsList = () => {
-  const fileNames = fs.readdirSync(postsDirectory);
+export const getPostsList = ({ category, limit }: GetPostListsParams) => {
+  const test = findCategoryPost(category);
+  console.log('asfasf', test);
+  const fileNames = fs.readdirSync(test);
   const allPostsData: AllPostsData[] = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, '');
 
     // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName);
+    const fullPath = path.join(test, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
     // Use gray-matter to parse the post metadata section
@@ -41,13 +53,15 @@ export const getPostsList = () => {
     };
   });
   // Sort posts by date
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  return allPostsData
+    .sort((a, b) => {
+      if (a.date < b.date) {
+        return 1;
+      } else {
+        return -1;
+      }
+    })
+    .slice(0, limit);
 };
 
 export const getPost = async (id: string) => {
