@@ -8,16 +8,15 @@ type AllPostsData = {
 };
 
 interface GetPostListsParams {
-  category: string;
   limit: number;
 }
 
 const postsDirectory = path.join(process.cwd(), '/src/posts');
 
-const findCategoryPost = (category: string) => {
-  const route = category === 'all' ? '/src/posts' : `/src/posts/${category}`;
-  return path.join(process.cwd(), route);
-};
+// const findCategoryPost = (category: string) => {
+//   const route = category === 'all' ? '/src/posts' : `/src/posts/${category}`;
+//   return path.join(process.cwd(), route);
+// };
 
 export const getPostsIds = () => {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -31,16 +30,14 @@ export const getPostsIds = () => {
   });
 };
 
-export const getPostsList = ({ category, limit }: GetPostListsParams) => {
-  const test = findCategoryPost(category);
-  console.log('asfasf', test);
-  const fileNames = fs.readdirSync(test);
+export const getPostsList = ({ limit }: GetPostListsParams) => {
+  const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData: AllPostsData[] = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, '');
 
     // Read markdown file as string
-    const fullPath = path.join(test, fileName);
+    const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
     // Use gray-matter to parse the post metadata section
