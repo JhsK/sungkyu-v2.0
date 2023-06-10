@@ -51,6 +51,11 @@ export const getPostsList = ({ limit }: GetPostListsParams) => {
   // });
 };
 
+export const getCategoryPostList = (directory: string) => {
+  const fileNames = fs.readdirSync(postsDirectory);
+  return fileNames;
+};
+
 export const getPost = async (id: string) => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');

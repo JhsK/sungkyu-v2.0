@@ -1,25 +1,33 @@
 import React from 'react';
-import { getPost } from '@/lib/markdown';
+import { getCategoryPostList, getPost } from '@/lib/markdown';
 import { PostDetail } from '@/types';
 import MarkdownViewer from '@/components/Post/MarkdownViewer';
 
-// const fetchPostsList = async () => {
-//   const postIds = await getPostsIds();
-//   return postIds;
-// };
+interface CategoryListParams {
+  category: string;
+}
 
-const PostDetail = async ({ params }: { params: { slug: string } }) => {
-  const post: PostDetail = await getPost(params.slug);
+export function generateStaticParams() {
+  const test = getCategoryPostList('develop');
+  return [
+    { category: 'develop', abc: 'fff' },
+    { category: 'b' },
+    { category: 'c' },
+  ];
+}
 
+const PostCategoryList = ({ params }: { params: CategoryListParams[] }) => {
+  // const post: PostDetail = await getPost(params.slug);
+  console.log('params', params);
   return (
     <div className="px-4 flex flex-col gap-4">
-      <div>
+      {/* <div>
         <h1 className="text-2xl mb-1">{post.title}</h1>
         <span className="text-sm text-neutral-400">{post.date}</span>
       </div>
-      <MarkdownViewer post={post.contentHtml} />
+      <MarkdownViewer post={post.contentHtml} /> */}
     </div>
   );
 };
 
-export default PostDetail;
+export default PostCategoryList;
