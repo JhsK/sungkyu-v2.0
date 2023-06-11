@@ -1,12 +1,11 @@
-'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const Banner = () => {
   // const ref = useRef(null);
   // const { x, y } = useFollowPointer(ref);
   return (
     <div>
+      <div className="h-[260px] w-full bg-black relative" />
       {/* <motion.div
         ref={ref}
         className="box"
@@ -22,4 +21,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export { Banner };

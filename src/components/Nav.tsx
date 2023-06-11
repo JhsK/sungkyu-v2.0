@@ -4,6 +4,7 @@ import Sungkyu from './SungkyuLim.svg';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
+import Link from 'next/link';
 
 const user = {
   name: 'Tom Cook',
@@ -40,11 +41,13 @@ const Nav = () => {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <Sungkyu
-                        fill={open ? 'white' : 'black'}
-                        width="150"
-                        height="80"
-                      />
+                      <Link href={'/'}>
+                        <Sungkyu
+                          fill={open ? 'white' : 'black'}
+                          width="150"
+                          height="80"
+                        />
+                      </Link>
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
