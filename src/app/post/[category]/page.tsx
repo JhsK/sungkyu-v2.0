@@ -26,13 +26,6 @@ const PostCategoryList = ({ params }: { params: CategoryListParams }) => {
       <Category activeCategory={params.category} />
       <List posts={posts} />
     </>
-    // <div className="px-4 flex flex-col gap-4">
-    //   <div>
-    //     <h1 className="text-2xl mb-1">{post.title}</h1>
-    //     <span className="text-sm text-neutral-400">{post.date}</span>
-    //   </div>
-    //   <MarkdownViewer post={post.contentHtml} />
-    // </div>
   );
 };
 
