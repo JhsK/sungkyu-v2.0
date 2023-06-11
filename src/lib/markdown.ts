@@ -25,9 +25,11 @@ export const getPostsIds = () => {
   });
 };
 
-export const getPostsList = ({ limit }: GetPostListsParams) => {
+export const getPostsList = ({ limit, category }: GetPostListsParams) => {
   // const fileNamesObj = fileNames(directory);
-  const fileNames = fs.readdirSync(postsDirectory).slice(0, limit);
+  const fileNames = limit
+    ? fs.readdirSync(postsDirectory).slice(0, limit)
+    : fs.readdirSync(postsDirectory);
   const allPostsData: AllPostsData[] = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
     const fullPath = path.join(postsDirectory, fileName);
@@ -40,15 +42,11 @@ export const getPostsList = ({ limit }: GetPostListsParams) => {
     };
   });
 
-  return allPostsData.reverse();
-
-  // return allPostsData.sort((a, b) => {
-  //   if (a.date < b.date) {
-  //     return 1;
-  //   } else {
-  //     return -1;
-  //   }
-  // });
+  if (category === 'all') {
+    return allPostsData.reverse();
+  } else {
+    return allPostsData.filter((post) => post.category === category).reverse();
+  }
 };
 
 export const getCategoryPostList = (directory: string) => {
