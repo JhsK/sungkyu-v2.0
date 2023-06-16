@@ -6,6 +6,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { RxGithubLogo, RxLinkedinLogo } from 'react-icons/rx';
+import { GITHUB_PROFILE, LINKEDIN_PROFILE } from '@/const';
 
 const user = {
   name: 'Tom Cook',
@@ -88,13 +89,13 @@ const Nav = () => {
                     </div>
                     <div className="mx-4 mt-0.5 opacity-20 font-thin">|</div>
                     <div className="flex">
-                      <Link href="https://github.com/JhsK" target="_blank">
+                      <Link href={GITHUB_PROFILE} target="_blank">
                         <RxGithubLogo
                           size={24}
                           className="flex cursor-pointer items-center opacity-50 mr-4 hover:opacity-100"
                         />
                       </Link>
-                      <Link href="https://www.linkedin.com/in/%EC%84%B1%EA%B7%9C-%EC%9E%84-5b2b8b23a/">
+                      <Link href={LINKEDIN_PROFILE}>
                         <RxLinkedinLogo
                           size={24}
                           className="flex cursor-pointer items-center opacity-50 hover:opacity-100"
