@@ -27,13 +27,13 @@ const userNavigation = [
 const Nav = () => {
   return (
     <>
-      <div className="min-h-full sticky top-0 w-full z-10">
+      <div className="min-h-full sticky top-0 w-full z-10 bg-white">
         <Disclosure as="nav">
           {({ open }) => (
             <>
               <div
                 className={classNames(
-                  'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8',
+                  'mx-auto max-w-4xl px-4 sm:px-6 lg:px-8',
                   open ? 'bg-gray-800' : 'bg-white'
                 )}
               >

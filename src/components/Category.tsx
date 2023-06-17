@@ -15,17 +15,20 @@ const Category = ({ activeCategory }: CategoryProps) => {
   };
 
   return (
-    <div className="p-4 flex gap-4 border-solid border-b-[1px] border-gray-700 mb-4 text-neutral-400">
-      <Link href={'/'}>
-        <span className={utilClass('all')}>전체</span>
-      </Link>
-      <Link href={'/post/develop'}>
-        <span className={utilClass('develop')}>개발</span>
-      </Link>
-      <Link href={'/post/design'}>
-        <span className={utilClass('design')}>디자인</span>
-      </Link>
-    </div>
+    <>
+      <div className="p-4 flex gap-4 text-neutral-400">
+        <Link href={'/'}>
+          <span className={utilClass('all')}>전체</span>
+        </Link>
+        <Link href={'/post/develop'}>
+          <span className={utilClass('develop')}>개발</span>
+        </Link>
+        <Link href={'/post/design'}>
+          <span className={utilClass('design')}>디자인</span>
+        </Link>
+      </div>
+      <hr className="mx-4 mt-0 mb-4" />
+    </>
   );
 };
 

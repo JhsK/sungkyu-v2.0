@@ -12,9 +12,10 @@ const List = ({ posts }: ListProps) => {
     <div className="px-4 flex flex-col gap-5 cursor-pointer">
       {posts.map((post) => (
         <Link href={`/post/${post.category}/${post.id}`} key={post.id}>
-          <div className="w-full h-[250px] relative mb-2">
+          <h1 className="text-2xl">{post.title}</h1>
+          {/* <div className="w-full h-[250px] relative mb-2">
             <Image src={post.image} fill alt="sumnail" />
-          </div>
+          </div> */}
           <div>
             <div className="mb-2">
               <h1 className="text-2xl">{post.title}</h1>
