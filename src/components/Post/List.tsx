@@ -38,10 +38,8 @@ const List = ({ posts }: ListProps) => {
             key={post.id}
             className="py-10 px-4 flex flex-col"
           >
-            <div>
-              <span>category</span>
-            </div>
-            <h1 className="text-3xl font-bold mb-1 text-title hover:text-blue-500">
+            <span className="mb-2">category</span>
+            <h1 className="text-3xl font-bold mb-1.5 text-title hover:text-blue-500">
               {post.title}
             </h1>
             <span className="text-sm text-description">testtesttesttest</span>

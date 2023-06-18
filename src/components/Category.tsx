@@ -27,7 +27,7 @@ const Category = ({ activeCategory }: CategoryProps) => {
           <span className={utilClass('design')}>디자인</span>
         </Link>
       </div>
-      <hr className="mx-4 mt-0 mb-4" />
+      <hr className="mx-4" />
     </>
   );
 };

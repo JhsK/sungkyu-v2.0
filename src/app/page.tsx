@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <div>
       <Banner />
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <Category activeCategory="all" />
         <List posts={posts} />
         <div className="pb-6" />
