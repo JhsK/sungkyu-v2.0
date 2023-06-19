@@ -312,6 +312,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'SpoqaHanSansNeo',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
