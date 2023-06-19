@@ -23,8 +23,10 @@ const PostCategoryList = ({ params }: { params: CategoryListParams }) => {
   return (
     <>
       <Banner />
-      <Category activeCategory={params.category} />
-      <List posts={posts} />
+      <div className="max-w-3xl mx-auto">
+        <Category activeCategory={params.category} />
+        <List posts={posts} />
+      </div>
     </>
   );
 };
