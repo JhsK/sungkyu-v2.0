@@ -10,7 +10,7 @@ interface CategoryProps {
 const Category = ({ activeCategory }: CategoryProps) => {
   const utilClass = (category: CategoryType) => {
     return classNames('cursor-pointer', {
-      'text-main': activeCategory === category,
+      'text-black font-bold': activeCategory === category,
     });
   };
 

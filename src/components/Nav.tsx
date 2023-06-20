@@ -149,6 +149,7 @@ const Nav = () => {
             </>
           )}
         </Disclosure>
+        <div className="h-5 bg-slate-300 w-full md:hidden"></div>
       </div>
     </>
   );
