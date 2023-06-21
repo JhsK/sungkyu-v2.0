@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  assetPrefix:
+    'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js',
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,

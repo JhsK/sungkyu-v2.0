@@ -1,5 +1,5 @@
 'use client';
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 import Sungkyu from './SungkyuLim.svg';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -25,6 +25,23 @@ const userNavigation = [
 ];
 
 const Nav = () => {
+  const progressRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (progressRef.current) {
+      progressRef.current.animate(
+        {
+          transform: ['scaleX(0)', 'scaleX(1)'],
+        },
+        {
+          timeline: new ScrollTimeline({
+            source: document.documentElement,
+          }),
+          fill: 'forwards',
+        }
+      );
+    }
+  }, []);
   return (
     <>
       <div className="min-h-full sticky top-0 w-full z-10 bg-white">
@@ -149,7 +166,10 @@ const Nav = () => {
             </>
           )}
         </Disclosure>
-        <div className="h-5 bg-slate-300 w-full md:hidden"></div>
+        <div
+          ref={progressRef}
+          className="h-5 bg-slate-300 w-full md:hidden"
+        ></div>
       </div>
     </>
   );
