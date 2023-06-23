@@ -1,12 +1,11 @@
 'use client';
-import React, { Fragment, useEffect, useRef } from 'react';
-import Sungkyu from './SungkyuLim.svg';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { GITHUB_PROFILE, LINKEDIN_PROFILE } from '@/const';
+import { Disclosure } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { RxGithubLogo, RxLinkedinLogo } from 'react-icons/rx';
-import { GITHUB_PROFILE, LINKEDIN_PROFILE } from '@/const';
+import Sungkyu from './SungkyuLim.svg';
 
 const user = {
   name: 'Tom Cook',
@@ -25,23 +24,6 @@ const userNavigation = [
 ];
 
 const Nav = () => {
-  const progressRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (progressRef.current) {
-      progressRef.current.animate(
-        {
-          transform: ['scaleX(0)', 'scaleX(1)'],
-        },
-        {
-          timeline: new ScrollTimeline({
-            source: document.documentElement,
-          }),
-          fill: 'forwards',
-        }
-      );
-    }
-  }, []);
   return (
     <>
       <div className="min-h-full sticky top-0 w-full z-10 bg-white">
@@ -166,10 +148,6 @@ const Nav = () => {
             </>
           )}
         </Disclosure>
-        <div
-          ref={progressRef}
-          className="h-5 bg-slate-300 w-full md:hidden"
-        ></div>
       </div>
     </>
   );
