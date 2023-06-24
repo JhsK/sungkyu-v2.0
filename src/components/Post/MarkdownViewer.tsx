@@ -2,8 +2,8 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import slug from 'remark-slug';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface MarkdownViewerProps {
   post: string;
@@ -14,7 +14,7 @@ const MarkdownViewer = ({ post }: MarkdownViewerProps) => {
     <>
       <ReactMarkdown
         children={post}
-        remarkPlugins={[remarkGfm]}
+        remarkPlugins={[remarkGfm, slug]}
         components={{
           code({ node, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || '');
