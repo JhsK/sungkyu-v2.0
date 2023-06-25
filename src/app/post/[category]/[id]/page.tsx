@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { google } from 'googleapis';
 import { getPost } from '@/lib/markdown';
 import MarkdownViewer from '@/components/Post/MarkdownViewer';
 import { CategoryType, PostDetail } from '@/types';
@@ -19,7 +20,6 @@ export function generateStaticParams() {
 
 const PostDetail = async ({ params }: { params: PostDetailParams }) => {
   const post: PostDetail = await getPost(params.id);
-  const test = post.contentHtml;
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 flex flex-col gap-4 max-w-3xl mx-auto scroll-smooth">
