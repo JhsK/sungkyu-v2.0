@@ -5,10 +5,12 @@ import { Category } from '@/components/Category';
 import { List } from '@/components/Post/List';
 import '../index.css';
 import { gaGetData } from '@/lib/test';
+import { fetchData } from '@/components/Post/server';
 
 export default function HomePage() {
   const posts = getPostsList({ limit: 5, category: 'all' });
-  const test = gaGetData();
+  const test = fetchData();
+  console.log(test);
   return (
     <div>
       <Banner />
