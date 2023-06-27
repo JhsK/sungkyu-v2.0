@@ -10,7 +10,6 @@ import { fetchData } from '@/components/Post/server';
 export default function HomePage() {
   const posts = getPostsList({ limit: 5, category: 'all' });
   const test = fetchData();
-  console.log(test);
   return (
     <div>
       <Banner />
