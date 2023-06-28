@@ -1,12 +1,9 @@
 'use client';
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import slug from 'remark-slug';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-
-import { google } from 'googleapis';
-
 interface MarkdownViewerProps {
   post: string;
 }
