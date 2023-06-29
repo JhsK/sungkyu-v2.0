@@ -2922,10 +2922,10 @@ googleapis-common@^6.0.0:
     url-template "^2.0.8"
     uuid "^9.0.0"
 
-googleapis@^118.0.0:
-  version "118.0.0"
-  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-118.0.0.tgz#a8b9f84d283544b85927abeb989252cb2f3ec490"
-  integrity sha512-Ny6zJOGn5P/YDT6GQbJU6K0lSzEu4Yuxnsn45ZgBIeSQ1RM0FolEjUToLXquZd89DU9wUfqA5XYHPEctk1TFWg==
+googleapis@^120.0.0:
+  version "120.0.0"
+  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-120.0.0.tgz#0ca260fad6cc7575e5d762e6a33ea88000f8e6bc"
+  integrity sha512-Reo5PpERv0Df/L8Jx8CrPHMI3oEXmPBDHLXCY12biXUtveVgWVEoQN4Inn/85+eoNRsDiVyeEH/MjAa3hPHHrA==
   dependencies:
     google-auth-library "^8.0.2"
     googleapis-common "^6.0.0"
@@ -4432,11 +4432,6 @@ react-dom@18.2.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
-
-react-ga@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-3.3.1.tgz#d8e1f4e05ec55ed6ff944dcb14b99011dfaf9504"
-  integrity sha512-4Vc0W5EvXAXUN/wWyxvsAKDLLgtJ3oLmhYYssx+YzphJpejtOst6cbIHCIyF50Fdxuf5DDKqRYny24yJ2y7GFQ==
 
 react-icons@^4.9.0:
   version "4.9.0"
