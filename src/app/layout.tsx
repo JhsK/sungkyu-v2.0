@@ -13,7 +13,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html
+      lang="ko"
+      style={{
+        scrollBehavior: 'smooth',
+      }}
+    >
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-825XQ2WCW4"

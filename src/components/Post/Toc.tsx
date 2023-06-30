@@ -35,16 +35,11 @@ const Toc = () => {
   }, []);
 
   return (
-    <ul
-      className={`fixed top-1/4 right-40 border-l border-slate-300 pl-4 hidden xl:block`}
-    >
+    <ul className="fixed top-1/4 right-40 border-l border-slate-300 pl-4 hidden xl:block">
       {headers?.map((header) => (
-        <li
-          key={header.id}
-          className={`ml-${(header.depth - 2) * 4} scroll-smooth pb-1`}
-        >
+        <li key={header.id} className={`ml-${(header.depth - 2) * 4}  pb-1`}>
           <a
-            className={`${
+            className={` ${
               activeId === header?.id ? 'font-bold' : 'opacity-50'
             }`}
             href={`#${header.id}`}
