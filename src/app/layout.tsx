@@ -19,24 +19,25 @@ export default function RootLayout({
         scrollBehavior: 'smooth',
       }}
     >
-      <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-825XQ2WCW4"
-      />
-      <Script
-        id="gtag-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-825XQ2WCW4"
+        />
+        <Script
+          id="ga-gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
-          gtag('config', 'G-825XQ2WCW4');
-          `,
-        }}
-      />
-      <Script
+        
+          gtag('config', 'G-825XQ2WCW4');`,
+          }}
+        />
+      </head>
+      {/* <Script
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
@@ -47,7 +48,7 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','GTM-M3JNCJW')
           `,
         }}
-      />
+      /> */}
       <body>
         <ThemeProvider>
           <Nav />
