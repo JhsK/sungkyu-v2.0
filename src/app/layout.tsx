@@ -16,17 +16,17 @@ export default function RootLayout({
     <html lang="ko">
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-8XJ1RH1BWJ"
+        src="https://www.googletagmanager.com/gtag/js?id=G-825XQ2WCW4"
       />
       <Script
         id="gtag-init"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-8XJ1RH1BWJ');
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-825XQ2WCW4');
           `,
         }}
       />
