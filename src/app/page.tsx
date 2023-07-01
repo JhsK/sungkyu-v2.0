@@ -11,6 +11,7 @@ export default function HomePage() {
   return (
     <div>
       <Banner />
+      <span>{Date.now()}</span>
       <div className="max-w-3xl mx-auto">
         <Category activeCategory="all" />
         <List posts={posts} />
