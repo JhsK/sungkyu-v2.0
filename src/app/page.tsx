@@ -4,11 +4,10 @@ import { Banner } from '@/components/Banner';
 import { Category } from '@/components/Category';
 import { List } from '@/components/Post/List';
 import '../index.css';
-import { getViewer } from '@/components/Post/server';
 
 export default function HomePage() {
   const posts = getPostsList({ limit: 5, category: 'all' });
-  const test = getViewer();
+
   return (
     <div>
       <Banner />
