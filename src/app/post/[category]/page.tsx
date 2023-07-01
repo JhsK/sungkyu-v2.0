@@ -1,11 +1,8 @@
-import React, { use } from 'react';
-import { getCategoryPostList, getPost, getPostsList } from '@/lib/markdown';
-import { CategoryType, PostDetail } from '@/types';
-import MarkdownViewer from '@/components/Post/MarkdownViewer';
-import { testServer } from '@/components/Post/server';
 import { Banner } from '@/components/Banner';
 import { Category } from '@/components/Category';
 import { List } from '@/components/Post/List';
+import { getPostsList } from '@/lib/markdown';
+import { CategoryType } from '@/types';
 
 interface CategoryListParams {
   category: CategoryType;
@@ -18,8 +15,8 @@ export function generateStaticParams() {
 
 const PostCategoryList = ({ params }: { params: CategoryListParams }) => {
   // const post: PostDetail = await getPost(params.slug);
-  // const server = use(testServer());
   const posts = getPostsList({ category: params.category });
+
   return (
     <>
       <Banner />
