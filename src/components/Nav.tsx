@@ -88,7 +88,7 @@ const Nav = () => {
                     </div>
                     <div className="mx-4 mt-0.5 opacity-20 font-thin">|</div>
                     <div className="flex">
-                      <Link href={GITHUB_PROFILE} target="_blank">
+                      <Link href="https://sungkyu.info" target="_blank">
                         <RxGithubLogo
                           size={24}
                           className="flex cursor-pointer items-center opacity-50 mr-4 hover:opacity-100"
