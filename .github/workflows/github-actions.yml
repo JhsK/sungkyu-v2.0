@@ -6,7 +6,8 @@ on:
   push:
     # Pattern matched against refs/tags
     tags:
-      - '/^v\d+\.\d+\.\d+$/'
+      # - '/^v\d+\.\d+\.\d+$/'
+      - '*'
 jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
