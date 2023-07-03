@@ -9,9 +9,8 @@ export default function HomePage() {
   const posts = getPostsList({ limit: 5, category: 'all' });
 
   return (
-    <div>
+    <div className="px-[72px]">
       <Banner />
-      <span>{Date.now()}</span>
       <div className="max-w-3xl mx-auto">
         <Category activeCategory="all" />
         <List posts={posts} />

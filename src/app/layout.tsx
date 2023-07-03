@@ -1,4 +1,4 @@
-import { Nav } from '@/components/Nav';
+import Nav from '@/components/Nav';
 import ThemeProvider from '@/components/ThemeProvider';
 import Script from 'next/script';
 
@@ -38,10 +38,14 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ThemeProvider>
+        {/* <ThemeProvider>
           <Nav />
           {children}
-        </ThemeProvider>
+        </ThemeProvider> */}
+        <div className="max-w-[1440px] bg-background">
+          <Nav />
+          {children}
+        </div>
       </body>
     </html>
   );

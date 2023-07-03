@@ -139,8 +139,9 @@ module.exports = {
     },
     caretColor: ({ theme }) => theme('colors'),
     colors: ({ colors }) => ({
-      main: '#FFCC00',
-      title: '#333d4b',
+      background: '#FCFCFC',
+      main: '#FFCC00', // 레거시 컬러로 추후 제거 필요.
+      title: '#333d4b', // 레거시 컬러로 추후 제거 필요.
       description: '#4e5968',
       inherit: colors.inherit,
       current: colors.current,
