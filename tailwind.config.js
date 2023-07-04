@@ -140,6 +140,7 @@ module.exports = {
     caretColor: ({ theme }) => theme('colors'),
     colors: ({ colors }) => ({
       background: '#FCFCFC',
+      navBorder: '#F2F4F7',
       main: '#FFCC00', // 레거시 컬러로 추후 제거 필요.
       title: '#333d4b', // 레거시 컬러로 추후 제거 필요.
       description: '#4e5968',

@@ -37,15 +37,13 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body className="bg-background">
         {/* <ThemeProvider>
           <Nav />
           {children}
         </ThemeProvider> */}
-        <div className="max-w-[1440px] bg-background">
-          <Nav />
-          {children}
-        </div>
+        <Nav />
+        <div className="max-w-[1440px] my-0 mx-auto">{children}</div>
       </body>
     </html>
   );
