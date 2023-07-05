@@ -43,7 +43,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider> */}
         <Nav />
-        <div className="max-w-[1440px] my-0 mx-auto">{children}</div>
+        <div className="max-w-[1440px]">{children}</div>
       </body>
     </html>
   );
