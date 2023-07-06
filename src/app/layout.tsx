@@ -2,6 +2,8 @@ import Nav from '@/components/Nav';
 import ThemeProvider from '@/components/ThemeProvider';
 import Script from 'next/script';
 
+import '../scss/common.scss';
+
 export const metadata = {
   title: 'Sungkyu blog',
   description: 'front-end developer sungkyu blog',
@@ -43,7 +45,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider> */}
         <Nav />
-        <div className="max-w-[1440px]">{children}</div>
+        <div className="max-w-[1440px] my-0 mx-auto">{children}</div>
       </body>
     </html>
   );
