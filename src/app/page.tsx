@@ -4,9 +4,12 @@ import { Banner } from '@/components/Banner';
 import { Category } from '@/components/Category';
 import { List } from '@/components/Post/List';
 import '../index.css';
+import PostItem from '@/components/Post/PostItem';
 
 export default function HomePage() {
   const posts = getPostsList({ limit: 5, category: 'all' });
+
+  const calculateWidth = 'w-[calc(50%-18px)]';
 
   return (
     <main className="pt-16 flex flex-col gap-9">
@@ -21,10 +24,45 @@ export default function HomePage() {
         <span>아이콘 슬롯입니다</span>
       </section>
       <section className="flex justify-between w-full">
-        <div className="w-[calc(50%-18px)] bg-red-300 h-10"></div>
-        <div className="w-[calc(50%-18px)] bg-red-300 h-[582px] rounded-2xl main-shadow"></div>
-        {/* <div className="w-[calc(50% - 18px)] bg-red-300 h-10"></div> */}
+        <div className={`${calculateWidth} h-10 flex justify-between`}>
+          <div className={`${calculateWidth} flex flex-col gap-y-9`}>
+            {[1, 2, 3].map((post, index) =>
+              index === 0 ? (
+                <PostItem
+                  category="프론트엔드"
+                  style={{ content: 'w-full h-[195px]' }}
+                  key={index}
+                />
+              ) : (
+                <PostItem
+                  category="프론트엔드"
+                  style={{ content: 'w-full h-[195px]', image: 'h-[168px]' }}
+                  image="test"
+                  key={index}
+                />
+              )
+            )}
+          </div>
+          <div className={`${calculateWidth} flex flex-col gap-y-9`}>
+            {[1, 2].map((post, index) => (
+              <PostItem
+                category="프론트엔드"
+                style={{ content: 'w-full h-[195px]', image: 'h-[168px]' }}
+                image="test"
+                key={index}
+              />
+            ))}
+          </div>
+        </div>
+        <div className={`${calculateWidth} h-[582px] rounded-2xl main-shadow`}>
+          <PostItem
+            category="프론트엔드"
+            style={{ content: 'w-full h-[228px]', image: 'h-[354px]' }}
+            image={'test'}
+          />
+        </div>
       </section>
+      <div className="pb-10"></div>
     </main>
   );
 }

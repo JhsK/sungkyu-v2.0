@@ -142,6 +142,7 @@ module.exports = {
     colors: ({ colors }) => ({
       background: '#FCFCFC',
       navBorder: '#F2F4F7',
+      badgeGray: '#EEE',
       main: '#FFCC00', // 레거시 컬러로 추후 제거 필요.
       title: '#333d4b', // 레거시 컬러로 추후 제거 필요.
       description: '#4e5968',
@@ -364,6 +365,8 @@ module.exports = {
       '7xl': ['4.5rem', { lineHeight: '1' }],
       '8xl': ['6rem', { lineHeight: '1' }],
       '9xl': ['8rem', { lineHeight: '1' }],
+      13: ['0.813rem', { lineHeight: 'normal' }], // 13px;
+      22: ['1.375rem', { lineHeight: '1.75rem' }], // 22px;
     },
     fontWeight: {
       thin: '100',
