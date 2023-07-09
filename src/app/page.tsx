@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { getPostsList } from '@/lib/markdown';
 import { Banner } from '@/components/Banner';
 import { Category } from '@/components/Category';
 import { List } from '@/components/Post/List';
 import '../index.css';
 import PostItem from '@/components/Post/PostItem';
+import VisitorChart from '@/components/VisitorChart';
+import { getServiceVistior, getServiePageView } from '@/server/statistic';
 
-export default function HomePage() {
+export default async function HomePage() {
   const posts = getPostsList({ limit: 5, category: 'all' });
+  const visitor = (await getServiceVistior()) as Array<any>;
+  const pageViews = (await getServiePageView()) as Array<any>;
 
   const lastPostLeft = [1, 2, 3, 4];
   const lastPostRight = [1, 2, 3];
@@ -79,7 +83,12 @@ export default function HomePage() {
         </div>
         <div
           className={`rounded-3xl main-shadow h-[360px] p-9 ${calculateWidth}`}
-        ></div>
+        >
+          <VisitorChart
+            visitor={visitor.map((visit) => Number(visit[1]))}
+            pageViews={pageViews.map((view) => Number(view[1]))}
+          />
+        </div>
       </section>
     </main>
   );

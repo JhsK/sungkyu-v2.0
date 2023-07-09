@@ -54,28 +54,3 @@ export const gaGetData = async () => {
   console.log('datafwfawfawfawfwafafawf@@@#@#@#', response);
   return response;
 };
-
-// reportRequests: [
-//     {
-//       viewId: 'YOUR_VIEW_ID',
-//       dateRanges: [
-//         {
-//           startDate: '30daysAgo',
-//           endDate: 'yesterday',
-//         },
-//       ],
-//       metrics: [
-//         {
-//           name: 'active1DayUsers',
-//         },
-//         {
-//           name: 'activeUsers',
-//         },
-//       ],
-//       //   dimensions: [
-//       //     {
-//       //       name: 'ga:pagePath',
-//       //     },
-//       //   ],
-//     },
-//   ],
