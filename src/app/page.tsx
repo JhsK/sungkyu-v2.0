@@ -9,6 +9,8 @@ import PostItem from '@/components/Post/PostItem';
 export default function HomePage() {
   const posts = getPostsList({ limit: 5, category: 'all' });
 
+  const lastPostLeft = [1, 2, 3, 4];
+  const lastPostRight = [1, 2, 3];
   const calculateWidth = 'w-[calc(50%-18px)]';
 
   return (
@@ -24,10 +26,10 @@ export default function HomePage() {
         <span>아이콘 슬롯입니다</span>
       </section>
       <section className="flex justify-between w-full">
-        <div className={`${calculateWidth} h-10 flex justify-between`}>
+        <div className={`${calculateWidth} flex justify-between`}>
           <div className={`${calculateWidth} flex flex-col gap-y-9`}>
-            {[1, 2, 3].map((post, index) =>
-              index === 0 ? (
+            {lastPostLeft.map((post, index) =>
+              index === 0 || index === lastPostLeft.length - 1 ? (
                 <PostItem
                   category="프론트엔드"
                   style={{ content: 'w-full h-[195px]' }}
@@ -44,7 +46,7 @@ export default function HomePage() {
             )}
           </div>
           <div className={`${calculateWidth} flex flex-col gap-y-9`}>
-            {[1, 2].map((post, index) => (
+            {lastPostRight.map((post, index) => (
               <PostItem
                 category="프론트엔드"
                 style={{ content: 'w-full h-[195px]', image: 'h-[168px]' }}
@@ -62,7 +64,23 @@ export default function HomePage() {
           />
         </div>
       </section>
-      <div className="pb-10"></div>
+      <section className="flex items-center justify-between">
+        <div
+          className={`rounded-3xl main-shadow h-[360px] bg-concern p-9 ${calculateWidth} flex flex-col gap-9`}
+        >
+          <span className="text-32 font-bold leading-[56px]">
+            1년차 프론트엔드 개발자의
+            <br />
+            고민거리
+          </span>
+          <button className="rounded-3xl bg-black py-[9px] pl-[13px] w-[170px] text-white text-13 text-left">
+            작성자가 궁금하다면?
+          </button>
+        </div>
+        <div
+          className={`rounded-3xl main-shadow h-[360px] p-9 ${calculateWidth}`}
+        ></div>
+      </section>
     </main>
   );
 }

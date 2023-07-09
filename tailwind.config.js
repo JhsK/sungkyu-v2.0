@@ -140,9 +140,10 @@ module.exports = {
     },
     caretColor: ({ theme }) => theme('colors'),
     colors: ({ colors }) => ({
-      background: '#FCFCFC',
-      navBorder: '#F2F4F7',
+      background: '#FCFCFC', // 기본 페이지 배경 색상
+      navBorder: '#F2F4F7', // 메뉴 바 하단 테두리 색상
       badgeGray: '#EEE',
+      concern: '#F4F4F4', // 프론트엔드 개발자 고민거리
       main: '#FFCC00', // 레거시 컬러로 추후 제거 필요.
       title: '#333d4b', // 레거시 컬러로 추후 제거 필요.
       description: '#4e5968',
@@ -367,6 +368,7 @@ module.exports = {
       '9xl': ['8rem', { lineHeight: '1' }],
       13: ['0.813rem', { lineHeight: 'normal' }], // 13px;
       22: ['1.375rem', { lineHeight: '1.75rem' }], // 22px;
+      32: ['2rem', { lineHeight: '2.5rem' }], // 32px;
     },
     fontWeight: {
       thin: '100',
