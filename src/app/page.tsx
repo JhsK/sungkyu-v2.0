@@ -82,8 +82,11 @@ export default async function HomePage() {
           </button>
         </div>
         <div
-          className={`rounded-3xl main-shadow h-[360px] p-9 ${calculateWidth}`}
+          className={`rounded-3xl main-shadow h-[360px] p-9 ${calculateWidth} flex flex-col gap-6`}
         >
+          <span className="text-32 font-bold leading-[56px]">
+            이걸 누가 보러 와?
+          </span>
           <VisitorChart
             visitor={visitor.map((visit) => Number(visit[1]))}
             pageViews={pageViews.map((view) => Number(view[1]))}
