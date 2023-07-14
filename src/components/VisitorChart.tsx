@@ -70,6 +70,7 @@ const VisitorChart = ({ visitor, pageViews }: VisitorChartProps) => {
     plugins: {
       legend: {
         position: 'top' as const,
+        align: 'end' as const,
       },
     },
   };
