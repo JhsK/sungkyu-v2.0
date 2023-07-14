@@ -92,7 +92,26 @@ const VisitorChart = ({ visitor, pageViews }: VisitorChartProps) => {
       },
     ],
   };
-  return <Line options={options} data={data} />;
+
+  const plugin = {
+    id: 'increase-legend-spacing',
+    beforeInit(chart: any) {
+      // Get reference to the original fit functin
+      const originalFit = chart.legend.fit;
+
+      // Override the fit function
+      chart.legend.fit = function fit() {
+        // Call original function and bind scope in order to use `this` correctly inside it
+        originalFit.bind(chart.legend)();
+        // Change the height as suggested in another answers
+        this.height += 20;
+      };
+    },
+  };
+
+  return (
+    <Line height="100%" plugins={[plugin]} options={options} data={data} />
+  );
 };
 
 export default VisitorChart;
