@@ -79,16 +79,16 @@ const VisitorChart = ({ visitor, pageViews }: VisitorChartProps) => {
     labels,
     datasets: [
       {
-        label: '방문자 수',
-        data: visitor,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
         label: '페이지 뷰 수',
         data: pageViews,
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        borderColor: 'rgba(39, 172, 238, 1)',
+        backgroundColor: 'rgba(39, 172, 238, 0.5)',
+      },
+      {
+        label: '방문자 수',
+        data: visitor,
+        borderColor: 'rgba(252, 187, 69, 1)',
+        backgroundColor: 'rgba(252, 187, 69, 0.5)',
       },
     ],
   };
