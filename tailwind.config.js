@@ -140,6 +140,8 @@ module.exports = {
     },
     caretColor: ({ theme }) => theme('colors'),
     colors: ({ colors }) => ({
+      footerText: '#98A2B3', // footer에서 사용하는 폰트 컬러
+      footerBorder: '#EAECF0', // footer에서 사용하는 테두리 색상
       background: '#FCFCFC', // 기본 페이지 배경 색상
       navBorder: '#F2F4F7', // 메뉴 바 하단 테두리 색상
       badgeGray: '#EEE',

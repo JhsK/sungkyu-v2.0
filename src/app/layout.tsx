@@ -3,6 +3,7 @@ import ThemeProvider from '@/components/ThemeProvider';
 import Script from 'next/script';
 
 import '../scss/common.scss';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Sungkyu blog',
@@ -46,6 +47,7 @@ export default function RootLayout({
         </ThemeProvider> */}
         <Nav />
         <div className="max-w-[1440px] my-0 mx-auto">{children}</div>
+        <Footer />
       </body>
     </html>
   );
