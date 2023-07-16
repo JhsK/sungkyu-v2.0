@@ -1,10 +1,12 @@
+import Link from 'next/link';
 import React, { lazy } from 'react';
 
 interface IconProps {
   name: string;
+  profileUrl: string;
 }
 
-const Icon = ({ name }: IconProps) => {
+const Icon = ({ name, profileUrl }: IconProps) => {
   const IconComponent = lazy(
     () => import(`../../public/assets/icons/${name}.svg`)
   );
@@ -12,9 +14,9 @@ const Icon = ({ name }: IconProps) => {
   if (!IconComponent) return null;
 
   return (
-    <div className="cursor-pointer">
+    <Link href={profileUrl} className="cursor-pointer">
       <IconComponent />
-    </div>
+    </Link>
   );
 };
 
