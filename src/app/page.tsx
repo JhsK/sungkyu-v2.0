@@ -7,7 +7,7 @@ import '../index.css';
 import PostItem from '@/components/Post/PostItem';
 import VisitorChart from '@/components/VisitorChart';
 import { getServiceVistior, getServiePageView } from '@/server/statistic';
-import { SOCIAL_ICONS } from '@/const';
+import { PROFILE_URL, SOCIAL_ICONS } from '@/const';
 import Icon from '@/components/Icon';
 
 export default async function HomePage() {
@@ -18,6 +18,12 @@ export default async function HomePage() {
   const lastPostLeft = [1, 2, 3, 4];
   const lastPostRight = [1, 2, 3];
   const calculateWidth = 'w-[calc(50%-18px)]';
+
+  const renderIcon = (icon: string, index: number) => {
+    const profileUrlKey = Object.entries(SOCIAL_ICONS)[index][0];
+
+    return <Icon name={icon} profileUrl={PROFILE_URL[profileUrlKey]} />;
+  };
 
   return (
     <main className="pt-16 flex flex-col gap-9">
@@ -30,9 +36,9 @@ export default async function HomePage() {
       <section className="h-[116px] rounded-2xl bg-white main-shadow px-9 flex items-center justify-between">
         <h2 className="m-0 text-3xl font-bold">내가 개발자가 될 상인가.</h2>
         <div className="flex item-center space-x-2">
-          {SOCIAL_ICONS.map((icon) => (
-            <Icon name={icon} />
-          ))}
+          {Object.values(SOCIAL_ICONS).map((icon, index) =>
+            renderIcon(icon, index)
+          )}
         </div>
       </section>
       <section className="flex justify-between w-full">

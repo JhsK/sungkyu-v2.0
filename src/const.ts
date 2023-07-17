@@ -4,23 +4,22 @@ const LINKEDIN_PROFILE =
 const FACEBOOK_PROFILE =
   'https://www.facebook.com/profile.php?id=100006485132348';
 
-export const PROFILE_URL = {
+export const PROFILE_URL: { [key: string]: string } = {
   github: GITHUB_PROFILE,
   linkedIn: LINKEDIN_PROFILE,
   facebook: FACEBOOK_PROFILE,
+  twitter: GITHUB_PROFILE,
 };
 
-export const SOCIAL_ICONS = [
-  'linkedin_color',
-  'linkedin_color',
-  'gmail_color',
-  'instagram_color',
-];
+export const SOCIAL_ICONS = {
+  linkedIn: 'linkedin_color',
+  gmail: 'gmail_color',
+  instargram: 'instagram_color',
+};
 
-export const FOOTER_ICONS = [
-  'twitter',
-  'linkedin',
-  'facebook',
-  'github',
-  'github',
-];
+export const FOOTER_ICONS = {
+  twitter: 'twitter',
+  linkedIn: 'linkedin',
+  facebook: 'facebook',
+  github: 'github',
+};
