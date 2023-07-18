@@ -72,7 +72,9 @@ export default async function HomePage() {
             ))}
           </div>
         </div>
-        <div className={`${calculateWidth} h-[582px] rounded-2xl main-shadow`}>
+        <div
+          className={`${calculateWidth} h-[582px] rounded-2xl main-shadow sticky top-[50px]`}
+        >
           <PostItem
             category="프론트엔드"
             style={{ content: 'w-full h-[228px]', image: 'h-[354px]' }}
