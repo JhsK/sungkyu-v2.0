@@ -7,8 +7,9 @@ import '../index.css';
 import PostItem from '@/components/Post/PostItem';
 import VisitorChart from '@/components/VisitorChart';
 import { getServiceVistior, getServiePageView } from '@/server/statistic';
-import { PROFILE_URL, SOCIAL_ICONS } from '@/const';
+import { MAIN_INTRO_TEXT, PROFILE_URL, SOCIAL_ICONS } from '@/const';
 import Icon from '@/components/Icon';
+import { getRandomNumber } from '@/lib/heler';
 
 export default async function HomePage() {
   const posts = getPostsList({ limit: 5, category: 'all' });
@@ -34,7 +35,9 @@ export default async function HomePage() {
         <div className="pb-6" />
       </div> */}
       <section className="h-[116px] rounded-2xl bg-white main-shadow px-9 flex items-center justify-between">
-        <h2 className="m-0 text-3xl font-bold">내가 개발자가 될 상인가.</h2>
+        <h2 className="m-0 text-3xl font-bold">
+          {MAIN_INTRO_TEXT[getRandomNumber(0, MAIN_INTRO_TEXT.length)]}
+        </h2>
         <div className="flex item-center space-x-2">
           {Object.values(SOCIAL_ICONS).map((icon, index) =>
             renderIcon(icon, index)

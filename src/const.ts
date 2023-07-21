@@ -26,7 +26,7 @@ export const FOOTER_ICONS = {
   github: 'github',
 };
 
-const MAIN_INTRO_TEXT = [
+export const MAIN_INTRO_TEXT = [
   '내가 개발자가 될 상인가.',
   '이번주까지 가능하죠? - 안돼요...',
   '개발자가 되었다 - 어쩌다가..?',
