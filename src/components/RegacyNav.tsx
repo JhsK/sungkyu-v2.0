@@ -1,5 +1,4 @@
 'use client';
-import { GITHUB_PROFILE, LINKEDIN_PROFILE } from '@/const';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
@@ -88,7 +87,7 @@ const RegacyNav = () => {
                     </div>
                     <div className="mx-4 mt-0.5 opacity-20 font-thin">|</div>
                     <div className="flex">
-                      <Link href="https://sungkyu.info" target="_blank">
+                      {/* <Link href="https://sungkyu.info" target="_blank">
                         <RxGithubLogo
                           size={24}
                           className="flex cursor-pointer items-center opacity-50 mr-4 hover:opacity-100"
@@ -99,7 +98,7 @@ const RegacyNav = () => {
                           size={24}
                           className="flex cursor-pointer items-center opacity-50 hover:opacity-100"
                         />
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                   <div className="-mr-2 flex md:hidden">
