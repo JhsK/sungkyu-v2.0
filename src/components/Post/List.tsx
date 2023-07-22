@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { AllPostsData } from '@/lib/type';
+import { PostList } from '@/lib/type';
 
 interface ListProps {
-  posts: AllPostsData[];
+  posts: PostList[];
 }
 
 const List = ({ posts }: ListProps) => {
