@@ -4,9 +4,10 @@ import React, { lazy } from 'react';
 interface IconProps {
   name: string;
   profileUrl?: string;
+  self?: boolean;
 }
 
-const Icon = ({ name, profileUrl }: IconProps) => {
+const Icon = ({ name, profileUrl, self }: IconProps) => {
   const IconComponent = lazy(
     () => import(`../../public/assets/icons/${name}.svg`)
   );
@@ -14,7 +15,11 @@ const Icon = ({ name, profileUrl }: IconProps) => {
   if (!IconComponent) return null;
 
   return (
-    <Link href={profileUrl || '#'} target="_blank" className="cursor-pointer">
+    <Link
+      href={profileUrl || '#'}
+      target={self ? '_self' : '_blank'}
+      className="cursor-pointer"
+    >
       <IconComponent />
     </Link>
   );
