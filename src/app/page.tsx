@@ -12,7 +12,7 @@ import Icon from '@/components/Icon';
 import { getRandomNumber } from '@/lib/heler';
 
 export default async function HomePage() {
-  const posts = getPostsList({ limit: 5, category: 'all' });
+  const postList = getPostsList({ limit: 8, category: 'all' });
   const visitor = (await getServiceVistior()) as Array<any>;
   const pageViews = (await getServiePageView()) as Array<any>;
 
@@ -24,6 +24,20 @@ export default async function HomePage() {
     const profileUrlKey = Object.entries(SOCIAL_ICONS)[index][0];
 
     return <Icon name={icon} profileUrl={PROFILE_URL[profileUrlKey]} />;
+  };
+
+  const latestPostRender = () => {
+    return (
+      <div
+        className={`${calculateWidth} h-[582px] rounded-2xl main-shadow sticky top-[50px]`}
+      >
+        <PostItem
+          post={postList[0]}
+          imageView
+          style={{ content: 'w-full h-[228px]', image: 'h-[354px]' }}
+        />
+      </div>
+    );
   };
 
   return (
@@ -50,15 +64,15 @@ export default async function HomePage() {
             {lastPostLeft.map((post, index) =>
               index === 0 || index === lastPostLeft.length - 1 ? (
                 <PostItem
-                  category="프론트엔드"
+                  post={postList[0]}
                   style={{ content: 'w-full h-[195px]' }}
                   key={index}
                 />
               ) : (
                 <PostItem
-                  category="프론트엔드"
+                  post={postList[0]}
+                  imageView
                   style={{ content: 'w-full h-[195px]', image: 'h-[168px]' }}
-                  image="test"
                   key={index}
                 />
               )
@@ -67,23 +81,15 @@ export default async function HomePage() {
           <div className={`${calculateWidth} flex flex-col gap-y-9`}>
             {lastPostRight.map((post, index) => (
               <PostItem
-                category="프론트엔드"
+                post={postList[0]}
+                imageView
                 style={{ content: 'w-full h-[195px]', image: 'h-[168px]' }}
-                image="test"
                 key={index}
               />
             ))}
           </div>
         </div>
-        <div
-          className={`${calculateWidth} h-[582px] rounded-2xl main-shadow sticky top-[50px]`}
-        >
-          <PostItem
-            category="프론트엔드"
-            style={{ content: 'w-full h-[228px]', image: 'h-[354px]' }}
-            image={'test'}
-          />
-        </div>
+        {latestPostRender()}
       </section>
       <section className="flex items-center justify-between">
         <div

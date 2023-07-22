@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { AllPostsData, GetPostListsParams } from './type';
+import { GetPostListsParams, PostList } from './type';
 
 const postsDirectory = path.join(process.cwd(), '/src/posts');
 
@@ -30,22 +30,20 @@ export const getPostsList = ({ limit, category }: GetPostListsParams) => {
   const fileNames = limit
     ? fs.readdirSync(postsDirectory).slice(0, limit)
     : fs.readdirSync(postsDirectory);
-  const allPostsData: AllPostsData[] = fileNames.map((fileName) => {
+  const postList = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
+    const list = { id, ...matterResult.data } as PostList;
 
-    return {
-      id,
-      ...matterResult.data,
-    };
+    return list;
   });
 
   if (category === 'all') {
-    return allPostsData.reverse();
+    return postList.reverse();
   } else {
-    return allPostsData.filter((post) => post.category === category).reverse();
+    return postList.filter((post) => post.category === category).reverse();
   }
 };
 

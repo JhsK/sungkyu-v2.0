@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import CategoryBadge from './CategoryBadge';
 import { twMerge } from 'tailwind-merge';
+import { PostList } from '@/lib/type';
 
 type PostItemStyle = {
   content?: string;
@@ -9,13 +10,13 @@ type PostItemStyle = {
 };
 
 interface PostItemProps {
-  image?: string;
+  post: PostList;
+  imageView?: boolean;
   imageHeight?: string;
   style?: PostItemStyle;
-  category: string;
 }
 
-const PostItem = ({ image, imageHeight, style, category }: PostItemProps) => {
+const PostItem = ({ post, imageView, imageHeight, style }: PostItemProps) => {
   const notImagePostItem = () => {
     return (
       <div
@@ -27,13 +28,11 @@ const PostItem = ({ image, imageHeight, style, category }: PostItemProps) => {
       >
         <div className="flex flex-col gap-[22px]">
           <div>
-            <CategoryBadge>{category}</CategoryBadge>
+            <CategoryBadge>{post.category}</CategoryBadge>
           </div>
-          <strong className="text-22 font-semibold">
-            Lorem ipsum dolor sit amet consectetur
-          </strong>
+          <strong className="text-22 font-semibold">{post.title}</strong>
         </div>
-        <span>test</span>
+        <span>{post.description}</span>
       </div>
     );
   };
@@ -49,26 +48,24 @@ const PostItem = ({ image, imageHeight, style, category }: PostItemProps) => {
         >
           <div className="flex flex-col gap-[22px]">
             <div>
-              <CategoryBadge>{category}</CategoryBadge>
+              <CategoryBadge>{post.category}</CategoryBadge>
             </div>
-            <strong className="text-22 font-semibold">
-              Lorem ipsum dolor sit amet consectetur
-            </strong>
+            <strong className="text-22 font-semibold">{post.title}</strong>
           </div>
-          <span>test</span>
+          <span>{post.description}</span>
         </div>
         <div className={twMerge('relative w-full h-[168px]', style?.image)}>
           <Image
             alt="post sumnail"
             className="rounded-b-3xl"
             fill
-            src="https://s3.ap-northeast-2.amazonaws.com/sungkyu.info/__Hello__+World+(1).png"
+            src={post.image}
           />
         </div>
       </div>
     );
   };
-  return <>{image ? imagePostItem() : notImagePostItem()}</>;
+  return <>{imageView ? imagePostItem() : notImagePostItem()}</>;
 };
 
 export default PostItem;

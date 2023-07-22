@@ -1,9 +1,14 @@
 import { CategoryType } from '@/types';
 
-export type AllPostsData = {
+export interface PostList {
   id: string;
-  [key: string]: any;
-};
+  image: string;
+  category: string;
+  tag: string;
+  title: string;
+  description: string;
+  date: string;
+}
 
 export interface GetPostListsParams {
   limit?: number;
