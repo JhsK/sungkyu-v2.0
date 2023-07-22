@@ -1,6 +1,4 @@
-import { Banner } from '@/components/Banner';
 import { Category } from '@/components/Category';
-import { List } from '@/components/Post/List';
 import { getPostsList } from '@/lib/markdown';
 import { CategoryType } from '@/types';
 
@@ -19,11 +17,7 @@ const PostCategoryList = ({ params }: { params: CategoryListParams }) => {
 
   return (
     <>
-      <Banner />
-      <div className="max-w-3xl mx-auto">
-        <Category activeCategory={params.category} />
-        <List posts={posts} />
-      </div>
+      <div>test</div>
     </>
   );
 };

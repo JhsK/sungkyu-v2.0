@@ -1,5 +1,4 @@
 import Nav from '@/components/Nav';
-import ThemeProvider from '@/components/ThemeProvider';
 import Script from 'next/script';
 
 import '../scss/common.scss';
@@ -41,10 +40,6 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background">
-        {/* <ThemeProvider>
-          <Nav />
-          {children}
-        </ThemeProvider> */}
         <Nav />
         <div className="max-w-[1440px] my-0 mx-auto">{children}</div>
         <Footer />

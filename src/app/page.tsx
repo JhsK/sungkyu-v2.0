@@ -1,15 +1,11 @@
-import React, { Suspense } from 'react';
-import { getPostsList } from '@/lib/markdown';
-import { Banner } from '@/components/Banner';
-import { Category } from '@/components/Category';
-import { List } from '@/components/Post/List';
-import '../index.css';
+import Icon from '@/components/Icon';
 import PostItem from '@/components/Post/PostItem';
 import VisitorChart from '@/components/VisitorChart';
-import { getServiceVistior, getServiePageView } from '@/server/statistic';
 import { MAIN_INTRO_TEXT, PROFILE_URL, SOCIAL_ICONS } from '@/const';
-import Icon from '@/components/Icon';
 import { getRandomNumber } from '@/lib/heler';
+import { getPostsList } from '@/lib/markdown';
+import { getServiceVistior, getServiePageView } from '@/server/statistic';
+import '../index.css';
 
 export default async function HomePage() {
   const postList = getPostsList({ limit: 8, category: 'all' });
@@ -42,12 +38,6 @@ export default async function HomePage() {
 
   return (
     <main className="pt-16 flex flex-col gap-9">
-      {/* <Banner />
-      <div className="max-w-3xl mx-auto">
-        <Category activeCategory="all" />
-        <List posts={posts} />
-        <div className="pb-6" />
-      </div> */}
       <section className="h-[116px] rounded-2xl bg-white main-shadow px-9 flex items-center justify-between">
         <h2 className="m-0 text-3xl font-bold">
           {MAIN_INTRO_TEXT[getRandomNumber(0, MAIN_INTRO_TEXT.length)]}
@@ -100,8 +90,9 @@ export default async function HomePage() {
             <br />
             고민거리
           </span>
-          <button className="rounded-3xl bg-black py-[9px] pl-[13px] w-[170px] text-white text-13 text-left">
-            작성자가 궁금하다면?
+          <button className="flex items-center rounded-3xl bg-black py-[9px] pl-[13px] w-[170px] text-white text-13 text-left">
+            <span className="mr-3">작성자가 궁금하다면?</span>
+            <Icon name="carbon_arrow-right" />
           </button>
         </div>
         <div
