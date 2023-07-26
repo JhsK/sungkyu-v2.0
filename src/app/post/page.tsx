@@ -1,4 +1,7 @@
+import CategoryBadge from '@/components/Post/CategoryBadge';
 import React from 'react';
+
+const mockCategory = ['프론트엔드', '디자인', '알고리즘', '개인'];
 
 const PostListPage = () => {
   return (
@@ -8,7 +11,14 @@ const PostListPage = () => {
         <span>개발자의 고민거리</span>
       </h3>
       <article>
-        <div className="flex items-center justify-between">test</div>
+        <div className="flex items-center justify-between">
+          <div>
+            {mockCategory.map((category) => (
+              <CategoryBadge key={category}>{category}</CategoryBadge>
+            ))}
+          </div>
+          <span>드롭다운</span>
+        </div>
       </article>
     </div>
   );
