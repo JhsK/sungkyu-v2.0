@@ -26,7 +26,7 @@ const PostListPage = () => {
           </div>
           <span>드롭다운</span>
         </div>
-        <div className="flex items-center flex-wrap gap-[5%]">
+        <div className="flex items-center flex-wrap gap-[5%] space-y-9">
           {postList.map((post) => (
             <PostItem
               post={post}

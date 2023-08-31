@@ -22,7 +22,7 @@ const PostItem = ({ post, imageView, imageHeight, style }: PostItemProps) => {
       <div
         className={twMerge(
           `p-6 rounded-3xl 
-          main-shadow flex flex-col justify-between w-[292px] h-[192px] cursor-pointer`,
+          post-shadow flex flex-col justify-between w-[292px] h-[192px] cursor-pointer`,
           style?.content
         )}
       >
@@ -39,7 +39,7 @@ const PostItem = ({ post, imageView, imageHeight, style }: PostItemProps) => {
 
   const imagePostItem = () => {
     return (
-      <div className="rounded-3xl main-shadow cursor-pointer">
+      <div className="rounded-3xl post-shadow cursor-pointer">
         <div
           className={twMerge(
             'p-6 flex flex-col justify-between w-[292px] h-[192px]',

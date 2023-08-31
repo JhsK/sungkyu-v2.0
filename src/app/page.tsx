@@ -40,7 +40,7 @@ export default async function HomePage() {
     <main className="pt-16 flex flex-col gap-9">
       <section className="h-[116px] rounded-2xl bg-white main-shadow px-9 flex items-center justify-between">
         <h2 className="m-0 text-3xl font-bold">
-          {MAIN_INTRO_TEXT[getRandomNumber(0, MAIN_INTRO_TEXT.length)]}
+          {MAIN_INTRO_TEXT[getRandomNumber(0, MAIN_INTRO_TEXT.length - 1)]}
         </h2>
         <div className="flex item-center space-x-2">
           {Object.values(SOCIAL_ICONS).map((icon, index) =>
