@@ -9,7 +9,7 @@ interface IconProps {
 
 const Icon = ({ name, profileUrl, self }: IconProps) => {
   const IconComponent = lazy(
-    () => import(`../../public/assets/icons/${name}.svg`)
+    () => import(`../../../public/assets/icons/${name}.svg`)
   );
 
   if (!IconComponent) return null;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from './Icon';
+import Icon from './common/Icon';
 import { FOOTER_ICONS, PROFILE_URL } from '@/const';
 
 const Footer = () => {

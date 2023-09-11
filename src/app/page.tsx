@@ -1,4 +1,4 @@
-import Icon from '@/components/Icon';
+import Icon from '@/components/common/Icon';
 import PostItem from '@/components/Post/PostItem';
 import VisitorChart from '@/components/VisitorChart';
 import { MAIN_INTRO_TEXT, PROFILE_URL, SOCIAL_ICONS } from '@/const';

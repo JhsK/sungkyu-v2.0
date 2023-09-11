@@ -11,7 +11,6 @@
   "dependencies": {
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.18",
-    "@nextui-org/react": "^2.1.12",
     "@types/node": "18.16.0",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",
@@ -22,7 +21,8 @@
     "encoding": "^0.1.13",
     "eslint": "8.39.0",
     "eslint-config-next": "^13.4.19",
-    "framer-motion": "^10.16.4",
+    "flowbite": "^1.8.1",
+    "flowbite-react": "^0.6.0",
     "googleapis": "^120.0.0",
     "gray-matter": "^4.0.3",
     "next": "^13.4.19",
