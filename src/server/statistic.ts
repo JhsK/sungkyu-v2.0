@@ -31,7 +31,7 @@ export const getServiceVistior = async () => {
     return response.data.rows;
   } catch (err) {
     console.error(err);
-    console.error('auth', process.env.GOOGLE_CLIENT_EMAIL);
+    console.error('auth222', process.env.GOOGLE_CLIENT_EMAIL);
   }
 };
 

@@ -15,8 +15,9 @@ new_version="${version_parts[0]}.${version_parts[1]}.$new_last_part"
 jq ".version = \"$new_version\"" package.json > tmp.json && mv tmp.json package.json
 
 # 변경 사항을 커밋합니다.
+git pull origin main
 git add .
 git commit -m "v$new_version"
-git push origin main
+git push
 git tag "v$new_version"
 git push --tag
