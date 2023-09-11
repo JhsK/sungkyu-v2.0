@@ -2,6 +2,7 @@ import Nav from '@/components/Nav';
 import Script from 'next/script';
 
 import '../scss/common.scss';
+import './globals.css';
 import Footer from '@/components/Footer';
 
 export const metadata = {

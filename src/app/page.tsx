@@ -5,7 +5,6 @@ import { MAIN_INTRO_TEXT, PROFILE_URL, SOCIAL_ICONS } from '@/const';
 import { getRandomNumber } from '@/lib/heler';
 import { getPostsList } from '@/lib/markdown';
 import { getServiceVistior, getServiePageView } from '@/server/statistic';
-import '../index.css';
 
 export default async function HomePage() {
   const postList = getPostsList({ limit: 8, category: 'all' });
