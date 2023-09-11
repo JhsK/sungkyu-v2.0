@@ -1,6 +1,6 @@
 {
   "name": "sungkyu-v2.0",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -23,6 +23,7 @@
     "eslint-config-next": "^13.4.19",
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.6.0",
+    "framer-motion": "^10.16.4",
     "googleapis": "^120.0.0",
     "gray-matter": "^4.0.3",
     "next": "^13.4.19",
