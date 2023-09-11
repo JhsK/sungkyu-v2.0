@@ -4,6 +4,7 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    //   '!./node_modules',
   ],
   presets: [],
   darkMode: 'class', // or 'class'
@@ -206,9 +207,9 @@ module.exports = {
       '7xl': '80rem',
     },
     container: {},
-    content: {
-      none: 'none',
-    },
+    // content: {
+    //   none: 'none',
+    // },
     contrast: {
       0: '0',
       50: '.5',
