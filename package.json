@@ -1,6 +1,6 @@
 {
   "name": "sungkyu-v2.0",
-  "version": "",
+  "version": "0.0.18",
   "private": true,
   "scripts": {
     "dev": "next dev",
