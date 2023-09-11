@@ -40,7 +40,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-background">
+      <body>
         <Nav />
         <div className="max-w-[1440px] my-0 mx-auto">{children}</div>
         <Footer />

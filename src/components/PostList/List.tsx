@@ -22,7 +22,7 @@ const List = ({ postList }: ListProps) => {
               <CategoryBadge key={category}>{category}</CategoryBadge>
             ))}
           </div>
-          <Dropdown label="Dropdown button">
+          <Dropdown label="test" renderTrigger={() => <div>ggggg</div>}>
             <Dropdown.Item>Dashboard</Dropdown.Item>
             <Dropdown.Item>Settings</Dropdown.Item>
             <Dropdown.Item>Earnings</Dropdown.Item>
