@@ -7,6 +7,7 @@ import { getPostsList } from '@/lib/markdown';
 import { getServiceVistior, getServiePageView } from '@/server/statistic';
 
 export default async function HomePage() {
+  console.log('auth', process.env.GOOGLE_CLIENT_EMAIL);
   const postList = getPostsList({ limit: 8, category: 'all' });
   const visitor = (await getServiceVistior()) as Array<any>;
   const pageViews = (await getServiePageView()) as Array<any>;
