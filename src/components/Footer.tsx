@@ -6,7 +6,9 @@ const Footer = () => {
   const renderIcon = (icon: string, index: number) => {
     const profileUrlKey = Object.entries(FOOTER_ICONS)[index][0];
 
-    return <Icon name={icon} profileUrl={PROFILE_URL[profileUrlKey]} />;
+    return (
+      <Icon name={icon} key={icon} profileUrl={PROFILE_URL[profileUrlKey]} />
+    );
   };
 
   return (

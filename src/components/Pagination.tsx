@@ -17,7 +17,7 @@ const Pagination = ({
     <div className={`w-full flex ${center && 'justify-center'}`}>
       <ul className="inline-flex -space-x-px text-sm">
         {pageArray.map((page, index) => (
-          <li>
+          <li key={index}>
             <a
               // onClick={() => onPageChange(page)}
               href="#"
