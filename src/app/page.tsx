@@ -1,13 +1,20 @@
-import Icon from '@/components/common/Icon';
+import {
+  GithubColorIcon,
+  GithubIcon,
+  GmailColorIcon,
+  InstargramColorIcon,
+  LinkedinColorIcon,
+} from '@/components/common/Icon';
+import Icon from '@/components/common/Icon-regecy';
 import PostItem from '@/components/Post/PostItem';
 import VisitorChart from '@/components/VisitorChart';
-import { MAIN_INTRO_TEXT, PROFILE_URL, SOCIAL_ICONS } from '@/const';
+import { MAIN_INTRO_TEXT, PROFILE_URL } from '@/const';
 import { getRandomNumber } from '@/lib/heler';
 import { getPostsList } from '@/lib/markdown';
 import { getServiceVistior, getServiePageView } from '@/server/statistic';
+import Link from 'next/link';
 
 export default async function HomePage() {
-  console.log('auth111', process.env.GOOGLE_CLIENT_EMAIL);
   const postList = getPostsList({ limit: 8, category: 'all' });
   const visitor = (await getServiceVistior()) as Array<any>;
   const pageViews = (await getServiePageView()) as Array<any>;
@@ -16,13 +23,24 @@ export default async function HomePage() {
   const lastPostRight = [1, 2, 3];
   const calculateWidth = 'w-[calc(50%-18px)]';
 
-  const renderIcon = (icon: string, index: number) => {
-    const profileUrlKey = Object.entries(SOCIAL_ICONS)[index][0];
-
-    return (
-      <Icon name={icon} key={icon} profileUrl={PROFILE_URL[profileUrlKey]} />
-    );
-  };
+  const renderIcon = [
+    {
+      component: <GithubColorIcon />,
+      url: PROFILE_URL.github,
+    },
+    {
+      component: <LinkedinColorIcon />,
+      url: PROFILE_URL.linkedIn,
+    },
+    {
+      component: <GmailColorIcon />,
+      url: PROFILE_URL.gmail,
+    },
+    {
+      component: <InstargramColorIcon />,
+      url: PROFILE_URL.instargram,
+    },
+  ];
 
   const latestPostRender = () => {
     return (
@@ -45,9 +63,11 @@ export default async function HomePage() {
           {MAIN_INTRO_TEXT[getRandomNumber(0, MAIN_INTRO_TEXT.length - 1)]}
         </h2>
         <div className="flex item-center space-x-2">
-          {Object.values(SOCIAL_ICONS).map((icon, index) =>
-            renderIcon(icon, index)
-          )}
+          {renderIcon.map((icon) => (
+            <Link href={icon.url} target="_blank" className="cursor-pointer">
+              {icon.component}
+            </Link>
+          ))}
         </div>
       </section>
       <section className="flex justify-between w-full">

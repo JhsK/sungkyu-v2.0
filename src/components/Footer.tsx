@@ -1,24 +1,44 @@
 import React from 'react';
-import Icon from './common/Icon';
-import { FOOTER_ICONS, PROFILE_URL } from '@/const';
+import { PROFILE_URL } from '@/const';
+import {
+  GithubIcon,
+  GmailIcon,
+  InstargramIcon,
+  LinkedinIcon,
+} from './common/Icon';
+import Link from 'next/link';
 
 const Footer = () => {
-  const renderIcon = (icon: string, index: number) => {
-    const profileUrlKey = Object.entries(FOOTER_ICONS)[index][0];
-
-    return (
-      <Icon name={icon} key={icon} profileUrl={PROFILE_URL[profileUrlKey]} />
-    );
-  };
+  const colorAndHover = 'text-[#98A2B3] hover:text-[#474747]';
+  const renderIcon = [
+    {
+      component: <GithubIcon className={colorAndHover} />,
+      url: PROFILE_URL.github,
+    },
+    {
+      component: <LinkedinIcon className={colorAndHover} />,
+      url: PROFILE_URL.linkedIn,
+    },
+    {
+      component: <GmailIcon className={`w-6 h-6 ${colorAndHover}`} />,
+      url: PROFILE_URL.gmail,
+    },
+    {
+      component: <InstargramIcon className={`w-6 h-6 ${colorAndHover}`} />,
+      url: PROFILE_URL.instargram,
+    },
+  ];
 
   return (
     <footer className="h-52 border-footerBorder border-t pt-8 mt-24 max-w-[1350px] mx-auto">
       <div className="flex items-center justify-between">
         <span className="text-footerText">Copyright © 2023 Sungkyu Lim</span>
         <div className="flex items-center space-x-6">
-          {Object.values(FOOTER_ICONS).map((icon, index) =>
-            renderIcon(icon, index)
-          )}
+          {renderIcon.map((icon) => (
+            <Link href={icon.url} target="_blank" className="cursor-pointer">
+              {icon.component}
+            </Link>
+          ))}
         </div>
       </div>
     </footer>

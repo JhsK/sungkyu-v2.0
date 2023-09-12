@@ -5,6 +5,7 @@ import PostItem from '../Post/PostItem';
 import { PostList } from '@/lib/type';
 import Pagination from '../common/Pagination';
 import { Dropdown } from 'flowbite-react';
+import Icon from '../common/Icon-regecy';
 
 interface ListProps {
   postList: PostList[];
@@ -22,12 +23,23 @@ const List = ({ postList }: ListProps) => {
               <CategoryBadge key={category}>{category}</CategoryBadge>
             ))}
           </div>
-          <Dropdown label="test" renderTrigger={() => <div>ggggg</div>}>
+          <div>
+            <Icon name="facebook" />
+          </div>
+          {/* <Dropdown
+            label="test"
+            renderTrigger={() => (
+              <div className="bg-badgeGray rounded-3xl text-13 py-[9px] px-[13px] inline">
+                <span>test</span>
+                <Icon name="arrow_bottom" />
+              </div>
+            )}
+          >
             <Dropdown.Item>Dashboard</Dropdown.Item>
             <Dropdown.Item>Settings</Dropdown.Item>
             <Dropdown.Item>Earnings</Dropdown.Item>
             <Dropdown.Item>Sign out</Dropdown.Item>
-          </Dropdown>
+          </Dropdown> */}
         </div>
         <div className="flex items-center flex-wrap gap-[5%] space-y-9">
           {postList.map((post) => (

@@ -4,13 +4,15 @@ const LINKEDIN_PROFILE =
 const FACEBOOK_PROFILE =
   'https://www.facebook.com/profile.php?id=100006485132348';
 const MAIL_PROFILE = 'mailto:qwe6293@nate.com';
+const INSTARGRAMP_PROFILE = 'https://www.instagram.com/sung_kyu98/';
 
-export const PROFILE_URL: { [key: string]: string } = {
+export const PROFILE_URL = {
   github: GITHUB_PROFILE,
   linkedIn: LINKEDIN_PROFILE,
   gmail: MAIL_PROFILE,
   facebook: FACEBOOK_PROFILE,
   twitter: GITHUB_PROFILE,
+  instargram: INSTARGRAMP_PROFILE,
 };
 
 export const SOCIAL_ICONS = {
@@ -38,3 +40,4 @@ export const MAIN_INTRO_TEXT = [
   '안돼네... - 왜?',
   '잘되네... - 왜?',
 ];
+// #98A2B3
