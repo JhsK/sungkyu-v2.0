@@ -1,11 +1,11 @@
 import {
+  ArrowRightIcon,
   GithubColorIcon,
   GithubIcon,
   GmailColorIcon,
   InstargramColorIcon,
   LinkedinColorIcon,
 } from '@/components/common/Icon';
-import Icon from '@/components/common/Icon-regecy';
 import PostItem from '@/components/Post/PostItem';
 import VisitorChart from '@/components/VisitorChart';
 import { MAIN_INTRO_TEXT, PROFILE_URL } from '@/const';
@@ -114,7 +114,7 @@ export default async function HomePage() {
           </span>
           <button className="flex items-center rounded-3xl bg-black py-[9px] pl-[13px] w-[170px] text-white text-13 text-left">
             <span className="mr-3">작성자가 궁금하다면?</span>
-            <Icon name="carbon_arrow-right" />
+            <ArrowRightIcon />
           </button>
         </div>
         <div

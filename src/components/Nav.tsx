@@ -1,5 +1,6 @@
 import React from 'react';
-import Icon from './common/Icon-regecy';
+import { AvatarIcon, StorageIcon } from './common/Icon';
+import Link from 'next/link';
 
 const Nav = () => {
   return (
@@ -7,8 +8,10 @@ const Nav = () => {
       <div className="flex justify-between items-center max-w-[1350px] h-full my-0 mx-auto">
         <h1 className="m-0">개발자로 살아남기</h1>
         <div className="flex items-center space-x-5">
-          <Icon name="carbon_archive" self profileUrl="/post" />
-          <Icon name="carbon_user-avatar" />
+          <Link href="/post" className="cursor-pointer">
+            <StorageIcon />
+          </Link>
+          <AvatarIcon />
         </div>
       </div>
     </div>

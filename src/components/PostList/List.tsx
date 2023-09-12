@@ -5,7 +5,6 @@ import PostItem from '../Post/PostItem';
 import { PostList } from '@/lib/type';
 import Pagination from '../common/Pagination';
 import { Dropdown } from 'flowbite-react';
-import Icon from '../common/Icon-regecy';
 
 interface ListProps {
   postList: PostList[];
@@ -22,9 +21,6 @@ const List = ({ postList }: ListProps) => {
             {mockCategory.map((category) => (
               <CategoryBadge key={category}>{category}</CategoryBadge>
             ))}
-          </div>
-          <div>
-            <Icon name="facebook" />
           </div>
           {/* <Dropdown
             label="test"
