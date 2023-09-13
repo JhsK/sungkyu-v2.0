@@ -4,10 +4,11 @@ import { motion, useScroll } from 'framer-motion';
 
 const ScrollProgress = () => {
   const { scrollYProgress } = useScroll();
+
   return (
     <motion.div
       style={{ scaleX: scrollYProgress }}
-      className="h-1 bg-slate-300 sticky top-[64px] w-full origin-left md:hidden"
+      className="h-1 w-screen bg-[#1b64f1] sticky ml-[-80px] top-[71px] origin-left"
     ></motion.div>
   );
 };

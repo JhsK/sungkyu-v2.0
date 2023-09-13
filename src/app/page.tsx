@@ -45,7 +45,7 @@ export default async function HomePage() {
   const latestPostRender = () => {
     return (
       <div
-        className={`${calculateWidth} h-[582px] rounded-2xl main-shadow sticky top-[50px]`}
+        className={`${calculateWidth} h-[582px] rounded-2xl main-shadow sticky top-[90px]`}
       >
         <PostItem
           post={postList[0]}
