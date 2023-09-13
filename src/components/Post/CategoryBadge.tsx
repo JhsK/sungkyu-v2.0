@@ -6,7 +6,7 @@ interface CategoryBadgeProps {
 
 const CategoryBadge = ({ children }: CategoryBadgeProps) => {
   return (
-    <div className="bg-badgeGray rounded-3xl text-13 py-[9px] px-[13px] inline">
+    <div className="bg-badgeGray rounded-3xl text-base py-[9px] px-[13px] inline cursor-pointer">
       {children}
     </div>
   );

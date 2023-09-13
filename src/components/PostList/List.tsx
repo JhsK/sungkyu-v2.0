@@ -5,6 +5,7 @@ import PostItem from '../Post/PostItem';
 import { PostList } from '@/lib/type';
 import Pagination from '../common/Pagination';
 import { Dropdown } from 'flowbite-react';
+import { ArrowBottomIcon } from '../common/Icon';
 
 interface ListProps {
   postList: PostList[];
@@ -22,22 +23,23 @@ const List = ({ postList }: ListProps) => {
               <CategoryBadge key={category}>{category}</CategoryBadge>
             ))}
           </div>
-          {/* <Dropdown
+          <Dropdown
             label="test"
             renderTrigger={() => (
-              <div className="bg-badgeGray rounded-3xl text-13 py-[9px] px-[13px] inline">
-                <span>test</span>
-                <Icon name="arrow_bottom" />
+              <div className="bg-badgeGray rounded-3xl py-[9px] px-4 w-32 flex items-center gap-[6px] cursor-pointer justify-between">
+                <span className="text-base font-medium">최신순</span>
+                <ArrowBottomIcon className="w-2.5 h-3" />
               </div>
             )}
+            className="rounded-lg bg-badgeGray w-32"
           >
-            <Dropdown.Item>Dashboard</Dropdown.Item>
-            <Dropdown.Item>Settings</Dropdown.Item>
-            <Dropdown.Item>Earnings</Dropdown.Item>
-            <Dropdown.Item>Sign out</Dropdown.Item>
-          </Dropdown> */}
+            <Dropdown.Item className="text-base">Dashboard</Dropdown.Item>
+            <Dropdown.Item className="text-base">Settings</Dropdown.Item>
+            <Dropdown.Item className="text-base">Earnings</Dropdown.Item>
+            <Dropdown.Item className="text-base">Sign out</Dropdown.Item>
+          </Dropdown>
         </div>
-        <div className="flex items-center flex-wrap gap-[5%] space-y-9">
+        <div className="flex items-center flex-wrap gap-[5%]">
           {postList.map((post) => (
             <PostItem
               post={post}
