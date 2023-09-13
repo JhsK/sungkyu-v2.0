@@ -1,5 +1,6 @@
 import MarkdownViewer from '@/components/Post/MarkdownViewer';
 import Toc from '@/components/Post/Toc';
+import Utterances from '@/components/Utterances';
 import { getPost } from '@/lib/markdown';
 import { CategoryType, PostDetail } from '@/types';
 
@@ -27,6 +28,7 @@ const PostDetail = async ({ params }: { params: PostDetailParams }) => {
       </div>
       <MarkdownViewer post={post.contentHtml} />
       <Toc />
+      <Utterances />
     </div>
   );
 };
