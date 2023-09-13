@@ -39,7 +39,7 @@ const List = ({ postList }: ListProps) => {
             <Dropdown.Item className="text-base">Sign out</Dropdown.Item>
           </Dropdown>
         </div>
-        <div className="flex items-center flex-wrap gap-[5%]">
+        <div className="flex items-center flex-wrap gap-[3%]">
           {postList.map((post) => (
             <PostItem
               post={post}
