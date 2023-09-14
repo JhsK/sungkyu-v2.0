@@ -112,10 +112,12 @@ export default async function HomePage() {
             <br />
             고민거리
           </span>
-          <button className="flex items-center rounded-3xl bg-black py-[9px] pl-[13px] w-[170px] text-white text-13 text-left">
-            <span className="mr-3">작성자가 궁금하다면?</span>
-            <ArrowRightIcon />
-          </button>
+          <Link href={'/post'}>
+            <button className="flex items-center rounded-3xl bg-black py-[9px] pl-[13px] w-[170px] text-white text-13 text-left">
+              <span className="mr-3">작성자가 궁금하다면?</span>
+              <ArrowRightIcon />
+            </button>
+          </Link>
         </div>
         <div
           className={`rounded-3xl main-shadow h-[360px] p-9 ${calculateWidth} flex flex-col gap-6`}

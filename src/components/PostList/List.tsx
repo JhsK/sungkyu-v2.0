@@ -6,6 +6,7 @@ import { PostList } from '@/lib/type';
 import Pagination from '../common/Pagination';
 import { Dropdown } from 'flowbite-react';
 import { ArrowBottomIcon } from '../common/Icon';
+import Link from 'next/link';
 
 interface ListProps {
   postList: PostList[];
@@ -41,12 +42,13 @@ const List = ({ postList }: ListProps) => {
         </div>
         <div className="flex items-center flex-wrap gap-[3%]">
           {postList.map((post) => (
-            <PostItem
-              post={post}
-              imageView
-              style={{ content: 'w-[408px] h-[224px]', image: 'h-[228px]' }}
-              key={post.id}
-            />
+            <Link href={`/post/${post.category}/${post.id}`} key={post.id}>
+              <PostItem
+                post={post}
+                imageView
+                style={{ content: 'w-[408px] h-[224px]', image: 'h-[228px]' }}
+              />
+            </Link>
           ))}
         </div>
       </article>

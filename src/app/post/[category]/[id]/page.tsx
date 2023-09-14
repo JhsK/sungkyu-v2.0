@@ -9,14 +9,6 @@ interface PostDetailParams {
   id: string;
 }
 
-export function generateStaticParams() {
-  return [
-    { category: 'a', product: '1' },
-    { category: 'b', product: '2' },
-    { category: 'c', product: '3' },
-  ];
-}
-
 const PostDetail = async ({ params }: { params: PostDetailParams }) => {
   const post: PostDetail = await getPost(params.id);
 
@@ -28,7 +20,9 @@ const PostDetail = async ({ params }: { params: PostDetailParams }) => {
       </div>
       <MarkdownViewer post={post.contentHtml} />
       <Toc />
-      <Utterances />
+      <div className="mt-16">
+        <Utterances />
+      </div>
     </div>
   );
 };
