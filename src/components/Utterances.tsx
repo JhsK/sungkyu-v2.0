@@ -1,27 +1,24 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-type Props = {};
+export default function Comment() {
+  const commentsEl = useRef<HTMLDivElement>(null);
 
-const Utterances: React.FC<Props> = () => {
   useEffect(() => {
-    const script = document.createElement('script');
-    const anchor = document.getElementById('comments');
-    if (!anchor) return;
+    const scriptEl = document.createElement('script');
+    scriptEl.async = true;
+    scriptEl.src = 'https://utteranc.es/client.js';
+    scriptEl.setAttribute('repo', 'JhsK/sungkyu-v2.0');
+    scriptEl.setAttribute('issue-term', 'pathname');
+    scriptEl.setAttribute('theme', 'github-light');
+    scriptEl.setAttribute('crossorigin', 'anonymous');
 
-    script.setAttribute('src', 'https://utteranc.es/client.js');
-    script.setAttribute('crossorigin', 'anonymous');
-    script.setAttribute('async', `true`);
-    script.setAttribute('theme', 'github-light');
-
-    anchor.appendChild(script);
+    commentsEl.current?.appendChild(scriptEl);
   }, []);
 
   return (
-    <>
-      <div id="comments" className=""></div>
-    </>
+    <div>
+      <div ref={commentsEl} />
+    </div>
   );
-};
-
-export default Utterances;
+}
