@@ -8,7 +8,7 @@ const ScrollProgress = () => {
   return (
     <motion.div
       style={{ scaleX: scrollYProgress }}
-      className="h-1 w-screen bg-[#1b64f1] sticky ml-[-80px] top-[71px] origin-left z-30"
+      className="h-1 w-full bg-[#1b64f1] origin-left fixed top-0 left-0 z-50"
     ></motion.div>
   );
 };
