@@ -1,30 +1,38 @@
 'use client';
-import React from 'react';
+import { PostList } from '@/lib/type';
+import { Dropdown } from 'flowbite-react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import CategoryBadge from '../Post/CategoryBadge';
 import PostItem from '../Post/PostItem';
-import { PostList } from '@/lib/type';
-import Pagination from '../common/Pagination';
-import { Dropdown } from 'flowbite-react';
 import { ArrowBottomIcon } from '../common/Icon';
-import Link from 'next/link';
+import Pagination from '../common/Pagination';
 
 interface ListProps {
   postList: PostList[];
+  category: string[];
+  categoryParams: string | null;
 }
 
-const mockCategory = ['프론트엔드', '디자인', '알고리즘', '개인'];
+const List = ({ postList, category, categoryParams }: ListProps) => {
+  const router = useRouter();
 
-const List = ({ postList }: ListProps) => {
   return (
     <>
       <article className="flex flex-col space-y-10">
         <div className="flex items-center justify-between">
           <div className="space-x-3">
-            {mockCategory.map((category) => (
-              <CategoryBadge key={category}>{category}</CategoryBadge>
+            {category.map((category) => (
+              <CategoryBadge
+                handleClick={() => router.push(`?category=${category}`)}
+                key={category}
+                active={categoryParams === category}
+              >
+                {category}
+              </CategoryBadge>
             ))}
           </div>
-          <Dropdown
+          {/* <Dropdown
             label="test"
             renderTrigger={() => (
               <div className="bg-badgeGray rounded-3xl py-[9px] px-4 w-32 flex items-center gap-[6px] cursor-pointer justify-between">
@@ -38,7 +46,7 @@ const List = ({ postList }: ListProps) => {
             <Dropdown.Item className="text-base">Settings</Dropdown.Item>
             <Dropdown.Item className="text-base">Earnings</Dropdown.Item>
             <Dropdown.Item className="text-base">Sign out</Dropdown.Item>
-          </Dropdown>
+          </Dropdown> */}
         </div>
         <div className="flex items-center flex-wrap gap-[3%]">
           {postList.map((post) => (

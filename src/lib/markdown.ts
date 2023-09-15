@@ -26,10 +26,10 @@ export const getPostsIds = () => {
 };
 
 export const getPostsList = ({ limit, category }: GetPostListsParams) => {
-  // const fileNamesObj = fileNames(directory);
   const fileNames = limit
     ? fs.readdirSync(postsDirectory).slice(0, limit)
     : fs.readdirSync(postsDirectory);
+
   const postList = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
     const fullPath = path.join(postsDirectory, fileName);
@@ -40,10 +40,10 @@ export const getPostsList = ({ limit, category }: GetPostListsParams) => {
     return list;
   });
 
-  if (category === 'all') {
-    return postList.reverse();
-  } else {
+  if (category && category !== 'all') {
     return postList.filter((post) => post.category === category).reverse();
+  } else {
+    return postList.reverse();
   }
 };
 
@@ -65,4 +65,22 @@ export const getPost = async (id: string) => {
     contentHtml,
     ...matterResult.data,
   };
+};
+
+export const getCategory = () => {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const categoryArray = ['all'];
+
+  fileNames.map((fileName) => {
+    const id = fileName.replace(/\.md$/, '');
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const parseCategory = matter(fileContents)?.data?.category;
+
+    if (parseCategory && !categoryArray.includes(parseCategory)) {
+      categoryArray.push(parseCategory);
+    }
+  });
+
+  return categoryArray;
 };

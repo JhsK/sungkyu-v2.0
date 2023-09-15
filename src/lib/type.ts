@@ -1,5 +1,3 @@
-import { CategoryType } from '@/types';
-
 export interface PostList {
   id: string;
   image: string;
@@ -12,5 +10,5 @@ export interface PostList {
 
 export interface GetPostListsParams {
   limit?: number;
-  category: CategoryType;
+  category: string | null;
 }

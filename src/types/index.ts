@@ -3,5 +3,3 @@ export interface PostDetail {
   contentHtml: string;
   [key: string]: string;
 }
-
-export type CategoryType = 'all' | 'develop' | 'design';
