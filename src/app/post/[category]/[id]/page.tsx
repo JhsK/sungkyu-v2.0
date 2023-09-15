@@ -2,10 +2,10 @@ import MarkdownViewer from '@/components/Post/MarkdownViewer';
 import Toc from '@/components/Post/Toc';
 import Utterances from '@/components/Utterances';
 import { getPost } from '@/lib/markdown';
-import { CategoryType, PostDetail } from '@/types';
+import { PostDetail } from '@/types';
 
 interface PostDetailParams {
-  category: CategoryType;
+  category: string;
   id: string;
 }
 
