@@ -1,9 +1,7 @@
-import { Category } from '@/components/Category';
 import { getPostsList } from '@/lib/markdown';
-import { CategoryType } from '@/types';
 
 interface CategoryListParams {
-  category: CategoryType;
+  category: string;
 }
 
 export function generateStaticParams() {

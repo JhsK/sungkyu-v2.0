@@ -1,14 +1,13 @@
-import { CategoryType } from '@/types';
 import classNames from 'classnames';
 import Link from 'next/link';
 import React from 'react';
 
 interface CategoryProps {
-  activeCategory: CategoryType;
+  activeCategory: string;
 }
 
 const Category = ({ activeCategory }: CategoryProps) => {
-  const utilClass = (category: CategoryType) => {
+  const utilClass = (category: string) => {
     return classNames('cursor-pointer', {
       'text-black font-bold': activeCategory === category,
     });
