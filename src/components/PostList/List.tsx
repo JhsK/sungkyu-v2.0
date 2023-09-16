@@ -1,11 +1,9 @@
 'use client';
 import { PostList } from '@/lib/type';
-import { Dropdown } from 'flowbite-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import CategoryBadge from '../Post/CategoryBadge';
 import PostItem from '../Post/PostItem';
-import { ArrowBottomIcon } from '../common/Icon';
 import Pagination from '../common/Pagination';
 
 interface ListProps {
@@ -55,6 +53,7 @@ const List = ({ postList, category, categoryParams }: ListProps) => {
                 post={post}
                 imageView
                 style={{ content: 'w-[408px] h-[224px]', image: 'h-[228px]' }}
+                hoverAnimation
               />
             </Link>
           ))}

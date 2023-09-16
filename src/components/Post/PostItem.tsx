@@ -14,9 +14,16 @@ interface PostItemProps {
   imageView?: boolean;
   imageHeight?: string;
   style?: PostItemStyle;
+  hoverAnimation?: boolean;
 }
 
-const PostItem = ({ post, imageView, imageHeight, style }: PostItemProps) => {
+const PostItem = ({
+  post,
+  imageView,
+  imageHeight,
+  style,
+  hoverAnimation,
+}: PostItemProps) => {
   const notImagePostItem = () => {
     return (
       <div
@@ -38,8 +45,12 @@ const PostItem = ({ post, imageView, imageHeight, style }: PostItemProps) => {
   };
 
   const imagePostItem = () => {
+    const moveTopTranslate = hoverAnimation ? 'move-top-translate' : '';
+
     return (
-      <div className="rounded-3xl post-shadow cursor-pointer">
+      <div
+        className={`rounded-3xl post-shadow cursor-pointer ${moveTopTranslate}`}
+      >
         <div
           className={twMerge(
             'p-6 flex flex-col justify-between w-[292px] h-[192px]',

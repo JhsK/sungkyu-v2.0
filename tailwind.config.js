@@ -1020,5 +1020,5 @@ module.exports = {
       50: '50',
     },
   },
-  plugins: [require('flowbite/plugin')],
+  plugins: [require('flowbite/plugin'), require('tailwindcss-animated')],
 };

@@ -5,3 +5,12 @@
 .post-shadow {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+
+.move-top-translate {
+    &:hover {
+        // transform: translate3d(0px, -3%, 0px);
+        transition: all .3s ease;
+        transform: translateY(-5px);
+        box-shadow: 4px 12px 20px 6px rgba(0, 0, 0, .18);
+    }
+}
