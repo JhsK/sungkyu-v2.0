@@ -9,6 +9,7 @@ export interface PostList {
 }
 
 export interface GetPostListsParams {
-  limit?: number;
+  limit: number;
   category: string | null;
+  page: number;
 }

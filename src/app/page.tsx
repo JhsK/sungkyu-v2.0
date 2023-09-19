@@ -14,7 +14,11 @@ import { getServiceVistior, getServiePageView } from '@/server/statistic';
 import Link from 'next/link';
 
 export default async function HomePage() {
-  const postList = getPostsList({ limit: PAGE_LIST_LIMIT, category: null });
+  const { posts: postList, totalCount } = getPostsList({
+    limit: PAGE_LIST_LIMIT,
+    category: null,
+    page: 1,
+  });
   const visitor = (await getServiceVistior()) as Array<any>;
   const pageViews = (await getServiePageView()) as Array<any>;
 

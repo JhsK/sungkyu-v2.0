@@ -41,4 +41,4 @@ export const MAIN_INTRO_TEXT = [
   '잘되네... - 왜?',
 ];
 
-export const PAGE_LIST_LIMIT = 8;
+export const PAGE_LIST_LIMIT = 9;

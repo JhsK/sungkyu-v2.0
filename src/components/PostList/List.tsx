@@ -9,11 +9,23 @@ import Pagination from '../common/Pagination';
 interface ListProps {
   postList: PostList[];
   category: string[];
-  categoryParams: string | null;
+  categoryParam: string | null;
+  currentPage: number;
+  totalPage: number;
 }
 
-const List = ({ postList, category, categoryParams }: ListProps) => {
+const List = ({
+  postList,
+  category,
+  categoryParam,
+  currentPage,
+  totalPage,
+}: ListProps) => {
   const router = useRouter();
+
+  const handlePageClick = (page: number) => {
+    router.push(`?category=${categoryParam}&page=${page}`);
+  };
 
   return (
     <>
@@ -22,9 +34,11 @@ const List = ({ postList, category, categoryParams }: ListProps) => {
           <div className="space-x-3">
             {category.map((category) => (
               <CategoryBadge
-                handleClick={() => router.push(`?category=${category}`)}
+                handleClick={() =>
+                  router.push(`?category=${category}&page=${currentPage}`)
+                }
                 key={category}
-                active={categoryParams === category}
+                active={categoryParam === category}
               >
                 {category}
               </CategoryBadge>
@@ -62,9 +76,9 @@ const List = ({ postList, category, categoryParams }: ListProps) => {
       <div className="mt-24">
         <Pagination
           center
-          currentPage={1}
-          totalPage={2}
-          onPageChange={() => {}}
+          currentPage={currentPage}
+          totalPage={totalPage}
+          onPageChange={handlePageClick}
         />
       </div>
     </>

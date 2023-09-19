@@ -18,9 +18,8 @@ const Pagination = ({
       <ul className="inline-flex -space-x-px text-sm">
         {pageArray.map((page, index) => (
           <li key={index}>
-            <a
-              // onClick={() => onPageChange(page)}
-              href="#"
+            <span
+              onClick={() => onPageChange(page)}
               className={`flex items-center justify-center px-3 h-8 text-sm font-medium ${
                 currentPage === index + 1
                   ? 'bg-[#EAF5FF] text-[#0873FF]'
@@ -28,7 +27,7 @@ const Pagination = ({
               } rounded-lg`}
             >
               {page}
-            </a>
+            </span>
           </li>
         ))}
       </ul>

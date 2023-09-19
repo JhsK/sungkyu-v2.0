@@ -25,10 +25,11 @@ export const getPostsIds = () => {
   });
 };
 
-export const getPostsList = ({ limit, category }: GetPostListsParams) => {
-  const fileNames = limit
-    ? fs.readdirSync(postsDirectory).slice(0, limit)
-    : fs.readdirSync(postsDirectory);
+export const getPostsList = ({ limit, category, page }: GetPostListsParams) => {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const totalCount = fileNames.length;
+  const offset = (page - 1) * limit;
+  const arrange = limit * page;
 
   const postList = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
@@ -41,9 +42,18 @@ export const getPostsList = ({ limit, category }: GetPostListsParams) => {
   });
 
   if (category && category !== 'all') {
-    return postList.filter((post) => post.category === category).reverse();
+    return {
+      posts: postList
+        .filter((post) => post.category === category)
+        .reverse()
+        .slice(offset, arrange),
+      totalCount,
+    };
   } else {
-    return postList.reverse();
+    return {
+      posts: postList.reverse().slice(offset, arrange),
+      totalCount,
+    };
   }
 };
 
