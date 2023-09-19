@@ -27,31 +27,36 @@ export const getPostsIds = () => {
 
 export const getPostsList = ({ limit, category, page }: GetPostListsParams) => {
   const fileNames = fs.readdirSync(postsDirectory);
-  const totalCount = fileNames.length;
   const offset = (page - 1) * limit;
   const arrange = limit * page;
 
-  const postList = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, '');
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const matterResult = matter(fileContents);
-    const list = { id, ...matterResult.data } as PostList;
+  const postList = fileNames
+    .map((fileName) => {
+      const id = fileName.replace(/\.md$/, '');
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const matterResult = matter(fileContents);
+      const list = { id, ...matterResult.data } as PostList;
 
-    return list;
-  });
+      return list;
+    })
+    .filter((post) => {
+      if (category === 'all') return post;
+
+      return post.category === category;
+    })
+    .reverse();
+
+  const totalCount = postList.length;
 
   if (category && category !== 'all') {
     return {
-      posts: postList
-        .filter((post) => post.category === category)
-        .reverse()
-        .slice(offset, arrange),
+      posts: postList.slice(offset, arrange),
       totalCount,
     };
   } else {
     return {
-      posts: postList.reverse().slice(offset, arrange),
+      posts: postList.slice(offset, arrange),
       totalCount,
     };
   }

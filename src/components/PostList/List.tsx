@@ -34,9 +34,7 @@ const List = ({
           <div className="space-x-3">
             {category.map((category) => (
               <CategoryBadge
-                handleClick={() =>
-                  router.push(`?category=${category}&page=${currentPage}`)
-                }
+                handleClick={() => router.push(`?category=${category}&page=1`)}
                 key={category}
                 active={categoryParam === category}
               >

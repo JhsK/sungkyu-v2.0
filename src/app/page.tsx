@@ -16,7 +16,7 @@ import Link from 'next/link';
 export default async function HomePage() {
   const { posts: postList, totalCount } = getPostsList({
     limit: PAGE_LIST_LIMIT,
-    category: null,
+    category: 'all',
     page: 1,
   });
   const visitor = (await getServiceVistior()) as Array<any>;
