@@ -58,16 +58,18 @@ const List = ({
             <Dropdown.Item className="text-base">Sign out</Dropdown.Item>
           </Dropdown> */}
         </div>
-        <div className="flex items-center flex-wrap gap-[3%]">
+        <div className="grid grid-cols-3 gap-y-9 gap-x-[3%]">
           {postList.map((post) => (
-            <Link href={`/post/${post.category}/${post.id}`} key={post.id}>
-              <PostItem
-                post={post}
-                imageView
-                style={{ content: 'w-[408px] h-[224px]', image: 'h-[228px]' }}
-                hoverAnimation
-              />
-            </Link>
+            <div key={post.id}>
+              <Link href={`/post/${post.category}/${post.id}`} key={post.id}>
+                <PostItem
+                  post={post}
+                  imageView
+                  style={{ content: 'w-[408px] h-[224px]', image: 'h-[228px]' }}
+                  hoverAnimation
+                />
+              </Link>
+            </div>
           ))}
         </div>
       </article>
