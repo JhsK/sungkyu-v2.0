@@ -62,7 +62,9 @@ export default function RootLayout({
       </head>
       <body>
         <Nav />
-        <div className="max-w-[1350px] my-0 mx-auto">{children}</div>
+        <div className="2xl:max-w-[1350px] max-w-[1050px] my-0 mx-auto">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

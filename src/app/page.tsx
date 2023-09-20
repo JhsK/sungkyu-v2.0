@@ -15,7 +15,7 @@ import Link from 'next/link';
 
 export default async function HomePage() {
   const { posts: postList, totalCount } = getPostsList({
-    limit: PAGE_LIST_LIMIT,
+    limit: 7,
     category: 'all',
     page: 1,
   });
@@ -47,9 +47,7 @@ export default async function HomePage() {
 
   const latestPostRender = () => {
     return (
-      <div
-        className={`${calculateWidth} h-[582px] rounded-2xl main-shadow sticky top-[90px]`}
-      >
+      <div className={`h-[582px] rounded-2xl main-shadow sticky top-[90px]`}>
         <PostItem
           post={postList[0]}
           imageView
@@ -74,9 +72,30 @@ export default async function HomePage() {
         </div>
       </section>
       <section className="flex flex-col gap-9 animate-fade-up animate-duration-500 animate-delay-300 animate-ease-linear animate-normal animate-fill-forwards">
-        <article className="flex justify-between w-full">
-          <div className={`${calculateWidth} flex justify-between`}>
-            <div className={`${calculateWidth} flex flex-col gap-y-9`}>
+        <article className="grid grid-cols-2 gap-x-[3%] w-full">
+          {latestPostRender()}
+          <div className={`grid grid-cols-2 gap-x-[5%] gap-y-[3%]`}>
+            {postList.slice(1).map((post, index) => {
+              if (index < postList.slice(1).length - 2) {
+                return (
+                  <PostItem
+                    post={post}
+                    imageView
+                    style={{ content: 'w-full h-[195px]', image: 'h-[168px]' }}
+                    key={index}
+                  />
+                );
+              }
+
+              return (
+                <PostItem
+                  post={postList[0]}
+                  style={{ content: 'w-full h-[195px]' }}
+                  key={index}
+                />
+              );
+            })}
+            {/* <div className={`${calculateWidth} flex flex-col gap-y-9`}>
               {lastPostLeft.map((post, index) =>
                 index === 0 || index === lastPostLeft.length - 1 ? (
                   <PostItem
@@ -103,9 +122,8 @@ export default async function HomePage() {
                   key={index}
                 />
               ))}
-            </div>
+            </div> */}
           </div>
-          {latestPostRender()}
         </article>
         <div className="flex items-center justify-between">
           <div
