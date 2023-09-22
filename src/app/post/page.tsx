@@ -21,7 +21,7 @@ const PostListPage = ({ searchParams }: PostListPageProps) => {
   const totalPage = Math.ceil(totalCount / PAGE_LIST_LIMIT);
 
   return (
-    <div className="space-y-[104px]">
+    <div className="flex flex-col md:gap-24 gap-14">
       <Description />
       <List
         postList={postList}

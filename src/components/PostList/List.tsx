@@ -58,7 +58,7 @@ const List = ({
             <Dropdown.Item className="text-base">Sign out</Dropdown.Item>
           </Dropdown> */}
         </div>
-        <div className="grid grid-cols-3 gap-y-9 gap-x-[3%]">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-9 gap-x-[3%]">
           {postList.map((post) => (
             <div key={post.id}>
               <Link href={`/post/${post.category}/${post.id}`} key={post.id}>
@@ -72,15 +72,15 @@ const List = ({
             </div>
           ))}
         </div>
+        <div className="mt-4">
+          <Pagination
+            center
+            currentPage={currentPage}
+            totalPage={totalPage}
+            onPageChange={handlePageClick}
+          />
+        </div>
       </article>
-      <div className="mt-24">
-        <Pagination
-          center
-          currentPage={currentPage}
-          totalPage={totalPage}
-          onPageChange={handlePageClick}
-        />
-      </div>
     </>
   );
 };
