@@ -2,6 +2,31 @@ import Description from '@/components/PostList/Description';
 import List from '@/components/PostList/List';
 import { PAGE_LIST_LIMIT } from '@/const';
 import { getCategory, getPostsList } from '@/lib/markdown';
+import { Metadata } from 'next';
+
+export const generateMetadata = async ({
+  searchParams,
+}: PostListPageProps): Promise<Metadata> => {
+  const pageParams = Number(searchParams?.page || '1');
+  const categoryParam = searchParams?.category || 'all';
+  const category =
+    categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1);
+
+  return {
+    title: `${category} Posts - Sungkyu blog`,
+    openGraph: {
+      type: 'website',
+      url: `https://sungkyu.info/post?category=${categoryParam}&page=${pageParams}`,
+      description: '프론트엔드 개발자 임성규의 개발 블로그입니다.',
+      siteName: 'Sungkyu blog',
+      images: [
+        {
+          url: 'https://s3.ap-northeast-2.amazonaws.com/sungkyu.info/caspar-camille-rubin-0qvBNep1Y04-unsplash.jpg',
+        },
+      ],
+    },
+  };
+};
 
 interface PostListPageProps {
   searchParams: { category?: string; page?: string };
