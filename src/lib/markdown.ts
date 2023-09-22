@@ -27,7 +27,7 @@ export const getPostsIds = () => {
 
 export const getPostsList = ({ limit, category, page }: GetPostListsParams) => {
   const fileNames = fs.readdirSync(postsDirectory);
-  const offset = (page - 1) * limit;
+  const offset = Math.ceil((page - 1) * limit);
   const arrange = limit * page;
 
   const postList = fileNames

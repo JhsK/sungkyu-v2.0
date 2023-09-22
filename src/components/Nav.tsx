@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Nav = () => {
   return (
     <div className="h-[72px] bg-white z-40 border-b border-navBorder sticky top-0">
-      <div className="flex justify-between items-center max-w-[1350px] h-full my-0 mx-auto">
+      <div className="flex justify-between items-center 2xl:max-w-[1350px] lg:max-w-[1050px] md:max-w-[700px] max-w-[450px] h-full my-0 mx-auto">
         <Link href={'/'}>
           <h1 className="m-0 select-none">개발자로 살아남기</h1>
         </Link>

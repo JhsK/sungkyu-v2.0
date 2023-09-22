@@ -14,7 +14,7 @@ import { getServiceVistior, getServiePageView } from '@/server/statistic';
 import Link from 'next/link';
 
 export default async function HomePage() {
-  const { posts: postList, totalCount } = getPostsList({
+  const { posts: postList } = getPostsList({
     limit: PAGE_LIST_LIMIT,
     category: 'all',
     page: 1,
@@ -24,23 +24,29 @@ export default async function HomePage() {
 
   const lastPostLeft = [1, 2, 3, 4];
   const lastPostRight = [1, 2, 3];
-  const calculateWidth = 'w-[calc(50%-18px)]';
+  const calculateWidth = '2xl:w-[calc(50%-18px)]';
 
   const renderIcon = [
     {
-      component: <GithubColorIcon />,
+      component: (
+        <GithubColorIcon className="md:w-[60px] md:h-[60px] w-9 h-9" />
+      ),
       url: PROFILE_URL.github,
     },
     {
-      component: <LinkedinColorIcon />,
+      component: (
+        <LinkedinColorIcon className="md:w-[60px] md:h-[60px] w-9 h-9" />
+      ),
       url: PROFILE_URL.linkedIn,
     },
     {
-      component: <GmailColorIcon />,
+      component: <GmailColorIcon className="md:w-[60px] md:h-[60px] w-9 h-9" />,
       url: PROFILE_URL.gmail,
     },
     {
-      component: <InstargramColorIcon />,
+      component: (
+        <InstargramColorIcon className="md:w-[60px] md:h-[60px] w-9 h-9" />
+      ),
       url: PROFILE_URL.instargram,
     },
   ];
@@ -48,7 +54,7 @@ export default async function HomePage() {
   const latestPostRender = () => {
     return (
       <div
-        className={`${calculateWidth} h-[582px] rounded-2xl main-shadow sticky top-[90px]`}
+        className={`${calculateWidth} w-full h-[582px] rounded-2xl main-shadow lg:sticky lg:top-[90px]`}
       >
         <PostItem
           post={postList[0]}
@@ -61,7 +67,7 @@ export default async function HomePage() {
 
   return (
     <main className="pt-16 flex flex-col gap-9">
-      <section className="h-[116px] rounded-2xl bg-white main-shadow px-9 flex items-center justify-between animate-fade-up animate-duration-[300ms] animate-ease-linear animate-normal animate-fill-forwards">
+      <section className="h-[116px] rounded-2xl bg-white main-shadow px-9 flex md:flex-row items-center md:justify-between flex-col justify-center gap-y-3 animate-fade-up animate-duration-[300ms] animate-ease-linear animate-normal animate-fill-forwards">
         <h2 className="m-0 text-3xl font-bold">
           {MAIN_INTRO_TEXT[getRandomNumber(0, MAIN_INTRO_TEXT.length - 1)]}
         </h2>
@@ -74,8 +80,11 @@ export default async function HomePage() {
         </div>
       </section>
       <section className="flex flex-col gap-9 animate-fade-up animate-duration-500 animate-delay-300 animate-ease-linear animate-normal animate-fill-forwards">
-        <article className="flex justify-between w-full">
-          <div className={`${calculateWidth} flex justify-between`}>
+        <article className="flex lg:flex-row flex-col lg:justify-between 2xl:gap-0 lg:gap-x-[3%] gap-y-9 w-full">
+          {latestPostRender()}
+          <div
+            className={`${calculateWidth} 2xl:flex 2xl:flex-row 2xl:justify-between md:grid lg:grid-cols-1 md:grid-cols-2 md:gap-x-[3%] flex flex-col gap-y-6`}
+          >
             <div className={`${calculateWidth} flex flex-col gap-y-9`}>
               {lastPostLeft.map((post, index) =>
                 index === 0 || index === lastPostLeft.length - 1 ? (
@@ -94,7 +103,9 @@ export default async function HomePage() {
                 )
               )}
             </div>
-            <div className={`${calculateWidth} flex flex-col gap-y-9`}>
+            <div
+              className={`${calculateWidth} 2xl:flex flex-col gap-y-9 lg:hidden flex`}
+            >
               {lastPostRight.map((post, index) => (
                 <PostItem
                   post={postList[0]}
@@ -105,11 +116,10 @@ export default async function HomePage() {
               ))}
             </div>
           </div>
-          {latestPostRender()}
         </article>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center flex-wrap gap-9">
           <div
-            className={`rounded-3xl main-shadow h-[360px] bg-concern p-9 ${calculateWidth} flex flex-col gap-9`}
+            className={`rounded-3xl main-shadow h-[360px] bg-concern p-9 lg:w-[calc(50%-36px)] w-full flex flex-col gap-9`}
           >
             <span className="text-32 font-bold leading-[56px]">
               1년차 프론트엔드 개발자의
@@ -124,7 +134,7 @@ export default async function HomePage() {
             </Link>
           </div>
           <div
-            className={`rounded-3xl main-shadow h-[360px] p-9 ${calculateWidth} flex flex-col gap-6`}
+            className={`rounded-3xl main-shadow h-[360px] p-9 lg:w-[calc(50%-36px)] w-full flex flex-col gap-6`}
           >
             <span className="text-32 font-bold leading-[56px]">
               이걸 누가 보러 와?
