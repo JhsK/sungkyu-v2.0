@@ -30,7 +30,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="h-52 border-footerBorder border-t pt-8 mt-24 2xl:max-w-[1350px] lg:max-w-[1050px] md:max-w-[700px] max-w-[450px] mx-auto">
+    <footer className="h-52 border-footerBorder border-t pt-8 mt-24 2xl:max-w-[1350px] lg:max-w-[1050px] md:max-w-[700px] sm:max-w-[450px] max-w-[320px] mx-auto">
       <div className="flex items-center justify-between">
         <span className="text-footerText">Copyright © 2023 Sungkyu Lim</span>
         <div className="flex items-center space-x-6">
