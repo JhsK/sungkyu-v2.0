@@ -54,12 +54,15 @@ export default async function HomePage() {
   const latestPostRender = () => {
     return (
       <div
-        className={`${calculateWidth} w-full h-[582px] rounded-2xl main-shadow lg:sticky lg:top-[90px]`}
+        className={`${calculateWidth} w-full md:h-[582px] h-full rounded-2xl main-shadow lg:sticky lg:top-[90px]`}
       >
         <PostItem
           post={postList[0]}
           imageView
-          style={{ content: 'w-full h-[228px]', image: 'h-[354px]' }}
+          style={{
+            content: 'w-full md:h-[228px] h-[211px]',
+            image: 'md:h-[354px] h-[204px]',
+          }}
         />
       </div>
     );
@@ -68,7 +71,7 @@ export default async function HomePage() {
   return (
     <main className="pt-16 flex flex-col gap-9">
       <section className="h-[116px] rounded-2xl bg-white main-shadow px-9 flex md:flex-row items-center md:justify-between flex-col justify-center gap-y-3 animate-fade-up animate-duration-[300ms] animate-ease-linear animate-normal animate-fill-forwards">
-        <h2 className="m-0 text-3xl font-bold">
+        <h2 className="m-0 md:text-3xl text-xl font-bold">
           {MAIN_INTRO_TEXT[getRandomNumber(0, MAIN_INTRO_TEXT.length - 1)]}
         </h2>
         <div className="flex item-center space-x-2">
