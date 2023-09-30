@@ -65,7 +65,10 @@ const List = ({
                 <PostItem
                   post={post}
                   imageView
-                  style={{ content: 'w-[408px] h-[224px]', image: 'h-[228px]' }}
+                  style={{
+                    content: 'w-full sm:h-[224px] h-[204px]',
+                    image: 'sm:h-[228px] h-[208px]',
+                  }}
                   hoverAnimation
                 />
               </Link>
