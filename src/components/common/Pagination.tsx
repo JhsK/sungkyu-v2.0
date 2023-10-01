@@ -20,7 +20,7 @@ const Pagination = ({
           <li key={index}>
             <span
               onClick={() => onPageChange(page)}
-              className={`flex items-center justify-center px-3 h-8 text-sm font-medium ${
+              className={`cursor-pointer flex items-center justify-center px-3 h-8 text-sm font-medium ${
                 currentPage === index + 1
                   ? 'bg-[#EAF5FF] text-[#0873FF]'
                   : 'bg-white text-gray-500 hover:bg-gray-100 hover:text-gray-700'
