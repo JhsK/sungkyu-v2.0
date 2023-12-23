@@ -3,21 +3,14 @@ import { getSortedPosts } from "@/lib/posts";
 import { IPostMetaData } from "@/types/posts";
 import Categories from "@/components/Posts/Categories";
 import PostLists from "@/components/Posts/Lists";
+import { GetServerSideProps } from "next";
 
 interface IHomeProps {
   posts: IPostMetaData[];
+  totalCount: number;
 }
 
-export async function getStaticProps() {
-  const posts = getSortedPosts();
-  return {
-    props: {
-      posts,
-    },
-  };
-}
-
-function HomePage({ posts }: IHomeProps) {
+function HomePage({ posts, totalCount }: IHomeProps) {
   const categories = [...new Set(posts.map((post) => post.category))];
 
   return (
@@ -32,3 +25,21 @@ function HomePage({ posts }: IHomeProps) {
 }
 
 export default HomePage;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const size = 10;
+  const { page } = context.query;
+  let nextPage = 1;
+
+  if (typeof page === "string" && !isNaN(Number(page))) {
+    nextPage = Number(page);
+  }
+
+  const { posts, totalCount } = getSortedPosts(size, nextPage);
+  return {
+    props: {
+      posts,
+      totalCount,
+    },
+  };
+};

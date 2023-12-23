@@ -5,28 +5,36 @@ import { IPostMetaData } from "@/types/posts";
 
 const postsDirectory = path.join(process.cwd(), "src/posts");
 
-export function getSortedPosts() {
+export function getSortedPosts(size: number, page: number) {
   const fileNames = fs.readdirSync(postsDirectory);
-  const posts = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, "");
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+  const posts = fileNames
+    .map((fileName) => {
+      const id = fileName.replace(/\.md$/, "");
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
 
-    const matterResult = matter(fileContents).data as IPostMetaData;
+      const matterResult = matter(fileContents).data as IPostMetaData;
 
-    return {
-      id,
-      ...matterResult,
-    };
-  });
+      return {
+        id,
+        ...matterResult,
+      };
+    })
+    .sort((a, b) => {
+      if (a.date < b.date) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
 
-  return posts.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  const startIndex = (page - 1) * size;
+  const endIndex = startIndex + size;
+
+  return {
+    posts: posts.slice(startIndex, endIndex),
+    totalCount: posts.length,
+  };
 }
 
 export function getPostsFileName() {
