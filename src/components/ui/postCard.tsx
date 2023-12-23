@@ -1,7 +1,7 @@
 import { IPostMetaData } from "@/types/posts";
 import Text from "./text";
 
-interface IPostCardProps extends IPostMetaData {}
+interface IPostCardProps extends Omit<IPostMetaData, "fileName"> {}
 
 function PostCard({ category, title, date }: IPostCardProps) {
   return (
