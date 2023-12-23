@@ -1,8 +1,23 @@
 import { Button } from "@/components/ui/button";
 import PostCard from "@/components/ui/postCard";
 import Image from "next/image";
+import { getSortedPosts } from "@/lib/posts";
+import { IPostMetaData } from "@/types/posts";
 
-function Home() {
+interface IHomeProps {
+  posts: IPostMetaData[];
+}
+
+export async function getStaticProps() {
+  const posts = getSortedPosts();
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
+function Home({ posts }: IHomeProps) {
   return (
     <>
       <div className="w-full h-[350px] relative mb-10">
@@ -16,8 +31,13 @@ function Home() {
         ))}
       </div>
       <div className="flex flex-col gap-10">
-        {[0, 1, 2, 3].map((post) => (
-          <PostCard key={post} />
+        {posts.map((post) => (
+          <PostCard
+            key={post.title}
+            title={post.title}
+            category={post.category}
+            date={post.date}
+          />
         ))}
       </div>
     </>
