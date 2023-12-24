@@ -4,13 +4,13 @@ import { IPostMetaData } from "@/types/posts";
 import Categories from "@/components/Posts/Categories";
 import PostLists from "@/components/Posts/Lists";
 import { GetServerSideProps } from "next";
+import { IPagination } from "@/types/common";
 
-interface IHomeProps {
+interface IHomeProps extends IPagination {
   posts: IPostMetaData[];
-  totalCount: number;
 }
 
-function HomePage({ posts, totalCount }: IHomeProps) {
+function HomePage({ posts, ...props }: IHomeProps) {
   const categories = [...new Set(posts.map((post) => post.category))];
 
   return (
@@ -19,7 +19,7 @@ function HomePage({ posts, totalCount }: IHomeProps) {
         <Image src="/main.jpg" fill alt="main image" />
       </div>
       <Categories categories={categories} />
-      <PostLists posts={posts} />
+      <PostLists posts={posts} {...props} />
     </>
   );
 }
@@ -27,19 +27,21 @@ function HomePage({ posts, totalCount }: IHomeProps) {
 export default HomePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const size = 10;
+  const size = 5;
   const { page } = context.query;
-  let nextPage = 1;
+  let currentPage = 1;
 
   if (typeof page === "string" && !isNaN(Number(page))) {
-    nextPage = Number(page);
+    currentPage = Number(page);
   }
 
-  const { posts, totalCount } = getSortedPosts(size, nextPage);
+  const { posts, totalCount } = getSortedPosts(size, currentPage);
   return {
     props: {
       posts,
       totalCount,
+      size,
+      currentPage,
     },
   };
 };

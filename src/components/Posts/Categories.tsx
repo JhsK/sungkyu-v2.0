@@ -6,7 +6,7 @@ interface ICategoriesProps {
 
 function Categories({ categories }: ICategoriesProps) {
   return (
-    <div className="flex items-center gap-4 justify-center mb-4">
+    <div className="flex items-center gap-4 mb-10">
       {categories.map((category) => (
         <Button key={category} variant="outline" className="rounded-3xl">
           {category}
