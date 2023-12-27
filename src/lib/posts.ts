@@ -66,3 +66,16 @@ export async function getPost(fileName: string) {
     ...metaData,
   };
 }
+
+export function getPostsTitle() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const titles = fileNames.map((fileName) => {
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContents).data as IPostMetaData;
+
+    return matterResult.title;
+  });
+
+  return titles;
+}
