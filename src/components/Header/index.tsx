@@ -2,7 +2,7 @@ import { Search as SearchIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import Search from "../ui/search";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const menus = [
   { name: "About", href: "/about" },
@@ -11,6 +11,20 @@ const menus = [
 
 function Header() {
   const [searchMode, setSearchMode] = useState(false);
+  const [titleList, setTitleList] = useState<string[]>([]);
+
+  const fetchPostsTitle = async () => {
+    const response = await fetch("/api/posts");
+    const { titles } = await response.json();
+
+    if (titles) {
+      setTitleList([...titleList]);
+    }
+  };
+
+  useEffect(() => {
+    fetchPostsTitle();
+  }, []);
 
   return (
     <div className="flex items-center justify-between py-3">

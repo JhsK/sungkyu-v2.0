@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { getSortedPosts } from "@/lib/posts";
-import { IPostMetaData } from "@/types/posts";
 import Categories from "@/components/Posts/Categories";
 import PostLists from "@/components/Posts/Lists";
-import { GetServerSideProps } from "next";
+import { getSortedPosts } from "@/lib/posts";
 import { IPagination } from "@/types/common";
+import { IPostMetaData } from "@/types/posts";
+import { GetServerSideProps } from "next";
+import Image from "next/image";
 
 interface IHomeProps extends IPagination {
   posts: IPostMetaData[];
@@ -36,6 +36,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   const { posts, totalCount } = getSortedPosts(size, currentPage);
+
   return {
     props: {
       posts,
