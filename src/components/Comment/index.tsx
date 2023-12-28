@@ -1,8 +1,5 @@
 import { useEffect, useRef } from "react";
 
-const { NEXT_PUBLIC_GISCUS_REPO_ID, NEXT_PUBLIC_GISCUS_CATEGORY_ID } =
-  process.env;
-
 function Comment() {
   const ref = useRef<HTMLDivElement>(null);
   const theme = "preferred_color_scheme";
@@ -14,11 +11,14 @@ function Comment() {
     scriptElem.async = true;
     scriptElem.crossOrigin = "anonymous";
     scriptElem.setAttribute("data-repo", "Jhsk/sungkyu-v2.0");
-    scriptElem.setAttribute("data-repo-id", NEXT_PUBLIC_GISCUS_REPO_ID!);
+    scriptElem.setAttribute(
+      "data-repo-id",
+      process.env.NEXT_PUBLIC_GISCUS_REPO_ID!
+    );
     scriptElem.setAttribute("data-category", "General");
     scriptElem.setAttribute(
       "data-category-id",
-      NEXT_PUBLIC_GISCUS_CATEGORY_ID!
+      process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID!
     );
     scriptElem.setAttribute("data-mapping", "pathname");
     scriptElem.setAttribute("data-strict", "0");
