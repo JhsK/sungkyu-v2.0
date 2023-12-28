@@ -1,4 +1,5 @@
 import PostBody from "@/components/Post/Body";
+import PostFooter from "@/components/Post/Footer";
 import PostHeader from "@/components/Post/Header";
 import { getPost, getPostsFileName } from "@/lib/posts";
 import { IPost } from "@/types/posts";
@@ -12,6 +13,7 @@ function PostDetailPage({ post }: IPostDetailPageProps) {
     <div className="pt-8">
       <PostHeader />
       <PostBody content={post.content} />
+      <PostFooter />
     </div>
   );
 }
