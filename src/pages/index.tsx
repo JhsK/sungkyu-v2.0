@@ -1,10 +1,10 @@
 import Categories from "@/components/Posts/Categories";
+import Hero from "@/components/Posts/Hero";
 import PostLists from "@/components/Posts/Lists";
 import { getSortedPosts } from "@/lib/posts";
 import { IPagination } from "@/types/common";
 import { IPostMetaData } from "@/types/posts";
 import { GetServerSideProps } from "next";
-import Image from "next/image";
 
 interface IHomeProps extends IPagination {
   posts: IPostMetaData[];
@@ -15,9 +15,7 @@ function HomePage({ posts, ...props }: IHomeProps) {
 
   return (
     <>
-      <div className="w-full h-[350px] relative mb-10">
-        <Image src="/main.jpg" fill alt="main image" />
-      </div>
+      <Hero />
       <Categories categories={categories} />
       <PostLists posts={posts} {...props} />
     </>
