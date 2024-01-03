@@ -1,7 +1,7 @@
 import Categories from "@/components/Posts/Categories";
 import Hero from "@/components/Posts/Hero";
 import PostLists from "@/components/Posts/Lists";
-import { getSortedPosts } from "@/lib/posts";
+import { getSortedPosts } from "@/libs/posts";
 import { IPagination } from "@/types/common";
 import { IPostMetaData } from "@/types/posts";
 import { GetServerSideProps } from "next";

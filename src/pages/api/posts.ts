@@ -1,4 +1,4 @@
-import { getPostsTitle } from "@/lib/posts";
+import { getPostsTitle } from "@/libs/posts";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 interface IGetPostsTitleHandlerResponse {

@@ -1,7 +1,7 @@
 import PostBody from "@/components/Post/Body";
 import PostFooter from "@/components/Post/Footer";
 import PostHeader from "@/components/Post/Header";
-import { getPost, getPostsFileName } from "@/lib/posts";
+import { getPost, getPostsFileName } from "@/libs/posts";
 import { IPost } from "@/types/posts";
 
 interface IPostDetailPageProps {
