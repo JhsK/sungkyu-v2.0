@@ -11,7 +11,7 @@ function Footer() {
         className="text-zinc-950 text-xs font-light select-none"
         variant="small"
       >
-        © 2023. sungkyu all rights reserved.
+        © 2024. sungkyu all rights reserved.
       </Text>
       <div className="flex items-center gap-0.5">
         <Button className="w-8 h-8" size="icon" variant="ghost">
