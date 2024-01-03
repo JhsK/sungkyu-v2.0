@@ -1,9 +1,53 @@
+import { useEffect, useRef } from "react";
 import Bdacs from "../Logo/Bdacs";
 import Datahunt from "../Logo/Datahunt";
 import Insomenia from "../Logo/Insomenia";
 import Text from "../ui/text";
+import { useGSAP } from "@gsap/react";
+import gsap, { Power1 } from "gsap";
+import { randomFloat } from "@/utils";
 
 function Hero() {
+  const insomeniaRef = useRef(null);
+  const datahuntRef = useRef(null);
+  const bdacsRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.to(insomeniaRef.current, randomFloat(1.5, 2.5), {
+      delay: randomFloat(0, 0.5),
+      y: 15,
+      repeat: -1,
+      yoyo: true,
+      ease: Power1.easeInOut,
+    });
+
+    gsap.to(datahuntRef.current, randomFloat(1.5, 2.5), {
+      delay: randomFloat(0, 1),
+      y: 15,
+      repeat: -1,
+      yoyo: true,
+      ease: Power1.easeInOut,
+    });
+
+    gsap.to(bdacsRef.current, randomFloat(1.5, 2.5), {
+      delay: randomFloat(0, 1.5),
+      y: 15,
+      repeat: -1,
+      yoyo: true,
+      ease: Power1.easeInOut,
+    });
+  });
+
+  //   useEffect(() => {
+  //     gsap.to(insomeniaRef.current, 1.5, {
+  //       delay: 0,
+  //       y: 15,
+  //       repeat: -1,
+  //       yoyo: true,
+  //       ease: Power1.easeInOut,
+  //     });
+  //   }, []);
+
   return (
     <div className="h-[250px] py-4 flex flex-col items-center gap-8">
       <div className="flex flex-col items-center">
@@ -16,9 +60,9 @@ function Hero() {
         </div>
       </div>
       <div className="flex items-center gap-8">
-        <Insomenia />
-        <Datahunt />
-        <Bdacs />
+        <Insomenia insomeniaRef={insomeniaRef} />
+        <Datahunt datahuntRef={datahuntRef} />
+        <Bdacs bdacsRef={bdacsRef} />
       </div>
     </div>
   );
