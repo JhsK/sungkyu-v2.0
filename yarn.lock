@@ -51,6 +51,11 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.56.0.tgz#ef20350fec605a7f7035a01764731b2de0f3782b"
   integrity sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==
 
+"@gsap/react@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@gsap/react/-/react-2.0.2.tgz#ec9fa2b9c25e10e3b2928c1f472d5f1e327ad383"
+  integrity sha512-Uo2lOBlGcwmkIE9EcPdsyDfg+DRAoboVvuWgvVIrsJ2tIZHcpFab82YNV0iWj9CNfTzIqGP44ziXqsCMkc8OEw==
+
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.13.tgz#075dc9684f40a531d9b26b0822153c1e832ee297"
@@ -1467,6 +1472,11 @@ gray-matter@^4.0.3:
     kind-of "^6.0.2"
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
+
+gsap@^3.12.4:
+  version "3.12.4"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.12.4.tgz#b9383fe16bb14968e2c7db2a7c0e308edf551e7b"
+  integrity sha512-1ByAq8dD0W4aBZ/JArgaQvc0gyUfkGkP8mgAQa0qZGdpOKlSOhOf+WNXjoLimKaKG3Z4Iu6DKZtnyszqQeyqWQ==
 
 has-bigints@^1.0.1, has-bigints@^1.0.2:
   version "1.0.2"
