@@ -50,7 +50,7 @@ function Hero() {
 
   return (
     <div className="h-[250px] py-4 flex flex-col items-center gap-8">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col gap-4">
         <Text variant="h1">안녕하세요,</Text>
         <div className="flex">
           <Text variant="h1" className="text-blue-400">
