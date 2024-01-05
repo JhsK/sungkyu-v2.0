@@ -5,10 +5,9 @@ env:
   # VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 on:
   push:
-    # Pattern matched against refs/tags
-    tags:
-      # - '/^v\d+\.\d+\.\d+$/'
-      - '*'
+    branches:
+      - master
+
 jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
