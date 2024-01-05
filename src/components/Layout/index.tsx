@@ -7,7 +7,7 @@ interface ILayoutProps {
 
 function Layout({ children }: ILayoutProps) {
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="md:max-w-3xl max-w-xl sm:mx-auto sm:px-0 px-3">
       <Header />
       {children}
       <Footer />

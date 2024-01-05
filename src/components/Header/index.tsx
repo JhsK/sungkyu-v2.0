@@ -28,7 +28,10 @@ function Header() {
 
   return (
     <div className="flex items-center justify-between py-3">
-      <Link href={"/"} className="text-2xl font-semibold tracking-tight">
+      <Link
+        href={"/"}
+        className="sm:text-2xl text-lg font-semibold tracking-tight"
+      >
         Sungkyu
       </Link>
       {searchMode && <Search />}
@@ -37,7 +40,7 @@ function Header() {
           <Link
             key={menu.name}
             href={menu.href}
-            className="text-xl font-semibold tracking-tight"
+            className="sm:text-xl text-base font-semibold tracking-tight"
           >
             {menu.name}
           </Link>
