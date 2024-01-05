@@ -22,7 +22,6 @@ function PostLists({ posts, ...props }: IPostListsProps) {
           </Link>
         ))}
       </div>
-      <Pagination {...props} url={"/"} />
     </>
   );
 }
