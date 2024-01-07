@@ -1,9 +1,11 @@
+import React from "react";
 import { IPostMetaData } from "@/types/posts";
 import Text from "./text";
+import useScreen from "@/hooks/useScreen";
 
 interface IPostCardProps extends Omit<IPostMetaData, "fileName"> {}
 
-function PostCard({ category, title, date }: IPostCardProps) {
+function PostCardDesktop({ category, title, date }: IPostCardProps) {
   return (
     <div className="flex gap-6 cursor-pointer group">
       <div className="w-[260px] h-[180px] bg-gray-400 rounded-[14px] transition-transform group-hover:-translate-y-2 shadow-lg"></div>
@@ -23,6 +25,52 @@ function PostCard({ category, title, date }: IPostCardProps) {
         </Text>
       </div>
     </div>
+  );
+}
+
+function PostCardMobile({ category, title, date }: IPostCardProps) {
+  return (
+    <div>
+      <div className="flex gap-6 cursor-pointer group">
+        <div className="flex flex-col">
+          <div className="flex flex-col gap-1">
+            <Text variant="h4">{title}</Text>
+            <Text variant="p" className="line-clamp-2">
+              The king, seeing how much happier his subjects were, realized the
+              error of his ways and repealed the joke tax .
+            </Text>
+          </div>
+        </div>
+        <div className="w-[88px]">
+          <div className="w-[88px] h-[88px] bg-gray-400 rounded-[14px] transition-transform group-hover:-translate-y-2 shadow-lg"></div>
+        </div>
+      </div>
+      <div className="flex items-center gap-2">
+        <Text
+          variant="small"
+          className="p-2 rounded-3xl bg-gray-100 text-gray-300"
+        >
+          {category}
+        </Text>
+        <Text variant="small" className="text-gray-300">
+          {date}
+        </Text>
+      </div>
+    </div>
+  );
+}
+
+function PostCard({ category, title, date }: IPostCardProps) {
+  const isMobile = useScreen();
+
+  return (
+    <>
+      {isMobile ? (
+        <PostCardMobile category={category} title={title} date={date} />
+      ) : (
+        <PostCardDesktop category={category} title={title} date={date} />
+      )}
+    </>
   );
 }
 
