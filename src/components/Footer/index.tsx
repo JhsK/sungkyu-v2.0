@@ -2,7 +2,7 @@ import { Github, Linkedin, Send } from "lucide-react";
 import Text from "../ui/text";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { sns } from "@/constant";
+import { SNS } from "@/constant";
 
 function Footer() {
   return (
@@ -15,17 +15,17 @@ function Footer() {
       </Text>
       <div className="flex items-center gap-0.5">
         <Button className="w-8 h-8" size="icon" variant="ghost">
-          <Link href={sns.github} target="_blank">
+          <Link href={SNS.github} target="_blank">
             <Github className="w-3.5 h-3.5 text-zinc-700" />
           </Link>
         </Button>
         <Button className="w-8 h-8" size="icon" variant="ghost">
-          <Link href={sns.linedIn} target="_blank">
+          <Link href={SNS.linedIn} target="_blank">
             <Linkedin className="w-3.5 h-3.5 text-zinc-700" />
           </Link>
         </Button>
         <Button className="w-8 h-8" size="icon" variant="ghost">
-          <Link href={sns.email}>
+          <Link href={SNS.email}>
             <Send className="w-3.5 h-3.5 text-zinc-700" />
           </Link>
         </Button>
