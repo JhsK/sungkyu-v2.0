@@ -1,5 +1,6 @@
 import Categories from "@/components/Posts/Categories";
 import Hero from "@/components/Posts/Hero";
+import Hero2 from "@/components/Posts/Hero2";
 import PostLists from "@/components/Posts/Lists";
 import { getSortedPosts } from "@/libs/posts";
 import { IPagination } from "@/types/common";
@@ -15,7 +16,8 @@ function HomePage({ posts, ...props }: IHomeProps) {
 
   return (
     <>
-      <Hero />
+      <Hero2 />
+      {/* <Hero /> */}
       <Categories categories={categories} />
       <PostLists posts={posts} {...props} />
     </>
