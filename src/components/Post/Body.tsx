@@ -9,7 +9,7 @@ interface IPostBodyProps {
 
 function PostBody({ content }: IPostBodyProps) {
   return (
-    <article className="prose-lg py-5">
+    <article className="prose-sm sm:prose-lg py-5">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
