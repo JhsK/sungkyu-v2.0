@@ -1,11 +1,11 @@
-import { Search as SearchIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import Search from "../ui/search";
+import Text from "../ui/text";
 import { useEffect, useState } from "react";
 
 const menus = [
-  { name: "About", href: "/about" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Posts", href: "/posts" },
 ];
 
@@ -35,19 +35,20 @@ function Header() {
         Sungkyu
       </Link>
       {searchMode && <Search />}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2">
         {menus.map((menu) => (
-          <Link
-            key={menu.name}
-            href={menu.href}
-            className="sm:text-xl text-base font-semibold tracking-tight"
-          >
-            {menu.name}
+          <Link key={menu.name} href={menu.href}>
+            <Button size="icon" variant="ghost" className="w-fit px-2.5 py-2">
+              <Text variant="p" className="text-gray-500 font-normal">
+                {menu.name}
+              </Text>
+            </Button>
           </Link>
         ))}
+        {/* 추후 게시글이 많아지면 검색 기능 주석 제거
         <Button size="icon" variant="ghost" onClick={() => setSearchMode(true)}>
           <SearchIcon />
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
