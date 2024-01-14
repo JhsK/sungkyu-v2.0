@@ -2,7 +2,7 @@
 category: "React"
 title: "Two Forms of Pre-rendering"
 fileName: "second"
-date: "2020-01-02"
+date: "2020.01.02"
 ---
 
 # test1
