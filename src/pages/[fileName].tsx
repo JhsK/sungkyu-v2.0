@@ -1,3 +1,4 @@
+import Meta from "@/components/Meta";
 import PostBody from "@/components/Post/Body";
 import PostFooter from "@/components/Post/Footer";
 import PostHeader from "@/components/Post/Header";
@@ -10,11 +11,14 @@ interface IPostDetailPageProps {
 
 function PostDetailPage({ post }: IPostDetailPageProps) {
   return (
-    <div className="pt-8">
-      <PostHeader />
-      <PostBody content={post.content} />
-      <PostFooter />
-    </div>
+    <>
+      <Meta title={post.title} ogTitle={post.title} />
+      <div className="pt-8">
+        <PostHeader />
+        <PostBody content={post.content} />
+        <PostFooter />
+      </div>
+    </>
   );
 }
 

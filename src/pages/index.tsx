@@ -1,3 +1,4 @@
+import Meta from "@/components/Meta";
 import Categories from "@/components/Posts/Categories";
 import Hero from "@/components/Posts/Hero";
 import Hero2 from "@/components/Posts/Hero2";
@@ -16,6 +17,7 @@ function HomePage({ posts, ...props }: IHomeProps) {
 
   return (
     <>
+      <Meta title="Sungkyu's blog" />
       <Hero2 />
       {/* <Hero /> */}
       <Categories categories={categories} />

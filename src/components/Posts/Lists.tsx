@@ -1,7 +1,6 @@
 import PostCard from "@/components/ui/postCard";
 import { IPostMetaData } from "@/types/posts";
 import Link from "next/link";
-import Pagination from "../ui/pagination";
 import { IPagination } from "@/types/common";
 
 interface IPostListsProps extends IPagination {
