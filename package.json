@@ -8,7 +8,8 @@
     "start": "next start",
     "postbuild": "next-sitemap",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest",
+    "test-watch": "ject --watch"
   },
   "dependencies": {
     "@gsap/react": "^2.0.2",
@@ -49,6 +50,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
