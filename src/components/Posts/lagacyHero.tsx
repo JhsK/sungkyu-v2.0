@@ -38,16 +38,6 @@ function Hero() {
     });
   });
 
-  //   useEffect(() => {
-  //     gsap.to(insomeniaRef.current, 1.5, {
-  //       delay: 0,
-  //       y: 15,
-  //       repeat: -1,
-  //       yoyo: true,
-  //       ease: Power1.easeInOut,
-  //     });
-  //   }, []);
-
   return (
     <div className="h-[250px] py-4 flex flex-col items-center gap-8">
       <div className="flex flex-col gap-4">
