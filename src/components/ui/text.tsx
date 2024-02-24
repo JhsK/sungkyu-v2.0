@@ -10,7 +10,11 @@ interface ITextProps extends HTMLAttributes<HTMLElement> {
 const variantStyle = cva("", {
   variants: {
     Element: {
+<<<<<<< HEAD
       h1: "sm:text-4xl text-2xl font-extrabold tracking-tight lg:text-5xl",
+=======
+      h1: "sm:text-4xl text-2xl font-bold tracking-tight lg:text-[40px]",
+>>>>>>> fc89080 (fix: text variant h1 style)
       h2: "pb-2 sm:text-3xl text-xl font-semibold tracking-tight",
       h3: "sm:text-2xl text-lg font-semibold tracking-tight",
       h4: "sm:text-xl text-base font-semibold tracking-tight",
