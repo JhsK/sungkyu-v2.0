@@ -1,6 +1,5 @@
 import Meta from "@/components/Meta";
 import Categories from "@/components/Posts/Categories";
-import Hero from "@/components/Posts/Hero";
 import Hero2 from "@/components/Posts/Hero2";
 import PostLists from "@/components/Posts/Lists";
 import { getSortedPosts } from "@/libs/posts";
@@ -19,7 +18,6 @@ function HomePage({ posts, ...props }: IHomeProps) {
     <>
       <Meta title="Sungkyu's blog" />
       <Hero2 />
-      {/* <Hero /> */}
       <Categories categories={categories} />
       <PostLists posts={posts} {...props} />
     </>
