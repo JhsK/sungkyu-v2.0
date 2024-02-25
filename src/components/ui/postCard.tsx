@@ -5,7 +5,7 @@ import useScreen from "@/hooks/useScreen";
 
 interface IPostCardProps extends Omit<IPostMetaData, "fileName"> {}
 
-function PostCardDesktop({ category, title, date }: IPostCardProps) {
+function PostCardDesktop({ category, title, date, summary }: IPostCardProps) {
   return (
     <div className="flex gap-6 cursor-pointer group">
       <div className="w-[260px] h-[180px] bg-gray-400 rounded-[14px] transition-transform group-hover:-translate-y-2 shadow-lg"></div>
@@ -16,8 +16,7 @@ function PostCardDesktop({ category, title, date }: IPostCardProps) {
         <div className="flex flex-col gap-1.5 mb-6">
           <Text variant="h3">{title}</Text>
           <Text variant="p" className="line-clamp-2">
-            The king, seeing how much happier his subjects were, realized the
-            error of his ways and repealed the joke tax .
+            {summary}
           </Text>
         </div>
         <Text variant="small" className="text-gray-300">
@@ -28,7 +27,7 @@ function PostCardDesktop({ category, title, date }: IPostCardProps) {
   );
 }
 
-function PostCardMobile({ category, title, date }: IPostCardProps) {
+function PostCardMobile({ category, title, date, summary }: IPostCardProps) {
   return (
     <div>
       <div className="flex gap-6 cursor-pointer group">
@@ -36,8 +35,7 @@ function PostCardMobile({ category, title, date }: IPostCardProps) {
           <div className="flex flex-col gap-1">
             <Text variant="h4">{title}</Text>
             <Text variant="p" className="line-clamp-2">
-              The king, seeing how much happier his subjects were, realized the
-              error of his ways and repealed the joke tax .
+              {summary}
             </Text>
           </div>
         </div>
@@ -60,15 +58,25 @@ function PostCardMobile({ category, title, date }: IPostCardProps) {
   );
 }
 
-function PostCard({ category, title, date }: IPostCardProps) {
+function PostCard({ category, title, date, summary }: IPostCardProps) {
   const isMobile = useScreen();
 
   return (
     <>
       {isMobile ? (
-        <PostCardMobile category={category} title={title} date={date} />
+        <PostCardMobile
+          category={category}
+          title={title}
+          date={date}
+          summary={summary}
+        />
       ) : (
-        <PostCardDesktop category={category} title={title} date={date} />
+        <PostCardDesktop
+          category={category}
+          title={title}
+          date={date}
+          summary={summary}
+        />
       )}
     </>
   );
