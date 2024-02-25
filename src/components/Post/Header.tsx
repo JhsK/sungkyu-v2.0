@@ -1,15 +1,19 @@
+import { IPostMetaData } from "@/types/posts";
 import { Separator } from "../ui/separator";
 import Text from "../ui/text";
 
-function PostHeader() {
+interface IPostHeaderProps
+  extends Omit<IPostMetaData, "fileName" | "summary"> {}
+
+function PostHeader({ category, title, date }: IPostHeaderProps) {
   return (
     <div>
-      <Text variant="p">React</Text>
+      <Text variant="p">{category}</Text>
       <Text variant="h2" className="mb-1">
-        Test blodg post1
+        {title}
       </Text>
       <Text variant="small" className="text-gray-300">
-        23. 08. 18
+        {date}
       </Text>
       <Separator className="mt-2" />
     </div>

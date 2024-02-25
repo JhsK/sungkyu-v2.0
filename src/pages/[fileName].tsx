@@ -10,12 +10,14 @@ interface IPostDetailPageProps {
 }
 
 function PostDetailPage({ post }: IPostDetailPageProps) {
+  const { title, category, date, content } = post;
+
   return (
     <>
-      <Meta title={post.title} ogTitle={post.title} />
+      <Meta title={title} ogTitle={title} />
       <div className="pt-8">
-        <PostHeader />
-        <PostBody content={post.content} />
+        <PostHeader title={title} category={category} date={date} />
+        <PostBody content={content} />
         <PostFooter />
       </div>
     </>
