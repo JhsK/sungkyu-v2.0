@@ -13,7 +13,7 @@ function Info() {
         <Text variant="h1" className="font-extralight mr-2">
           개발자
         </Text>
-        <Text variant="h1" className="font-bold">
+        <Text variant="h1" className="font-normal">
           임성규
         </Text>
         <Text variant="h1" className="font-extralight">
