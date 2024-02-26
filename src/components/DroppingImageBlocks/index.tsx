@@ -2,37 +2,33 @@ import React, { useEffect, useRef } from "react";
 import Matter from "matter-js";
 import { Images } from "./config";
 
+const DPR = window.devicePixelRatio;
+
 function DroppingImageBlocks() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const Bodies = Matter.Bodies;
 
-  const floor = Bodies.rectangle(0, 480, 2000, 10, {
-    isStatic: true,
-    render: {
-      fillStyle: "#000",
-    },
-  });
-
-  const floorLeft = Bodies.rectangle(0, 0, 20, 800, {
+  const floor = Bodies.rectangle(0, 500 * DPR, 3000 * DPR, 10 * DPR, {
     isStatic: true,
     render: {
       fillStyle: "#fff",
     },
   });
 
-  const floorRight = Bodies.rectangle(
-    canvasRef.current?.width || 768,
-    0,
-    20,
-    800,
-    {
-      isStatic: true,
-      render: {
-        fillStyle: "#fff",
-      },
-    }
-  );
+  const floorLeft = Bodies.rectangle(400 * DPR, 0, 10 * DPR, 600 * DPR, {
+    isStatic: true,
+    render: {
+      fillStyle: "#F0F0F0",
+    },
+  });
+
+  const floorRight = Bodies.rectangle(1024 * DPR, 0, 20 * DPR, 1000 * DPR, {
+    isStatic: true,
+    render: {
+      fillStyle: "#F0F0F0",
+    },
+  });
 
   const updateCanvasSize = () => {
     if (containerRef.current && canvasRef.current) {
@@ -88,7 +84,7 @@ function DroppingImageBlocks() {
         showSeparations: true,
         width: canvasRef.current.width,
         height: canvasRef.current.height,
-        background: "",
+        background: "#F0F0F0",
         wireframes: false,
       },
     });
@@ -96,34 +92,65 @@ function DroppingImageBlocks() {
     const loadedImages: HTMLImageElement[] = [];
 
     const loadImages = () => {
-      for (const imageData of Images) {
-        const image = new Image();
-        image.src = imageData.path;
+      const imageLoadPromises = Images.map(
+        (imageData) =>
+          new Promise<HTMLImageElement>((resolve) => {
+            const image = new Image();
+            image.src = imageData.path;
+            image.onload = () => {
+              const resizedImage = resizeImage(
+                image,
+                imageData.width,
+                imageData.height
+              );
+              resolve(resizedImage);
+            };
+          })
+      );
 
-        image.onload = () => {
-          const resizedImage = resizeImage(
-            image,
-            imageData.width,
-            imageData.height
-          );
-          loadedImages.push(resizedImage);
-
-          // Check if all images are loaded
-          if (loadedImages.length === Images.length) {
-            createMatterElements(loadedImages);
-          }
-        };
-      }
+      Promise.all(imageLoadPromises).then((loadImages) => {
+        createMatterElements(loadImages);
+      });
     };
+
+    // const createMatterElements = (images: HTMLImageElement[]) => {
+    //   images.forEach((_, i) => {
+    //     setTimeout(() => {
+    //       const options = Images[i].options;
+    //       const matterElement = Bodies.rectangle(
+    //         Images[i].coordinates.x,
+    //         Images[i].coordinates.y,
+    //         Images[i].width * 0.7,
+    //         Images[i].height * 0.7,
+    //         {
+    //           label: Images[i].label,
+    //           chamfer: {
+    //             radius: 10,
+    //           },
+    //           render: {
+    //             sprite: {
+    //               texture: images[i].src,
+    //               xScale: 0.7,
+    //               yScale: 0.7,
+    //             },
+    //           },
+    //           restitution: 0.4,
+    //           ...options,
+    //         }
+    //       );
+    //       World.add(engine.world, matterElement);
+    //     }, i * 50);
+    //   });
+    // };
 
     const createMatterElements = (images: HTMLImageElement[]) => {
       for (let i = 0; i < images.length; i++) {
         const options = Images[i].options;
         const matterElement = Bodies.rectangle(
-          Images[i].coordinates.x,
-          Images[i].coordinates.y,
-          Images[i].width * 0.7,
-          Images[i].height * 0.7,
+          Images[i].coordinates.x * DPR,
+          Images[i].coordinates.y * DPR,
+          Images[i].width * 0.7 * DPR,
+          Images[i].height * 0.7 * DPR,
           {
             label: Images[i].label,
             chamfer: {
@@ -132,8 +159,8 @@ function DroppingImageBlocks() {
             render: {
               sprite: {
                 texture: images[i].src,
-                xScale: 0.7,
-                yScale: 0.7,
+                xScale: 0.7 * DPR,
+                yScale: 0.7 * DPR,
               },
             },
             restitution: 0.4,
@@ -174,7 +201,7 @@ function DroppingImageBlocks() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full">
+    <section ref={containerRef} className="w-full">
       <canvas ref={canvasRef} id="viewport" width="1920" height="1080" />
     </section>
   );
