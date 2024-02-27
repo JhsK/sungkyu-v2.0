@@ -11,7 +11,7 @@ function PostCardDesktop({ category, title, date, summary }: IPostCardProps) {
       <div className="w-[260px] h-[180px] bg-gray-400 rounded-[14px] transition-transform group-hover:-translate-y-2 shadow-lg"></div>
       <div className="w-[70%] flex flex-col pb-2 mt-1">
         <div className="flex items-end gap-1 mb-3.5">
-          <Text variant="p">{category}</Text>
+          <Text variant="p">{`#${category}`}</Text>
         </div>
         <div className="flex flex-col gap-1.5 mb-6">
           <Text variant="h3">{title}</Text>
