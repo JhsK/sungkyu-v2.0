@@ -12,7 +12,6 @@ export function getSortedPosts(size: number, page: number) {
       const id = fileName.replace(/\.md$/, "");
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
-
       const matterResult = matter(fileContents).data as IPostMetaData;
 
       return {
@@ -78,4 +77,18 @@ export function getPostsTitle() {
   });
 
   return titles;
+}
+
+export function getAllCategories() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const allCategories = fileNames.map((fileName) => {
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+
+    const matterResult = matter(fileContents).data as IPostMetaData;
+
+    return matterResult.category;
+  });
+
+  return [...new Set(allCategories)];
 }
