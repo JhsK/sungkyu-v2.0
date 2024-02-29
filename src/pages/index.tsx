@@ -18,8 +18,7 @@ function HomePage({ posts, ...props }: IHomeProps) {
     <>
       <Meta title="Sungkyu's blog" />
       <Hero2 />
-      <div className="px-6">
-        <Categories categories={categories} />
+      <div className="px-6 mt-12">
         <PostLists posts={posts} {...props} />
       </div>
     </>
