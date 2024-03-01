@@ -19,14 +19,14 @@ function DroppingImageBlocks() {
   const floorLeft = Bodies.rectangle(400 * DPR, 0, 10 * DPR, 600 * DPR, {
     isStatic: true,
     render: {
-      fillStyle: "#F0F0F0",
+      fillStyle: "#fff",
     },
   });
 
   const floorRight = Bodies.rectangle(1024 * DPR, 0, 20 * DPR, 1000 * DPR, {
     isStatic: true,
     render: {
-      fillStyle: "#F0F0F0",
+      fillStyle: "#fff",
     },
   });
 
@@ -84,12 +84,10 @@ function DroppingImageBlocks() {
         showSeparations: true,
         width: canvasRef.current.width,
         height: canvasRef.current.height,
-        background: "#F0F0F0",
+        background: "#fff",
         wireframes: false,
       },
     });
-
-    const loadedImages: HTMLImageElement[] = [];
 
     const loadImages = () => {
       const imageLoadPromises = Images.map(
@@ -112,36 +110,6 @@ function DroppingImageBlocks() {
         createMatterElements(loadImages);
       });
     };
-
-    // const createMatterElements = (images: HTMLImageElement[]) => {
-    //   images.forEach((_, i) => {
-    //     setTimeout(() => {
-    //       const options = Images[i].options;
-    //       const matterElement = Bodies.rectangle(
-    //         Images[i].coordinates.x,
-    //         Images[i].coordinates.y,
-    //         Images[i].width * 0.7,
-    //         Images[i].height * 0.7,
-    //         {
-    //           label: Images[i].label,
-    //           chamfer: {
-    //             radius: 10,
-    //           },
-    //           render: {
-    //             sprite: {
-    //               texture: images[i].src,
-    //               xScale: 0.7,
-    //               yScale: 0.7,
-    //             },
-    //           },
-    //           restitution: 0.4,
-    //           ...options,
-    //         }
-    //       );
-    //       World.add(engine.world, matterElement);
-    //     }, i * 50);
-    //   });
-    // };
 
     const createMatterElements = (images: HTMLImageElement[]) => {
       for (let i = 0; i < images.length; i++) {
@@ -186,7 +154,6 @@ function DroppingImageBlocks() {
     loadImages();
 
     World.add(engine.world, [floor, floorLeft, floorRight, mouseConstraint]);
-    // World.add(engine.world, [floor, floorLeft, floorRight]);
 
     Matter.Runner.run(engine); // 엔진을 구동합니다.
     Render.run(render); // 렌더를 진행합니다.
