@@ -1,5 +1,5 @@
 function DroppingImageBlocksLoading() {
-  return <div className="w-full h-[500px] bg-[#F0F0F0]"></div>;
+  return <div className="w-full h-[500px] bg-white"></div>;
 }
 
 export default DroppingImageBlocksLoading;

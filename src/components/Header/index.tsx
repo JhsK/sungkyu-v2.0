@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { cn } from "@/libs/utils";
 
 const menus = [
-  { name: "Portfolio", href: "/portfolio" },
+  { name: "Portfolio", href: "/#" },
   { name: "Posts", href: "/posts" },
 ];
 
@@ -46,7 +46,8 @@ function Header() {
                 variant="p"
                 className={cn(
                   "text-gray-500 font-normal",
-                  asPath === menu.href && "text-black"
+                  asPath === menu.href && "text-black",
+                  menu.name === "Portfolio" && "line-through"
                 )}
               >
                 {menu.name}
