@@ -10,7 +10,7 @@ interface IPostBodyProps {
 
 function PostBody({ content }: IPostBodyProps) {
   return (
-    <article className="prose-sm sm:prose-base py-5 prose-ol:list-decimal prose-li:list-disc prose-a:underline prose-a:text-gray-500">
+    <article className="prose-sm sm:prose-base prose prose-pre:bg-white py-5 prose-ol:list-decimal prose-li:list-disc prose-a:underline prose-a:text-gray-500 max-w-full">
       <ReactMarkdown
         rehypePlugins={[rehypeRaw]}
         remarkPlugins={[remarkGfm]}

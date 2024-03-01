@@ -7,9 +7,9 @@ interface ILayoutProps {
 
 function Layout({ children }: ILayoutProps) {
   return (
-    <div className="md:max-w-[1024px] max-w-xl sm:mx-auto sm:px-0 px-4">
+    <div className="md:max-w-[1024px] max-w-xl sm:mx-auto sm:px-0 px-4 h-screen flex flex-col">
       <Header />
-      {children}
+      <div className="flex-1">{children}</div>
       <Footer />
     </div>
   );
