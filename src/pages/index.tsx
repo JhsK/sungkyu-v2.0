@@ -1,5 +1,4 @@
 import Meta from "@/components/Meta";
-import Categories from "@/components/Posts/Categories";
 import Hero2 from "@/components/Posts/Hero2";
 import PostLists from "@/components/Posts/Lists";
 import { getSortedPosts } from "@/libs/posts";
@@ -36,7 +35,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     currentPage = Number(page);
   }
 
-  const { posts, totalCount } = getSortedPosts(size, currentPage);
+  const { posts, totalCount } = getSortedPosts({ size, page: currentPage });
 
   return {
     props: {

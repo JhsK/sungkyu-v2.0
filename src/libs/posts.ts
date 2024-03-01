@@ -5,9 +5,17 @@ import { IPostMetaData } from "@/types/posts";
 
 const postsDirectory = path.join(process.cwd(), "src/posts");
 
-export function getSortedPosts(size: number, page: number) {
+export function getSortedPosts({
+  size,
+  page,
+  category,
+}: {
+  size: number;
+  page: number;
+  category?: string;
+}) {
   const fileNames = fs.readdirSync(postsDirectory);
-  const posts = fileNames
+  let posts = fileNames
     .map((fileName) => {
       const id = fileName.replace(/\.md$/, "");
       const fullPath = path.join(postsDirectory, fileName);
@@ -26,6 +34,10 @@ export function getSortedPosts(size: number, page: number) {
         return -1;
       }
     });
+
+  if (category && category !== "All") {
+    posts = posts.filter((post) => post.category === category);
+  }
 
   const startIndex = (page - 1) * size;
   const endIndex = startIndex + size;

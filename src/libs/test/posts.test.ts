@@ -9,44 +9,6 @@ jest.mock("gray-matter", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
-// jest.mock("gray-matter", () => ({
-//   __esModule: true,
-//   default: jest
-//     .fn()
-//     .mockImplementationOnce(() => ({
-//       data: {
-//         category: "React",
-//         title: "Two Forms of Pre-rendering",
-//         fileName: "first",
-//         date: "2020.01.01",
-//       },
-//       content: "test",
-//       isEmpty: false,
-//       excerpt: "",
-//     }))
-//     .mockImplementationOnce(() => ({
-//       data: {
-//         category: "Next",
-//         title: "Another Form of Pre-rendering",
-//         fileName: "second",
-//         date: "2020.02.01",
-//       },
-//       content: "test",
-//       isEmpty: false,
-//       excerpt: "",
-//     }))
-//     .mockImplementation(() => ({
-//       data: {
-//         category: "React",
-//         title: "Two Forms of Pre-rendering",
-//         fileName: "first",
-//         date: "2020.01.01",
-//       },
-//       content: "test",
-//       isEmpty: false,
-//       excerpt: "",
-//     })),
-// }));
 
 describe("getSortedPosts 함수 테스트", () => {
   beforeEach(() => {
@@ -96,7 +58,7 @@ describe("getSortedPosts 함수 테스트", () => {
   });
 
   it("src/posts에 담긴 md 파일의 정보와 총 개수를 반환한다.", () => {
-    expect(getSortedPosts(2, 1)).toEqual({
+    expect(getSortedPosts({ size: 2, page: 1 })).toEqual({
       posts: [
         {
           id: "second",
@@ -118,7 +80,7 @@ describe("getSortedPosts 함수 테스트", () => {
   });
 
   it("src/posts에 담긴 md 파일을 원하는 개수만큼만 최근 날짜 기준으로 정보를 반환한다", () => {
-    expect(getSortedPosts(1, 1)).toEqual({
+    expect(getSortedPosts({ size: 1, page: 1 })).toEqual({
       posts: [
         {
           category: "Next",
@@ -133,7 +95,7 @@ describe("getSortedPosts 함수 테스트", () => {
   });
 
   it("src/posts에 담긴 md 파일을 원하는 페이지에 따라 정보를 반환한다", () => {
-    expect(getSortedPosts(1, 2)).toEqual({
+    expect(getSortedPosts({ size: 1, page: 2 })).toEqual({
       posts: [
         {
           id: "first",
@@ -144,6 +106,21 @@ describe("getSortedPosts 함수 테스트", () => {
         },
       ],
       totalCount: 2,
+    });
+  });
+
+  it("src/posts에 담긴 md 파일중 특정 category 데이터를 포함한 데이터만 반환한다", () => {
+    expect(getSortedPosts({ size: 2, page: 1, category: "React" })).toEqual({
+      posts: [
+        {
+          id: "first",
+          category: "React",
+          title: "Two Forms of Pre-rendering",
+          fileName: "first",
+          date: "2020.01.01",
+        },
+      ],
+      totalCount: 1,
     });
   });
 });
