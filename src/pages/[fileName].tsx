@@ -1,7 +1,5 @@
 import Meta from "@/components/Meta";
-import PostBody from "@/components/Post/Body";
-import PostFooter from "@/components/Post/Footer";
-import PostHeader from "@/components/Post/Header";
+import Post from "@/components/Post";
 import { getPost, getPostsFileName } from "@/libs/posts";
 import { IPost } from "@/types/posts";
 
@@ -10,16 +8,10 @@ interface IPostDetailPageProps {
 }
 
 function PostDetailPage({ post }: IPostDetailPageProps) {
-  const { title, category, date, content } = post;
-
   return (
     <>
-      <Meta title={title} ogTitle={title} />
-      <div className="pt-8">
-        <PostHeader title={title} category={category} date={date} />
-        <PostBody content={content} />
-        <PostFooter />
-      </div>
+      <Meta title={post.title} ogTitle={post.title} />
+      <Post post={post} />
     </>
   );
 }
