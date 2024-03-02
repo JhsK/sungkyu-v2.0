@@ -18,7 +18,8 @@ function Categories({ categories }: ICategoriesProps) {
             variant="outline"
             className={cn(
               "rounded-3xl text-gray-500",
-              category === currentCategory && "text-black"
+              category === currentCategory &&
+                "text-custom-main border-custom-main"
             )}
           >
             {category}

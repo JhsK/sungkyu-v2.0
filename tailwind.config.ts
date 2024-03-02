@@ -16,6 +16,12 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        "custom-main": "#2970FF",
+        "custom-black": "#333d4b",
+        "custom-base": "#4e5968",
+        "custom-small": "#8b95a1",
+      },
       fontFamily: {
         sans: [
           '"Pretendard Variable"',
