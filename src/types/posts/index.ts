@@ -1,4 +1,5 @@
 export interface IPostMetaData {
+  sumnail: string;
   category: string;
   title: string;
   summary: string;
