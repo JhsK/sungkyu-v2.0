@@ -1,14 +1,30 @@
 import React, { useEffect, useRef } from "react";
 import Matter from "matter-js";
 import { Images } from "./config";
+import useScreen from "@/hooks/useScreen";
 
 const DPR = window.devicePixelRatio;
 
 function DroppingImageBlocks() {
+  const { isMobile, screenWidth, getCurrentBreakPoint } = useScreen();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const Bodies = Matter.Bodies;
 
+  const floorCoordinates = {
+    left: {
+      x: isMobile ? 0 : 400 * DPR,
+      y: 0,
+      width: 10 * DPR,
+      height: isMobile ? 1000 * DPR : 600 * DPR,
+    },
+    right: {
+      x: isMobile ? (screenWidth - 40) * DPR : 1024 * DPR,
+      y: 0,
+      width: 20 * DPR,
+      height: 1000 * DPR,
+    },
+  };
   const floor = Bodies.rectangle(0, 500 * DPR, 3000 * DPR, 10 * DPR, {
     isStatic: true,
     render: {
@@ -16,19 +32,37 @@ function DroppingImageBlocks() {
     },
   });
 
-  const floorLeft = Bodies.rectangle(400 * DPR, 0, 10 * DPR, 600 * DPR, {
-    isStatic: true,
-    render: {
-      fillStyle: "#fff",
-    },
-  });
+  const floorLeft = Bodies.rectangle(
+    floorCoordinates.left.x,
+    floorCoordinates.left.y,
+    floorCoordinates.left.width,
+    floorCoordinates.left.height,
+    {
+      isStatic: true,
+      render: {
+        fillStyle: "#fff",
+      },
+    }
+  );
 
-  const floorRight = Bodies.rectangle(1024 * DPR, 0, 20 * DPR, 1000 * DPR, {
-    isStatic: true,
-    render: {
-      fillStyle: "#fff",
-    },
-  });
+  const floorRight = Bodies.rectangle(
+    floorCoordinates.right.x,
+    floorCoordinates.right.y,
+    floorCoordinates.right.width,
+    floorCoordinates.right.height,
+    {
+      isStatic: true,
+      render: {
+        fillStyle: "#fff",
+      },
+    }
+  );
+
+  const responsiveOffset = () => {
+    if (getCurrentBreakPoint() === "md") return 200;
+    if (getCurrentBreakPoint() === "sm") return 400;
+    return 0;
+  };
 
   const updateCanvasSize = () => {
     if (containerRef.current && canvasRef.current) {
@@ -115,7 +149,7 @@ function DroppingImageBlocks() {
       for (let i = 0; i < images.length; i++) {
         const options = Images[i].options;
         const matterElement = Bodies.rectangle(
-          Images[i].coordinates.x * DPR,
+          (Images[i].coordinates.x - responsiveOffset()) * DPR,
           Images[i].coordinates.y * DPR,
           Images[i].width * 0.7 * DPR,
           Images[i].height * 0.7 * DPR,
@@ -165,7 +199,7 @@ function DroppingImageBlocks() {
       render.canvas.remove();
       window.removeEventListener("resize", updateCanvasSize);
     };
-  }, []);
+  }, [getCurrentBreakPoint]);
 
   return (
     <section ref={containerRef} className="w-full">

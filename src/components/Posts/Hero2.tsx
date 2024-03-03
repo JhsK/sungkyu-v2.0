@@ -11,7 +11,7 @@ function Hero2() {
   return (
     <div className="relative flex sm:flex-row items-center flex-col">
       <DroppingImageBlocks />
-      <div className="absolute top-[40%] left-[2%] -translate-y-1/2">
+      <div className="absolute sm:top-[40%] top-[30%] left-[2%] -translate-y-1/2">
         <Info />
       </div>
     </div>
