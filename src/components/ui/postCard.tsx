@@ -20,7 +20,7 @@ function PostCardDesktop({
   postAlt,
 }: IPostCardDeviceProps) {
   return (
-    <div className="flex gap-6 cursor-pointer group">
+    <div className="flex items-center gap-6 cursor-pointer group">
       <div className="w-[260px] h-[180px] bg-gray-400 rounded-[14px] transition-transform group-hover:-translate-y-2 shadow-lg overflow-hidden relative">
         <Image
           src={sumnailPath}
@@ -29,19 +29,21 @@ function PostCardDesktop({
           objectFit="cover"
         />
       </div>
-      <div className="w-[70%] flex flex-col pb-2 mt-1">
-        <div className="flex items-end gap-1 mb-3.5">
+      <div className="w-[70%] flex flex-col">
+        <div className="flex items-end gap-1 mb-2">
           <Text variant="p">{`#${category}`}</Text>
         </div>
-        <div className="flex flex-col gap-1.5 mb-6">
-          <Text variant="h3">{title}</Text>
-          <Text variant="p" className="line-clamp-2">
+        <div>
+          <Text variant="h3" className="mb-2">
+            {title}
+          </Text>
+          <Text variant="p" className="line-clamp-2 mb-3">
             {summary}
           </Text>
+          <Text variant="small" className="text-gray-300">
+            {date}
+          </Text>
         </div>
-        <Text variant="small" className="text-gray-300">
-          {date}
-        </Text>
       </div>
     </div>
   );
@@ -57,32 +59,20 @@ function PostCardMobile({
 }: IPostCardDeviceProps) {
   return (
     <div>
-      <div className="flex gap-6 cursor-pointer group">
-        <div className="flex flex-col">
-          <div className="flex flex-col gap-1">
-            <Text variant="h4">{title}</Text>
-            <Text variant="p" className="line-clamp-2">
-              {summary}
-            </Text>
-          </div>
-        </div>
-        <div className="w-[88px]">
-          <div className="w-[88px] h-[88px] bg-gray-400 relative overflow-hidden rounded-[14px] transition-transform group-hover:-translate-y-2 shadow-lg">
-            <Image
-              src={sumnailPath}
-              layout="fill"
-              alt={postAlt}
-              objectFit="cover"
-            />
-          </div>
-        </div>
+      <div className="w-full h-[200px] bg-gray-400 rounded-[14px] transition-transform shadow-lg overflow-hidden relative mb-5">
+        <Image
+          src={sumnailPath}
+          layout="fill"
+          alt={postAlt}
+          objectFit="cover"
+        />
       </div>
-      <div className="flex items-center gap-2">
-        <Text
-          variant="small"
-          className="p-2 rounded-3xl bg-gray-100 text-gray-300"
-        >
-          {category}
+      <div>
+        <Text variant="h3" className="mb-2.5">
+          {title}
+        </Text>
+        <Text variant="p" className="mb-4">
+          {summary}
         </Text>
         <Text variant="small" className="text-gray-300">
           {date}
