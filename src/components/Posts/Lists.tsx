@@ -19,7 +19,7 @@ function PostLists({ posts, ...props }: IPostListsProps) {
               date={post.date}
               summary={post.summary}
               fileName={post.fileName}
-              sumnail={post.sumnail}
+              thumbnail={post.thumbnail}
             />
           </Link>
         ))}

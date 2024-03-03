@@ -4,7 +4,7 @@ export const SNS = {
   email: "mailto:qwe6293@nate.com",
 };
 
-export const BREACK_POINT = {
+export const BREAK_POINT = {
   sm: 640,
   md: 768,
   lg: 1024,

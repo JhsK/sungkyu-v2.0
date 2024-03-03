@@ -1,5 +1,5 @@
 export interface IPostMetaData {
-  sumnail: string;
+  thumbnail: string;
   category: string;
   title: string;
   summary: string;
