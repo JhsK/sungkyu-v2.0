@@ -90,7 +90,7 @@ function PostCard({
   fileName,
   sumnail,
 }: IPostCardProps) {
-  const isMobile = useScreen();
+  const { isMobile } = useScreen();
   const sumnailPath = `/posts/${fileName}/${sumnail}`;
   const postAlt = `${title} sumnail image`;
 

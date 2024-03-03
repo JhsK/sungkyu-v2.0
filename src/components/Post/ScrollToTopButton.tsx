@@ -39,7 +39,7 @@ function ScrollToTopButton() {
   return (
     <div
       className={cn(
-        "fixed bottom-[3%] right-12 opacity-0 transition-opacity",
+        "fixed bottom-[3%] xl:right-12 hidden md:block opacity-0 transition-opacity md:right-1",
         isScrolled && "opacity-100"
       )}
     >
