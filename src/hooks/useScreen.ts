@@ -1,4 +1,4 @@
-import { BREACK_POINT } from "@/constant";
+import { BREAK_POINT } from "@/constant";
 import { useEffect, useState } from "react";
 
 function useScreen() {
@@ -22,14 +22,32 @@ function useScreen() {
   }, []);
 
   useEffect(() => {
-    if (screenWidth < BREACK_POINT.sm) {
+    if (screenWidth < BREAK_POINT.sm) {
       setIsMobile(true);
     } else {
       setIsMobile(false);
     }
   }, [screenWidth]);
 
-  return isMobile;
+  const getCurrentBreakPoint = () => {
+    const sortedBreakPoints = Object.entries(BREAK_POINT).sort(
+      (a, b) => b[1] - a[1]
+    );
+
+    for (let [breakpoint, width] of sortedBreakPoints) {
+      if (screenWidth >= width) {
+        return breakpoint;
+      }
+
+      if (breakpoint === "sm" && screenWidth < width) return "sm";
+    }
+  };
+
+  return {
+    isMobile,
+    screenWidth,
+    getCurrentBreakPoint,
+  };
 }
 
 export default useScreen;

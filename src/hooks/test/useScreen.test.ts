@@ -32,7 +32,7 @@ describe("브라우저 너비가 768px일 경우", () => {
   it("브라우저 너비가 모바일 크기가 아닐 경우 isMobile이 false를 반환한다", () => {
     const { result } = renderHook(useScreen);
 
-    expect(result.current.valueOf()).toBe(false);
+    expect(result.current.isMobile.valueOf()).toBe(false);
   });
 
   it("브라우저 너비가 모바일 크기가 아닐 때 resize 이벤트를 통해 모바일 사이즈로 변경 시 isMobile이 true를 반환한다", () => {
@@ -42,7 +42,7 @@ describe("브라우저 너비가 768px일 경우", () => {
       resizeEventInnerWidth(500);
     });
 
-    expect(result.current.valueOf()).toBe(true);
+    expect(result.current.isMobile.valueOf()).toBe(true);
   });
 
   it("브라우저 너비가 모바일 크기가 아닐 때 reszie 이벤트를 통해 모바일 보다 큰 사이즈로 변경 시 isMobile이 false를 반환한다", () => {
@@ -52,7 +52,7 @@ describe("브라우저 너비가 768px일 경우", () => {
       resizeEventInnerWidth(900);
     });
 
-    expect(result.current.valueOf()).toBe(false);
+    expect(result.current.isMobile.valueOf()).toBe(false);
   });
 });
 
@@ -77,7 +77,7 @@ describe("브라우저 너비가 400px일 경우", () => {
   it("브라우저 너비가 모바일 크기이면 isMobile이 true를 반환한다", () => {
     const { result } = renderHook(useScreen);
 
-    expect(result.current.valueOf()).toBe(true);
+    expect(result.current.isMobile.valueOf()).toBe(true);
   });
 
   it("브라우저 너비가 모바일 크기일 때 resize 이벤트를 통해 모바일 사이즈로 변경 시 isMobile이 true를 반환한다", () => {
@@ -87,7 +87,7 @@ describe("브라우저 너비가 400px일 경우", () => {
       resizeEventInnerWidth(500);
     });
 
-    expect(result.current.valueOf()).toBe(true);
+    expect(result.current.isMobile.valueOf()).toBe(true);
   });
 
   it("브라우저 너비가 모바일 크기일 때 reszie 이벤트를 통해 모바일 보다 큰 사이즈로 변경 시 isMobile이 false를 반환한다", () => {
@@ -97,6 +97,6 @@ describe("브라우저 너비가 400px일 경우", () => {
       resizeEventInnerWidth(900);
     });
 
-    expect(result.current.valueOf()).toBe(false);
+    expect(result.current.isMobile.valueOf()).toBe(false);
   });
 });
