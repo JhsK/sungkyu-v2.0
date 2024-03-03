@@ -1,25 +1,20 @@
 import Meta from "@/components/Meta";
-import Categories from "@/components/Posts/Categories";
-import PostLists from "@/components/Posts/Lists";
-import { getSortedPosts } from "@/libs/posts";
+import Posts from "@/components/Posts";
+import { getAllCategories, getSortedPosts } from "@/libs/posts";
 import { IPagination } from "@/types/common";
 import { IPostMetaData } from "@/types/posts";
 import { GetServerSideProps } from "next";
 
-interface IPostsProps extends IPagination {
+interface IPostsPageProps extends IPagination {
   posts: IPostMetaData[];
+  categories: string[];
 }
 
-function PostsPage({ posts, ...props }: IPostsProps) {
-  const categories = [...new Set(posts.map((post) => post.category))];
-
+function PostsPage({ posts, categories, ...props }: IPostsPageProps) {
   return (
     <>
       <Meta title="Sungkyu's posts" />
-      <div className="px-6">
-        <Categories categories={categories} />
-        <PostLists posts={posts} {...props} />
-      </div>
+      <Posts posts={posts} categories={categories} {...props} />
     </>
   );
 }
@@ -28,18 +23,25 @@ export default PostsPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const size = 5;
-  const { page } = context.query;
+  const { page, category } = context.query;
+  const currentCategory = category as string;
   let currentPage = 1;
 
   if (typeof page === "string" && !isNaN(Number(page))) {
     currentPage = Number(page);
   }
 
-  const { posts, totalCount } = getSortedPosts(size, currentPage);
+  const { posts, totalCount } = getSortedPosts({
+    size,
+    page: currentPage,
+    category: currentCategory,
+  });
+  const categories = getAllCategories();
 
   return {
     props: {
       posts,
+      categories,
       totalCount,
       size,
       currentPage,
