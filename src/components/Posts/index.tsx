@@ -10,7 +10,7 @@ interface IPostsProps extends IPagination {
 
 function Posts({ posts, categories, ...props }: IPostsProps) {
   return (
-    <div className="px-6">
+    <div className="md:px-6">
       <Categories categories={categories} />
       <PostLists posts={posts} {...props} />
     </div>
