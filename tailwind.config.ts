@@ -18,6 +18,7 @@ module.exports = {
     extend: {
       colors: {
         "custom-main": "#2970FF",
+        "custom-sub": "rgba(39, 112, 255, 0.5)",
         "custom-black": "#333d4b",
         "custom-base": "#4e5968",
         "custom-small": "#8b95a1",

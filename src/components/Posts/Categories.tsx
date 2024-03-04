@@ -19,7 +19,7 @@ function Categories({ categories }: ICategoriesProps) {
             className={cn(
               "rounded-3xl text-gray-500",
               category === currentCategory &&
-                "text-custom-main border-custom-main"
+                "text-custom-main border-custom-main hover:bg-white hover:border-custom-sub"
             )}
           >
             {category}
