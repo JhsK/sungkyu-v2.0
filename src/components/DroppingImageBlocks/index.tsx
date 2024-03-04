@@ -10,6 +10,8 @@ function DroppingImageBlocks() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const Bodies = Matter.Bodies;
+  const scale = (isMobile ? 0.5 : 0.7) * DPR;
+  const canvasHeight = isMobile ? 350 : 500;
 
   const floorCoordinates = {
     left: {
@@ -25,7 +27,7 @@ function DroppingImageBlocks() {
       height: 1000 * DPR,
     },
   };
-  const floor = Bodies.rectangle(0, 500 * DPR, 3000 * DPR, 10 * DPR, {
+  const floor = Bodies.rectangle(0, canvasHeight * DPR, 3000 * DPR, 10 * DPR, {
     isStatic: true,
     render: {
       fillStyle: "#fff",
@@ -58,9 +60,9 @@ function DroppingImageBlocks() {
     }
   );
 
-  const responsiveOffset = () => {
+  const responsiveOffset = (x: number) => {
     if (getCurrentBreakPoint() === "md") return 200;
-    if (getCurrentBreakPoint() === "sm") return 400;
+    if (getCurrentBreakPoint() === "sm") return x;
     return 0;
   };
 
@@ -68,7 +70,7 @@ function DroppingImageBlocks() {
     if (containerRef.current && canvasRef.current) {
       const dpr = window.devicePixelRatio;
       const containerWidth = containerRef.current?.offsetWidth;
-      const containerHeight = 500;
+      const containerHeight = canvasHeight;
       const ctx = canvasRef.current.getContext("2d");
 
       canvasRef.current.style.width = `${containerWidth}px`;
@@ -104,7 +106,7 @@ function DroppingImageBlocks() {
     const Render = Matter.Render;
     const World = Matter.World;
     const engine = Engine.create();
-    // engine.gravity.y = 1; // 중력의 세기를 설정합니다.
+    engine.gravity.y = 0.6 * DPR; // 중력의 세기를 설정합니다.
 
     const render = Render.create({
       element: containerRef.current,
@@ -149,10 +151,15 @@ function DroppingImageBlocks() {
       for (let i = 0; i < images.length; i++) {
         const options = Images[i].options;
         const matterElement = Bodies.rectangle(
-          (Images[i].coordinates.x - responsiveOffset()) * DPR,
+          (Images[i].coordinates.x - responsiveOffset(Images[i].offset.x)) *
+            DPR,
           Images[i].coordinates.y * DPR,
-          Images[i].width * 0.7 * DPR,
-          Images[i].height * 0.7 * DPR,
+          (Images[i].width - (isMobile ? Images[i].offset.width : 0)) *
+            0.7 *
+            DPR,
+          (Images[i].height - (isMobile ? Images[i].offset.height : 0)) *
+            0.7 *
+            DPR,
           {
             label: Images[i].label,
             chamfer: {
@@ -161,8 +168,8 @@ function DroppingImageBlocks() {
             render: {
               sprite: {
                 texture: images[i].src,
-                xScale: 0.7 * DPR,
-                yScale: 0.7 * DPR,
+                xScale: scale,
+                yScale: scale,
               },
             },
             restitution: 0.4,
