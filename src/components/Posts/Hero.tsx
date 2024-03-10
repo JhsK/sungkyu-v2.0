@@ -7,7 +7,7 @@ const DroppingImageBlocks = dynamic(() => import("../DroppingImageBlocks"), {
   ssr: false,
 });
 
-function Hero2() {
+function Hero() {
   return (
     <div className="relative flex sm:flex-row items-center flex-col">
       <DroppingImageBlocks />
@@ -18,4 +18,4 @@ function Hero2() {
   );
 }
 
-export default Hero2;
+export default Hero;

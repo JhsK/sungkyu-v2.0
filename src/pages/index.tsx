@@ -1,5 +1,5 @@
 import Meta from "@/components/Meta";
-import Hero2 from "@/components/Posts/Hero2";
+import Hero2 from "@/components/Posts/Hero";
 import PostLists from "@/components/Posts/Lists";
 import { getSortedPosts } from "@/libs/posts";
 import { IPagination } from "@/types/common";
