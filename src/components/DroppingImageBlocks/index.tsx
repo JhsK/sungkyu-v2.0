@@ -209,7 +209,8 @@ function DroppingImageBlocks() {
   }, [getCurrentBreakPoint]);
 
   return (
-    <section ref={containerRef} className="w-full">
+    <section ref={containerRef} className="w-full relative">
+      <div className="absolute top-0 left-0 z-30 w-full h-full opacity-0" />
       <canvas ref={canvasRef} id="viewport" width="1920" height="1080" />
     </section>
   );
