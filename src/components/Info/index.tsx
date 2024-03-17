@@ -7,6 +7,7 @@ function Info() {
       src={InfoImage}
       width={450}
       height={200}
+      priority
       alt="sungkyu's blog info text"
     />
   );

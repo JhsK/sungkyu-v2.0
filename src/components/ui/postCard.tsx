@@ -24,9 +24,10 @@ function PostCardDesktop({
       <div className="w-[260px] h-[180px] bg-gray-400 rounded-[14px] transition-transform group-hover:-translate-y-2 shadow-lg overflow-hidden relative">
         <Image
           src={thumbnailPath}
-          layout="fill"
           alt={postAlt}
-          objectFit="cover"
+          fill
+          priority
+          className="object-cover"
         />
       </div>
       <div className="w-[70%] flex flex-col">
@@ -62,9 +63,10 @@ function PostCardMobile({
       <div className="w-full h-[200px] bg-gray-400 rounded-[14px] transition-transform shadow-lg overflow-hidden relative mb-5">
         <Image
           src={thumbnailPath}
-          layout="fill"
           alt={postAlt}
-          objectFit="cover"
+          fill
+          priority
+          className="object-cover"
         />
       </div>
       <div>
