@@ -1,5 +1,5 @@
 import Meta from "@/components/Meta";
-import Hero2 from "@/components/Posts/Hero";
+import Hero from "@/components/Posts/Hero";
 import PostLists from "@/components/Posts/Lists";
 import { getSortedPosts } from "@/libs/posts";
 import { IPagination } from "@/types/common";
@@ -11,12 +11,10 @@ interface IHomeProps extends IPagination {
 }
 
 function HomePage({ posts, ...props }: IHomeProps) {
-  const categories = [...new Set(posts.map((post) => post.category))];
-
   return (
     <>
       <Meta title="Sungkyu's blog" />
-      <Hero2 />
+      <Hero />
       <div className="px-6 mt-12">
         <PostLists posts={posts} {...props} />
       </div>
