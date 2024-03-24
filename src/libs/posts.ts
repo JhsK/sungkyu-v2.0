@@ -5,6 +5,13 @@ import { IPostMetaData } from "@/types/posts";
 
 const postsDirectory = path.join(process.cwd(), "src/posts");
 
+export const getPostsIndexJson: () => Record<string, string> = () => {
+  const indexFilePath = path.join(process.cwd(), "src/libs/index.json");
+  const index = JSON.parse(fs.readFileSync(indexFilePath, "utf8"));
+
+  return index;
+};
+
 export function getSortedPosts({
   size,
   page,
@@ -48,7 +55,7 @@ export function getSortedPosts({
   };
 }
 
-export function getPostsFileName() {
+export function getPostsTitles() {
   const fileNames = fs.readdirSync(postsDirectory);
 
   return fileNames.map((fileName) => {
@@ -58,14 +65,15 @@ export function getPostsFileName() {
 
     return {
       params: {
-        fileName: matterResult.fileName,
+        title: matterResult.title,
       },
     };
   });
 }
 
-export async function getPost(fileName: string) {
-  const fullPath = path.join(postsDirectory, `${fileName}.md`);
+export async function getPost(title: string) {
+  const index = getPostsIndexJson();
+  const fullPath = path.join(postsDirectory, `${index[title]}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const matterResult = matter(fileContents);
