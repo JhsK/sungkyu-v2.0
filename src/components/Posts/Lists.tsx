@@ -12,7 +12,7 @@ function PostLists({ posts, ...props }: IPostListsProps) {
     <>
       <div className="flex flex-col gap-10 mb-8">
         {posts.map((post) => (
-          <Link href={`/${post.fileName}`} key={post.title}>
+          <Link href={`/${post.title}`} key={post.title}>
             <PostCard
               title={post.title}
               category={post.category}

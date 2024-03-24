@@ -1,6 +1,6 @@
 import Meta from "@/components/Meta";
 import Post from "@/components/Post";
-import { getPost, getPostsFileName } from "@/libs/posts";
+import { getPost, getPostsTitles } from "@/libs/posts";
 import { IPost } from "@/types/posts";
 
 interface IPostDetailPageProps {
@@ -19,8 +19,7 @@ function PostDetailPage({ post }: IPostDetailPageProps) {
 export default PostDetailPage;
 
 export async function getStaticPaths() {
-  const paths = getPostsFileName();
-
+  const paths = getPostsTitles();
   return {
     paths,
     fallback: false,
@@ -30,9 +29,9 @@ export async function getStaticPaths() {
 export async function getStaticProps({
   params,
 }: {
-  params: { fileName: string };
+  params: { title: string };
 }) {
-  const post = await getPost(params.fileName);
+  const post = await getPost(params.title);
 
   return {
     props: {
