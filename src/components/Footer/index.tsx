@@ -14,21 +14,21 @@ function Footer() {
         © 2024. sungkyu all rights reserved.
       </Text>
       <div className="flex items-center gap-0.5">
-        <Button className="w-8 h-8" size="icon" variant="ghost">
-          <Link href={SNS.github} target="_blank">
+        <Link href={SNS.github} target="_blank">
+          <Button className="w-8 h-8" size="icon" variant="ghost">
             <Github className="w-3.5 h-3.5 text-zinc-700" />
-          </Link>
-        </Button>
-        <Button className="w-8 h-8" size="icon" variant="ghost">
-          <Link href={SNS.linedIn} target="_blank">
+          </Button>
+        </Link>
+        <Link href={SNS.linedIn} target="_blank">
+          <Button className="w-8 h-8" size="icon" variant="ghost">
             <Linkedin className="w-3.5 h-3.5 text-zinc-700" />
-          </Link>
-        </Button>
-        <Button className="w-8 h-8" size="icon" variant="ghost">
-          <Link href={SNS.email}>
+          </Button>
+        </Link>
+        <Link href={SNS.email}>
+          <Button className="w-8 h-8" size="icon" variant="ghost">
             <Send className="w-3.5 h-3.5 text-zinc-700" />
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </div>
     </div>
   );
