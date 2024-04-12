@@ -10,7 +10,11 @@ interface IPostDetailPageProps {
 function PostDetailPage({ post }: IPostDetailPageProps) {
   return (
     <>
-      <Meta title={post.title} ogTitle={post.title} />
+      <Meta
+        title={post.title}
+        ogTitle={post.title}
+        ogImage={`/posts/${post.fileName}/${post.thumbnail}`}
+      />
       <Post post={post} />
     </>
   );
