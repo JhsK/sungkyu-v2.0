@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://sungkyu.site</loc><lastmod>2024-03-24T13:28:19.206Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sungkyu.site/posts</loc><lastmod>2024-03-24T13:28:19.206Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sungkyu.site/2023 회고</loc><lastmod>2024-03-24T13:28:19.206Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sungkyu.site/Icon 최적화를 위한 Sprite icon 적용하기</loc><lastmod>2024-03-24T13:28:19.206Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sungkyu.site</loc><lastmod>2024-04-12T12:44:35.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sungkyu.site/posts</loc><lastmod>2024-04-12T12:44:35.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sungkyu.site/2023 회고</loc><lastmod>2024-04-12T12:44:35.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sungkyu.site/Icon 최적화를 위한 Sprite icon 적용하기</loc><lastmod>2024-04-12T12:44:35.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sungkyu.site/Suspense를 사용해야 하는 이유를 알아보자</loc><lastmod>2024-04-12T12:44:35.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
