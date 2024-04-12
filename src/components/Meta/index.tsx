@@ -6,6 +6,8 @@ interface IMetaProps {
   ogImage?: string;
 }
 
+const BASE_URL = "https://sungkyu.site";
+
 function Meta({
   title,
   ogTitle = "Sungky's blog",
@@ -25,9 +27,9 @@ function Meta({
         property="og:description"
         content="주니어 프론트엔드 개발자 Sungkyu의 기술 블로그입니다."
       />
-      <meta property="og:url" content="https://sungkyu.site" />
+      <meta property="og:url" content={BASE_URL} />
       <meta property="og:locale" content="ko_KR" />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={`${BASE_URL}/${ogImage}`} />
       <meta property="og:site_name" content="Sungkyu's blog" />
       <meta
         name="naver-site-verification"
