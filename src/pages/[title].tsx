@@ -14,7 +14,8 @@ function PostDetailPage({ post }: IPostDetailPageProps) {
       <Head>
         <meta
           property="og:image"
-          content={`https://sungkyu.site/posts/${post.fileName}/${post.thumbnail}`}
+          // content={`https://sungkyu.site/posts/${post.fileName}/${post.thumbnail}`}
+          content={"/posts/3/thumbnail.png"}
         />
       </Head>
       <Meta
