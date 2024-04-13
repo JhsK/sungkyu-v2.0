@@ -12,8 +12,10 @@ const BASE_URL = "https://sungkyu.site";
 function Meta({
   title,
   ogTitle = "Sungky's blog",
-  ogDescription = "주니어 프론트엔드 개발자 Sungkyu의 기술 블로그입니다.",
-  ogImage = "og_thumnail.jpeg",
+  // ogDescription = "주니어 프론트엔드 개발자 Sungkyu의 기술 블로그입니다.",
+  ogDescription,
+  // ogImage = "og_thumnail.jpeg",
+  ogImage,
 }: IMetaProps) {
   return (
     <Head>
@@ -29,11 +31,7 @@ function Meta({
       <meta property="og:url" content={BASE_URL} />
       <meta property="og:locale" content="ko_KR" />
       {/* <meta property="og:image" content={`${BASE_URL}/${ogImage}`} /> */}
-      {/* <meta
-        property="og:image"
-        // content={`https://sungkyu.site/posts/${post.fileName}/${post.thumbnail}`}
-        content={"posts/3/thumbnail.png"}
-      /> */}
+      <meta property="og:image" content={ogImage} />
       <meta property="og:site_name" content="Sungkyu's blog" />
       <meta
         name="naver-site-verification"
