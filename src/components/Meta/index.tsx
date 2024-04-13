@@ -29,7 +29,7 @@ function Meta({
       />
       <meta property="og:url" content={BASE_URL} />
       <meta property="og:locale" content="ko_KR" />
-      <meta property="og:image" content={`${BASE_URL}/${ogImage}`} />
+      {/* <meta property="og:image" content={`${BASE_URL}/${ogImage}`} /> */}
       <meta property="og:site_name" content="Sungkyu's blog" />
       <meta
         name="naver-site-verification"
