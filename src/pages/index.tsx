@@ -4,7 +4,7 @@ import PostLists from "@/components/Posts/Lists";
 import { getSortedPosts } from "@/libs/posts";
 import { IPagination } from "@/types/common";
 import { IPostMetaData } from "@/types/posts";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 
 interface IHomeProps extends IPagination {
   posts: IPostMetaData[];
@@ -24,23 +24,17 @@ function HomePage({ posts, ...props }: IHomeProps) {
 
 export default HomePage;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const size = 5;
-  const { page } = context.query;
-  let currentPage = 1;
+  const page = 1;
 
-  if (typeof page === "string" && !isNaN(Number(page))) {
-    currentPage = Number(page);
-  }
-
-  const { posts, totalCount } = getSortedPosts({ size, page: currentPage });
+  const { posts, totalCount } = getSortedPosts({ size, page });
 
   return {
     props: {
       posts,
       totalCount,
       size,
-      currentPage,
     },
   };
 };
