@@ -3,6 +3,7 @@ import Head from "next/head";
 interface IMetaProps {
   title: string;
   ogTitle?: string;
+  ogDescription?: string;
   ogImage?: string;
 }
 
@@ -11,6 +12,7 @@ const BASE_URL = "https://sungkyu.site";
 function Meta({
   title,
   ogTitle = "Sungky's blog",
+  ogDescription = "주니어 프론트엔드 개발자 Sungkyu의 기술 블로그입니다.",
   ogImage = "og_thumnail.jpeg",
 }: IMetaProps) {
   return (
@@ -23,10 +25,7 @@ function Meta({
       <meta name="author" content="Sungkyu(Jhsk)" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={ogTitle} />
-      <meta
-        property="og:description"
-        content="주니어 프론트엔드 개발자 Sungkyu의 기술 블로그입니다."
-      />
+      <meta property="og:description" content={ogDescription} />
       <meta property="og:url" content={BASE_URL} />
       <meta property="og:locale" content="ko_KR" />
       {/* <meta property="og:image" content={`${BASE_URL}/${ogImage}`} /> */}

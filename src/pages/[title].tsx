@@ -14,14 +14,14 @@ function PostDetailPage({ post }: IPostDetailPageProps) {
       <Head>
         <meta
           property="og:image"
-          // content={`https://sungkyu.site/posts/${post.fileName}/${post.thumbnail}`}
-          content={"posts/3/thumbnail.png"}
+          content={"https://www.sungkyu.site/posts/3/thumbnail.png"}
         />
       </Head>
       <Meta
         title={post.title}
         ogTitle={post.title}
-        ogImage={`/posts/${post.fileName}/${post.thumbnail}`}
+        ogDescription={post.summary}
+        // ogImage={`/posts/${post.fileName}/${post.thumbnail}`}
       />
       <Post post={post} />
     </>
