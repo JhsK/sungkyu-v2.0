@@ -3,7 +3,7 @@ import { Separator } from "../ui/separator";
 import Text from "../ui/text";
 
 interface IPostHeaderProps
-  extends Omit<IPostMetaData, "fileName" | "summary" | "thumbnail"> {}
+  extends Pick<IPostMetaData, "category" | "title" | "date"> {}
 
 function PostHeader({ category, title, date }: IPostHeaderProps) {
   return (

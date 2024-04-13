@@ -7,12 +7,12 @@ interface IPostListsProps extends IPagination {
   posts: IPostMetaData[];
 }
 
-function PostLists({ posts, ...props }: IPostListsProps) {
+function PostLists({ posts }: IPostListsProps) {
   return (
     <>
       <div className="flex flex-col gap-10 mb-8">
         {posts.map((post) => (
-          <Link href={`/${post.title}`} key={post.title}>
+          <Link href={`/${post.url}`} key={post.title}>
             <PostCard
               title={post.title}
               category={post.category}

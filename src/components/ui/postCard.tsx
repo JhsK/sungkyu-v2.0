@@ -4,9 +4,9 @@ import Text from "./text";
 import Image from "next/image";
 import useScreen from "@/hooks/useScreen";
 
-interface IPostCardProps extends IPostMetaData {}
+interface IPostCardProps extends Omit<IPostMetaData, "url"> {}
 interface IPostCardDeviceProps
-  extends Omit<IPostCardProps, "fileName" | "thumbnail"> {
+  extends Omit<IPostCardProps, "fileName" | "thumbnail" | "url"> {
   thumbnailPath: string;
   postAlt: string;
 }
@@ -51,7 +51,6 @@ function PostCardDesktop({
 }
 
 function PostCardMobile({
-  category,
   title,
   date,
   summary,

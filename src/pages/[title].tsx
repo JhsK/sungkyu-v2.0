@@ -1,6 +1,6 @@
 import Meta from "@/components/Meta";
 import Post from "@/components/Post";
-import { getPost, getPostsTitles } from "@/libs/posts";
+import { getPost, getPostsUrls } from "@/libs/posts";
 import { IPost } from "@/types/posts";
 import Head from "next/head";
 
@@ -31,7 +31,7 @@ function PostDetailPage({ post }: IPostDetailPageProps) {
 export default PostDetailPage;
 
 export async function getStaticPaths() {
-  const paths = getPostsTitles();
+  const paths = getPostsUrls();
   return {
     paths,
     fallback: false,

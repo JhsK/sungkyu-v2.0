@@ -3,6 +3,7 @@ export interface IPostMetaData {
   category: string;
   title: string;
   summary: string;
+  url: string;
   fileName: string;
   date: string;
 }

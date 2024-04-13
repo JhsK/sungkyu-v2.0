@@ -55,7 +55,7 @@ export function getSortedPosts({
   };
 }
 
-export function getPostsTitles() {
+export function getPostsUrls() {
   const fileNames = fs.readdirSync(postsDirectory);
 
   return fileNames.map((fileName) => {
@@ -65,15 +65,15 @@ export function getPostsTitles() {
 
     return {
       params: {
-        title: matterResult.title,
+        title: matterResult.url,
       },
     };
   });
 }
 
-export async function getPost(title: string) {
+export async function getPost(url: string) {
   const index = getPostsIndexJson();
-  const fullPath = path.join(postsDirectory, `${index[title]}.md`);
+  const fullPath = path.join(postsDirectory, `${index[url]}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const matterResult = matter(fileContents);
