@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-sitemap",
+    "build": "yarn sitemap && next build",
+    "sitemap": "ts-node --project tsconfig.node.json ./sitemap.config.ts",
     "start": "next start",
-    "postbuild": "next-sitemap",
     "lint": "next lint",
     "test": "jest",
     "test-watch": "ject --watch"
@@ -23,7 +23,6 @@
     "lucide-react": "^0.299.0",
     "matter-js": "^0.19.0",
     "next": "14.0.4",
-    "next-sitemap": "^4.2.3",
     "pretendard": "^1.3.9",
     "react": "^18",
     "react-dom": "^18",
