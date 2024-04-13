@@ -65,7 +65,7 @@ export function getPostsUrls() {
 
     return {
       params: {
-        title: matterResult.url,
+        url: matterResult.url,
       },
     };
   });

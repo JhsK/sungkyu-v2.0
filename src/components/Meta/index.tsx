@@ -18,7 +18,10 @@ function Meta({ title, ogTitle, ogDescription, ogImage, ogUrl }: IMetaProps) {
       <title>{title}</title>
       <meta
         name="description"
-        content="주니어 프론트엔드 개발자 Sungkyu의 기술 블로그입니다."
+        content={
+          ogDescription ||
+          "주니어 프론트엔드 개발자 Sungkyu의 기술 블로그입니다."
+        }
       />
       <meta name="author" content="Sungkyu(Jhsk)" />
       <meta property="og:type" content="website" />

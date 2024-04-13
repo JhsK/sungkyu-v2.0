@@ -26,19 +26,16 @@ function PostDetailPage({ post }: IPostDetailPageProps) {
 export default PostDetailPage;
 
 export async function getStaticPaths() {
-  const paths = getPostsUrls();
+  const paths = await getPostsUrls();
+
   return {
     paths,
     fallback: false,
   };
 }
 
-export async function getStaticProps({
-  params,
-}: {
-  params: { title: string };
-}) {
-  const post = await getPost(params.title);
+export async function getStaticProps({ params }: { params: { url: string } }) {
+  const post = await getPost(params.url);
 
   return {
     props: {
