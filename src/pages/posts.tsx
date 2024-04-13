@@ -13,7 +13,12 @@ interface IPostsPageProps extends IPagination {
 function PostsPage({ posts, categories, ...props }: IPostsPageProps) {
   return (
     <>
-      <Meta title="Sungkyu's posts" />
+      <Meta
+        title="Sungkyu's posts"
+        ogTitle="Sungkyu's posts"
+        ogDescription="배운 내용을 기록하고 공유한 리스트입니다."
+        ogUrl="posts"
+      />
       <Posts posts={posts} categories={categories} {...props} />
     </>
   );

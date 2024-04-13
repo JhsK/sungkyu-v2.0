@@ -5,18 +5,14 @@ interface IMetaProps {
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
+  ogUrl?: string;
 }
 
-const BASE_URL = "https://sungkyu.site";
+const BASE_URL = "https://www.sungkyu.site";
 
-function Meta({
-  title,
-  ogTitle = "Sungky's blog",
-  // ogDescription = "주니어 프론트엔드 개발자 Sungkyu의 기술 블로그입니다.",
-  ogDescription,
-  // ogImage = "og_thumnail.jpeg",
-  ogImage,
-}: IMetaProps) {
+function Meta({ title, ogTitle, ogDescription, ogImage, ogUrl }: IMetaProps) {
+  const url = ogUrl ? `${BASE_URL}/${ogUrl}` : BASE_URL;
+
   return (
     <Head>
       <title>{title}</title>
@@ -26,11 +22,16 @@ function Meta({
       />
       <meta name="author" content="Sungkyu(Jhsk)" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={ogTitle} />
-      <meta property="og:description" content={ogDescription} />
-      <meta property="og:url" content={BASE_URL} />
+      <meta property="og:title" content={ogTitle || "Sungkyu's blog"} />
+      <meta
+        property="og:description"
+        content={
+          ogDescription ||
+          "주니어 프론트엔드 개발자 Sungkyu의 기술 블로그입니다."
+        }
+      />
+      <meta property="og:url" content={url} />
       <meta property="og:locale" content="ko_KR" />
-      {/* <meta property="og:image" content={`${BASE_URL}/${ogImage}`} /> */}
       <meta property="og:image" content={ogImage} />
       <meta property="og:site_name" content="Sungkyu's blog" />
       <meta
