@@ -2,6 +2,7 @@ import Meta from "@/components/Meta";
 import Post from "@/components/Post";
 import { getPost, getPostsTitles } from "@/libs/posts";
 import { IPost } from "@/types/posts";
+import Head from "next/head";
 
 interface IPostDetailPageProps {
   post: IPost;
@@ -10,6 +11,12 @@ interface IPostDetailPageProps {
 function PostDetailPage({ post }: IPostDetailPageProps) {
   return (
     <>
+      <Head>
+        <meta
+          property="og:image"
+          content={`https://sungkyu.site/posts/${post.fileName}/${post.thumbnail}`}
+        />
+      </Head>
       <Meta
         title={post.title}
         ogTitle={post.title}

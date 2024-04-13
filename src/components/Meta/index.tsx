@@ -8,9 +8,11 @@ interface IMetaProps {
 
 const BASE_URL = "https://sungkyu.site";
 
-function Meta({ title, ogTitle = "Sungky's blog", ogImage }: IMetaProps) {
-  ogImage = ogImage || "og_thumnail.jpeg";
-  console.log("og image test", ogImage);
+function Meta({
+  title,
+  ogTitle = "Sungky's blog",
+  ogImage = "og_thumnail.jpeg",
+}: IMetaProps) {
   return (
     <Head>
       <title>{title}</title>
