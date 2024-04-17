@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://sungkyu.site
+Host: https://www.sungkyu.site
 
 # Sitemaps
-Sitemap: https://sungkyu.site/sitemap.xml
+Sitemap: https://www.sungkyu.site/sitemap.xml
