@@ -4,6 +4,7 @@ import { getAllCategories, getSortedPosts } from "@/libs/posts";
 import { IPagination } from "@/types/common";
 import { IPostMetaData } from "@/types/posts";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 
 interface IPostsPageProps extends IPagination {
   posts: IPostMetaData[];
@@ -19,6 +20,9 @@ function PostsPage({ posts, categories, ...props }: IPostsPageProps) {
         ogDescription="배운 내용을 기록하고 공유한 리스트입니다."
         ogUrl="posts"
       />
+      <Head>
+        <link rel="canonical" href="https://www.sungkyu/posts" />
+      </Head>
       <Posts posts={posts} categories={categories} {...props} />
     </>
   );
