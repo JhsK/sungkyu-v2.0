@@ -1,3 +1,4 @@
+import Layout from "@/components/Layout";
 import Meta from "@/components/Meta";
 import Hero from "@/components/Posts/Hero";
 import PostLists from "@/components/Posts/Lists";
@@ -12,13 +13,13 @@ interface IHomeProps extends IPagination {
 
 function HomePage({ posts, ...props }: IHomeProps) {
   return (
-    <>
+    <Layout type="centered">
       <Meta title="Sungkyu's blog" />
       <Hero />
       <div className="px-6 mt-12">
         <PostLists posts={posts} {...props} />
       </div>
-    </>
+    </Layout>
   );
 }
 

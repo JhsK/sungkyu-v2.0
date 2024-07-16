@@ -1,3 +1,4 @@
+import Layout from "@/components/Layout";
 import Meta from "@/components/Meta";
 import Posts from "@/components/Posts";
 import { getAllCategories, getSortedPosts } from "@/libs/posts";
@@ -13,7 +14,7 @@ interface IPostsPageProps extends IPagination {
 
 function PostsPage({ posts, categories, ...props }: IPostsPageProps) {
   return (
-    <>
+    <Layout type="centered">
       <Meta
         title="Sungkyu's posts"
         ogTitle="Sungkyu's posts"
@@ -24,7 +25,7 @@ function PostsPage({ posts, categories, ...props }: IPostsPageProps) {
         <link rel="canonical" href="https://www.sungkyu/posts" />
       </Head>
       <Posts posts={posts} categories={categories} {...props} />
-    </>
+    </Layout>
   );
 }
 

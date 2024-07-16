@@ -1,3 +1,4 @@
+import Layout from "@/components/Layout";
 import Meta from "@/components/Meta";
 import Post from "@/components/Post";
 import { getPost, getPostsUrls } from "@/libs/posts";
@@ -10,7 +11,7 @@ interface IPostDetailPageProps {
 
 function PostDetailPage({ post }: IPostDetailPageProps) {
   return (
-    <>
+    <Layout type="spread">
       <Meta
         title={post.title}
         ogTitle={post.title}
@@ -19,7 +20,7 @@ function PostDetailPage({ post }: IPostDetailPageProps) {
         ogUrl={post.url}
       />
       <Post post={post} />
-    </>
+    </Layout>
   );
 }
 
