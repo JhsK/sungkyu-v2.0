@@ -1,30 +1,39 @@
 import { cva } from "class-variance-authority";
 import Footer from "../Footer";
 import Header from "../Header";
+import { LayoutType } from "../types";
 
 interface ILayoutProps {
   children: React.ReactNode;
-  type: "spread" | "centered";
+  type: LayoutType;
 }
 
 function Layout({ children, type = "centered" }: ILayoutProps) {
   return (
-    <div className={LayoutVariants({ type })}>
-      <Header />
-      <div className="flex-1 lg:max-w-[1024px] md:max-w-3xl max-w-[calc(100vw-48px)] mx-auto">
-        {children}
-      </div>
+    <div className={LayoutContainerVariants({ type })}>
+      <Header type={type} />
+      <div className={ChildrenContainerVariants({ type })}>{children}</div>
       <Footer />
     </div>
   );
 }
 
-const LayoutVariants = cva("", {
+const LayoutContainerVariants = cva("flex flex-col", {
   variants: {
     type: {
-      spread: "h-screen flex flex-col items-cetner px-10",
+      spread: "h-screen items-cetner",
       centered:
-        "lg:max-w-[1024px] md:max-w-3xl max-w-[calc(100vw-48px)] mx-auto h-screen flex flex-col",
+        "lg:max-w-[1024px] md:max-w-3xl max-w-[calc(100vw-48px)] mx-auto h-screen",
+    },
+  },
+});
+
+const ChildrenContainerVariants = cva("flex-1", {
+  variants: {
+    type: {
+      spread: "",
+      centered:
+        "lg:max-w-[1024px] md:max-w-3xl max-w-[calc(100vw-48px)] mx-auto",
     },
   },
 });

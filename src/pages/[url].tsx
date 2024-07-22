@@ -11,7 +11,7 @@ interface IPostDetailPageProps {
 
 function PostDetailPage({ post }: IPostDetailPageProps) {
   return (
-    <Layout type="spread">
+    <Layout type="centered">
       <Meta
         title={post.title}
         ogTitle={post.title}

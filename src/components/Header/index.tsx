@@ -5,18 +5,20 @@ import Text from "../ui/text";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { cn } from "@/libs/utils";
+import { cva } from "class-variance-authority";
+import { LayoutType } from "../types";
 
 const menus = [
   { name: "Portfolio", href: "/#" },
   { name: "Posts", href: "/posts" },
 ];
 
-function Header() {
+function Header({ type }: { type: LayoutType }) {
   const [searchMode, setSearchMode] = useState(false);
   const { asPath } = useRouter();
 
   return (
-    <div className="flex items-center justify-between py-3">
+    <div className={HeaderContainerVariants({ type })}>
       <Link
         href={"/"}
         className="sm:text-2xl text-lg font-semibold tracking-tight"
@@ -49,5 +51,14 @@ function Header() {
     </div>
   );
 }
+
+const HeaderContainerVariants = cva("flex items-center justify-between py-3", {
+  variants: {
+    type: {
+      spread: "px-10",
+      centered: "",
+    },
+  },
+});
 
 export default Header;
