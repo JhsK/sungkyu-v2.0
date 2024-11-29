@@ -32,7 +32,7 @@ function PostsPage({ posts, categories, ...props }: IPostsPageProps) {
 export default PostsPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const size = 5;
+  const size = 6;
   const { page, category } = context.query;
   const currentCategory = category as string;
   let currentPage = 1;

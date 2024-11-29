@@ -26,7 +26,7 @@ function HomePage({ posts, ...props }: IHomeProps) {
 export default HomePage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const size = 5;
+  const size = 6;
   const page = 1;
 
   const { posts, totalCount } = getSortedPosts({ size, page });
