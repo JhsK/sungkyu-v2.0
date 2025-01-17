@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "yarn sitemap && next build",
+    "build": "next build",
     "sitemap": "ts-node --project tsconfig.node.json ./sitemap.config.ts",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test-watch": "ject --watch"
+    "test-watch": "ject --watch",
+    "build-with-sitemap": "yarn sitemap && next build"
   },
   "dependencies": {
     "@giscus/react": "^3.0.0",
