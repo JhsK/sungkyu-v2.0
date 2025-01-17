@@ -2,7 +2,7 @@ import { getSortedPosts } from "./src/libs/posts";
 import fs from "fs";
 
 async function createSiteMap() {
-  const siteUrl = "https://sungkyu.site/";
+  const siteUrl = "https://www.sungkyu.site/";
   const { posts } = getSortedPosts({ size: 10, page: 1 });
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
