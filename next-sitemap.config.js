@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://sungkyu.site",
+  siteUrl: "https://www.sungkyu.info",
   generateRobotsTxt: true,
   generateIndexSitemap: false,
 };

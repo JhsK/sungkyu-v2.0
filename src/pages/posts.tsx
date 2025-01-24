@@ -22,7 +22,7 @@ function PostsPage({ posts, categories, ...props }: IPostsPageProps) {
         ogUrl="posts"
       />
       <Head>
-        <link rel="canonical" href="https://www.sungkyu.site/posts" />
+        <link rel="canonical" href="https://www.sungkyu.info/posts" />
       </Head>
       <Posts posts={posts} categories={categories} {...props} />
     </Layout>

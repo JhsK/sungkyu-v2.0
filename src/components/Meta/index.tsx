@@ -8,7 +8,7 @@ interface IMetaProps {
   ogUrl?: string;
 }
 
-const BASE_URL = "https://www.sungkyu.site";
+const BASE_URL = "https://www.sungkyu.info";
 
 function Meta({ title, ogTitle, ogDescription, ogImage, ogUrl }: IMetaProps) {
   const url = ogUrl ? `${BASE_URL}/${ogUrl}` : BASE_URL;
